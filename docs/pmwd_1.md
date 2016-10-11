@@ -51,7 +51,7 @@ action中指定的php脚本processorder.php，代码如下：
 
 ## 在HTML中嵌入PHP
 
-PHP标记
+### PHP标记
 
 `<?php`和`?>`叫做PHP标记，PHP标记可以告诉Web服务器PHP代码的开始和结束，也就是说，其可以隔离PHP代码和HTML代码。
 
@@ -107,11 +107,11 @@ asp_tags = On
 
 ### 注释
 
-PHP支持C、C++和Shell这三种语言风格的注释。分别是：/**/ // #
+PHP支持C、C++和Shell这三种语言风格的注释。分别是：`/**/` `//` `#`
 
-当注释符遇到结束标记?>，有不同的表现，如下：
+当注释符遇到结束标记`?>`，有不同的表现，如下：
 
-对于//和#，?>会结束注释，?>后面的内容会被当作HTML：
+对于`//`和`#`，`?>`会结束注释，`?>`后面的内容会被当作HTML：
 ```clike
 <?php
 echo 'header';
@@ -123,7 +123,7 @@ echo 'header';
 # Comment ?> Here is HTML.
 ```
 
-对于/* */，?>会被当作注释的一部分：
+对于`/* */`，`?>`会被当作注释的一部分：
 ```clike
 <?php
 echo 'header';
@@ -151,10 +151,10 @@ echo 'header';
 |风格|示例|对应的php.ini配置|
 |--|---|--|
 |简短风格|$tireqty|register_globals = On <br /> 注：默认配置为Off，PHP 5.4.41版本已不支持设置为On，设置为On的话启动php-fpm时将会提示启动失败|
-|中等风格|$_POST['tireqty']|无|
+|中等风格|$_POST['tireqty']|默认支持，无需配置，推荐使用该方式|
 |冗长风格|$HTTP_POST_VARS['tireqty']|register_long_arrays = On <br /> 注：默认配置为Off，PHP 5.4.41版本已不支持设置为On，设置为On的话启动php-fpm时将会提示启动失败|
 
-注：简短风格和冗长风格配置改为On后，对于的启动失败信息如下：
+注：简短风格和冗长风格的配置改为On后，对应的启动失败信息如下：
 
 ```clike
 $ ./php-fpm start
@@ -169,25 +169,24 @@ Starting php_fpm <br />
 failed
 ```
 
-$_GET、$_POST 以及 $_REQUEST 这些数组被称为超级全局变量（superglobal）。
+`$_GET`、`$_POST`以及`$_REQUEST`这些数组被称为超级全局变量（superglobal）。
 
 
 ### 字符串的连接
 
-使用点号（.）连接字符串。
+使用点号`.`连接字符串。
 
 插值（interpolation）是指用一个字符串来代替一个变量的操作。插值操作只是双引号引用的字符串特性之一。简而言之，双引号中的变量会被替换成变量的值，而单引号中的变量则不会。
 
 ### 变量和文本
 
-变量是表示数据的符号，字符串是数据本身。
+变量是表示数据的符号，文本（字符串）是数据本身。
 
-字符串的表示方法：单引号、双引号、heredoc。其中单引号字符串不会插补（插值），而双引号字符串和heredoc字符串会插补（插值）。
+字符串的表示方法：单引号、双引号、heredoc（多行字符串）。其中单引号字符串不会插补（插值），而双引号字符串和heredoc字符串会插补（插值）。
 
-heredoc是一种perl风格的字符串表示方法，其使用方式为：
-```
+heredoc是一种perl风格的字符串表示方法，通常用来输出html页面，其使用方式为：
+```clike
 <?php
-// heredoc方式的字符串通常会用来输出html页面
 $var1 = 'boy';
 echo <<<EOT
 <html>
@@ -201,7 +200,7 @@ echo <<<EOT
 EOT;
 ?>
 ```
-
+其中，EOT标记字符串的开始和结束，当然也可以使用任何其他标记，如STRING。
 
 
 
