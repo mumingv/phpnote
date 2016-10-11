@@ -1,4 +1,4 @@
-# [标题]()
+# [PHP 笔记]()
 
 作者：[木名](https://github.com/mumingv) (殷杰)
 
@@ -8,7 +8,7 @@
 0. [前言](#README)
 
 ## 附录 
-- [源码](https://github.com/mumingv/gitreposity)
-- [修订历史](https://github.com/mumingv/gitreposity/commits/master)
-- [反馈意见](https://github.com/mumingv/gitreposity/issues)
+- [源码](https://github.com/mumingv/phpnote)
+- [修订历史](https://github.com/mumingv/phpnote/commits/master)
+- [反馈意见](https://github.com/mumingv/phpnote/issues)
 

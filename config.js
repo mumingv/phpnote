@@ -1,6 +1,6 @@
 var CONFIG = {
   // your website's title
-  document_title: "标题",
+  document_title: "PHP 笔记",
 
   // index page
   index: "README.md",
@@ -9,8 +9,8 @@ var CONFIG = {
   sidebar_file: "sidebar.md",
 
   // where the docs are actually stored on github - so you can edit
-  //base_url: "https://github.com/mumingv/gitreposity/edit/gh-pages",
-  base_url: "https://github.com/mumingv/gitreposity/blob/master",
+  //base_url: "https://github.com/mumingv/phpnote/edit/gh-pages",
+  base_url: "https://github.com/mumingv/phpnote/blob/master",
 };
 
 // **************************
