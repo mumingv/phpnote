@@ -4,9 +4,11 @@
 
 授权：<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">署名-非商用许可证</a>
 
-## PHP基础
+## 语法基础
 0. [前言](#README)
 0. [基本语法](#docs/basic_syntax)
+
+## 库函数
 
 ## PHP和MySQL Web开发
 0. [前言](#docs/pmwd_0)
