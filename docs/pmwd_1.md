@@ -492,3 +492,235 @@ if ($myObject instanceof sampleClass) {
 $ php instanceof.php 
 myObject is an instance of sampleClass
 ```
+
+
+
+## 计算表单总金额
+
+代码：[processorder.php](https://github.com/mumingv/php/blob/master/books/my_php_and_mysql_web_develop/chapter_01/processorder.php)
+
+线上演示：[计算表单总金额](http://123.56.21.232:8094/chapter_01/orderform.html)
+
+
+## 理解操作符的优先级和结合性
+
+操作符具有两个重要的属性：优先级、结合性。
+
+优先级：是指操作符的执行顺序。
+
+结合性：是指在操作符的优先级相同的情况下的执行顺序，这种执行顺序分三种，分别是：左（从左到右）、右（从右到左）、不相关。
+
+操作符的优先级（从高到低排列）和结合性列表如下：
+
+|优先级 |结合性|操作符          |
+|:-----:|:----:|:--------------:|
+|1      |不相关|()              |
+|2      |不相关|New             |
+|3      |右    |[]              |
+|4      |右    |!  ~  ++  -- (int)  (double)  (string)  (array)  (object)  @    |
+|5      |左    |*  /  %         |
+|6      |左    |+  -  .         |
+|7      |左    |<<  >>          |
+|8      |不相关|<  <=  >  >=    |
+|9      |不相关|==  !=  ===  !==|
+|10     |左    |&               |
+|11     |左    |^               |
+|12     |左    ||               |
+|13     |左    |&&              |
+|14     |左    |||              |
+|15     |左    |?:              |
+|16     |左    |=  +=  -=  *=  /=  %=  .=  &=  |=  ^=  ~=  <<= >>=  |
+|17     |右    |print           |
+|18     |左    |and             |
+|19     |左    |xor             |
+|20     |左    |or              |
+|21     |左    |,               |
+
+几点说明：
+1. print和echo本质上也是操作符，而不是一个真正的函数，使用的时候将要显示的字符串放在它们后面即可；
+2. 对于print，也可以用函数的形式进行调用，则它的返回值为1；
+3. 对于print，其执行的速度比echo要慢；
+4. 逻辑操作符有两种形式，分别是：`&& || !` （与、或、非）以及`and or xor`（与、或、异或）；
+5. 与逻辑操作符对应的位操作符有：`& | ^`（与、或、异或）；
+
+
+## 使用可变函数
+
+### 获取和设置变量类型
+
+|函数|功能              |
+|----|------------------|
+|gettype|获取变量类型   |
+|settype|设置变量类型   |
+
+说明：
+1. 对应gettype函数，如果变量类型不是标准类型，则返回"unknown type"（未知类型）；
+2. 对于mixed（混合）数据类型，很多函数可以使用其作为参数类型或者返回类型，PHP语言本身并无mixed类型的定义，其含义是函数可以支持接收多种（或者任意）的标准数据类型作为参数类型或返回值类型；
+
+#### 类型测试函数
+
+|函数           |功能              |
+|---------------|------------------|
+|is_int is_integer is_long |检查变量是否为整数      |
+|is_double is_float is_real|检查变量是否为浮点数    |
+|is_string      |检查变量是否为字符串|
+|is_bool        |检查变量是否为布尔值|
+|is_array       |检查变量是否为数组  |
+|is_object      |检查变量是否为对象  |
+|is_null        |检查变量是否为null  |
+|is_resource    |检查变量是否为资源  |
+|is_scalar      |检查变量是否为标量（整数、浮点数、字符串、布尔值）|
+|is_numeric     |检查变量是否为数字或者数字字符串|
+|is_callable    |检查变量是否为函数名称|
+
+
+### 获取和设置变量状态
+
+|函数           |功能              |
+|---------------|------------------|
+|is_set         |检查变量是否存在  |
+|unset          |销毁变量          |
+|empty          |检查变量是否存在并且为空|
+
+
+### 变量的数据类型转换（重解释）
+
+|函数           |功能              |
+|---------------|------------------|
+|intval         |将变量转为整数    |
+|Intval         |将变量转换为不同进制的整数|
+|floatval       |将变量转为浮点数  |
+|strval         |将变量转为字符串  |
+
+
+## 分支语句（根据条件进行决策）
+
+### if
+```
+if (condition) {
+    expression;
+}
+```
+
+### if...else
+```
+if (condition) {
+    expression;
+} else {
+    expression;
+}
+```
+
+### if...else if...else
+```
+if (condition) {
+    expression;
+} else if (condition) {
+    expression;
+} else {
+    expression;
+}
+```
+
+### if...elseif...else
+```
+if (condition) {
+    expression;
+} elseif (condition) {
+    expression;
+} else {
+    expression;
+}
+```
+
+### switch
+```
+switch (condition) {
+    case xxx:
+        expression;
+        break;
+    case xxx:
+        expression;
+        break;
+    case xxx:
+        expression;
+        break;
+    default:
+        expression;
+        break;
+}
+```
+说明：switch语句的条件condition一般为变量，且只能支持简单的数据类型，即：整数、浮点数、字符串。
+
+
+## 循环语句（通过迭代实现重复动作）
+
+### for
+```
+for (expression, condition, expression) {
+    expression;
+}
+```
+
+### while
+```
+while (condition) {
+    expression;
+}
+```
+
+### do...while
+```
+do {
+    expression;
+} while (condition);
+```
+
+### foreach（仅针对数组）
+```
+foreach ($array as $key => $value) {
+    expression;
+}
+```
+
+
+## 从控制结构或脚本中跳出
+
+几个用于跳出的关键字：
+1. break：跳出循环（和switch分支）；
+2. continue: 继续下一次循环；
+3. exit: 退出程序；
+
+|控制结构|break |continue   |exit   |
+|:------:|:----:|:---------:|:-----:|
+|if      |N     |N          |YES    |
+|switch  |YES   |N          |YES    |
+|for     |YES   |YES        |YES    |
+|while   |YES   |YES        |YES    |
+|foreach |?     |?          |?      |
+
+
+## 使用可替换的控制结构语法
+
+类似shell脚本的写法，使用：endif, endswitch, endwhile, endfor, endforeach。
+
+示例：
+```
+if (condition):
+    expression;
+endif;
+```
+
+## 使用declare
+
+declare用来设置代码块的执行指令，也就是设置后续代码如何运行的规则。
+
+语法：
+```
+declare (directive) {
+    // block
+}
+```
+
+目前declare只实现了一个执行命令：ticks；其可以通过ticks=n来设置，它允许在代码块内部每隔n行代码运行特定的函数。常用来做代码调试和性能测试。
+
