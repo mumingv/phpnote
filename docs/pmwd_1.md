@@ -580,7 +580,7 @@ myObject is an instance of sampleClass
 |---------------|------------------|
 |is_set         |检查变量是否存在  |
 |unset          |销毁变量          |
-|empty          |检查变量是否存在并且为空|
+|empty          |检查变量是否为空(变量不存在、或者变量为空时为true)|
 
 
 ### 变量的数据类型转换（重解释）
@@ -596,14 +596,14 @@ myObject is an instance of sampleClass
 ## 分支语句（根据条件进行决策）
 
 ### if
-```
+```clike
 if (condition) {
     expression;
 }
 ```
 
 ### if...else
-```
+```clike
 if (condition) {
     expression;
 } else {
@@ -612,7 +612,7 @@ if (condition) {
 ```
 
 ### if...else if...else
-```
+```clike
 if (condition) {
     expression;
 } else if (condition) {
@@ -623,7 +623,7 @@ if (condition) {
 ```
 
 ### if...elseif...else
-```
+```clike
 if (condition) {
     expression;
 } elseif (condition) {
@@ -634,7 +634,7 @@ if (condition) {
 ```
 
 ### switch
-```
+```clike
 switch (condition) {
     case xxx:
         expression;
@@ -650,34 +650,34 @@ switch (condition) {
         break;
 }
 ```
-说明：switch语句的条件condition一般为变量，且只能支持简单的数据类型，即：整数、浮点数、字符串。
+说明：switch语句的条件(condition)一般为变量，且只能支持简单的数据类型，即：整数、浮点数、字符串。
 
 
 ## 循环语句（通过迭代实现重复动作）
 
-### for
-```
-for (expression, condition, expression) {
-    expression;
-}
-```
-
 ### while
-```
+```clike
 while (condition) {
     expression;
 }
 ```
 
 ### do...while
-```
+```clike
 do {
     expression;
 } while (condition);
 ```
 
-### foreach（仅针对数组）
+### for
+```clike
+for (expression, condition, expression) {
+    expression;
+}
 ```
+
+### foreach（仅针对数组）
+```clike
 foreach ($array as $key => $value) {
     expression;
 }
@@ -686,26 +686,28 @@ foreach ($array as $key => $value) {
 
 ## 从控制结构或脚本中跳出
 
-几个用于跳出的关键字：
-1. break：跳出循环（和switch分支）；
+几个用于跳出控制结构的关键字：
+1. break：跳出循环（或switch分支）；
 2. continue: 继续下一次循环；
 3. exit: 退出程序；
 
+各控制结构对关键字的使用情况：YES(使用) NO(不使用)
+
 |控制结构|break |continue   |exit   |
 |:------:|:----:|:---------:|:-----:|
-|if      |N     |N          |YES    |
-|switch  |YES   |N          |YES    |
+|if      |NO    |NO         |YES    |
+|switch  |YES   |NO         |YES    |
 |for     |YES   |YES        |YES    |
 |while   |YES   |YES        |YES    |
-|foreach |?     |?          |?      |
+|foreach |YES   |YES        |YES    |
 
 
 ## 使用可替换的控制结构语法
 
-类似shell脚本的写法，使用：endif, endswitch, endwhile, endfor, endforeach。
+类似shell脚本的写法，使用：`endif`, `endswitch`, `endwhile`, `endfor`, `endforeach`。
 
 示例：
-```
+```clike
 if (condition):
     expression;
 endif;
@@ -713,14 +715,14 @@ endif;
 
 ## 使用declare
 
-declare用来设置代码块的执行指令，也就是设置后续代码如何运行的规则。
+`declare`用来设置代码块的执行指令，也就是设置后续代码如何运行的规则。
 
 语法：
-```
+```clike
 declare (directive) {
     // block
 }
 ```
 
-目前declare只实现了一个执行命令：ticks；其可以通过ticks=n来设置，它允许在代码块内部每隔n行代码运行特定的函数。常用来做代码调试和性能测试。
+目前`declare`只实现了一个执行命令：`ticks`；其可以通过`ticks=n`来设置，它允许在代码块内部每隔n行代码运行特定的函数。常用来做代码调试和性能测试。
 
