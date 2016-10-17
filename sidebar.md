@@ -8,6 +8,7 @@
 0. [前言](#README)
 0. [基本语法](#docs/basic_syntax)
 0. [系统变量](#docs/system_variable)
+0. [系统配置](#docs/system_config)
 
 ## 库函数
 
