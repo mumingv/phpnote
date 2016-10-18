@@ -159,7 +159,7 @@ $order = fgets($fp, 999);
 ```clike
 readfile("$DOCUMENT_ROOT/../orders/orders.txt");
 ```
-2. `fpassthru()`函数与`readfile()`相比，需要实现打开文件，其他操作和`readfile()`完全一致。
+2. `fpassthru()`函数与`readfile()`相比，需要事先打开文件，其他操作和`readfile()`完全一致。
 ```clike
 $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt");
 fpassthru($fp);
@@ -214,7 +214,7 @@ while (!feof($fp)) {
 
 ## 文件锁定 `flock()`
 
-文件锁定用于防止两个进程同时读或者写，从而导致数据不正确的问题。
+文件锁定用于防止两个进程同时读或者写文件，从而导致数据不正确的问题。
 
 读文件加锁示例：
 ```clike
@@ -234,6 +234,8 @@ fclose($fp, LOCK_UN);
 
 文件锁定方式的缺点：两个进程同时申请锁的话，会导致竞争条件问题。
 
+简单一句话就是：无锁会乱，有锁会竞争。
+
 
 ## 更好的方式：数据库管理系统
 
@@ -246,7 +248,7 @@ MySQL是一个关系数据库管理系统（RDBMS）。
 ### RDBMS是如何解决这些问题的
 
 延伸：PHP的SQLite扩展
-1. SQLite可以创建一个简单的系统替代功能全面的数据库，但是有能够避免锁定以及其他使用普通文件相关的问题。
+1. SQLite可以创建一个简单的系统替代功能全面的数据库，但是又能够避免锁定以及其他使用普通文件相关的问题。
 2. SQLite基于普通文件提供了一个SQL接口，方便用户操作。
 
 
