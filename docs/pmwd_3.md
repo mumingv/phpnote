@@ -22,7 +22,7 @@ PHP数组主要分为两大类：数字索引数组和关联数组。关联数�
 
 创建数字索引数组的几种方式：
 
-1. 自动创建方式
+1.自动创建方式
 
 ```clike
 $products[0] = 'Tires';
@@ -48,7 +48,7 @@ $products[1] = 'Oil';
 $products[2] = 'Spark Plugs';
 ```
 
-2. 使用`array()`
+2.使用`array()`
 
 ```clike
 $products = array('Tires', 'Oil', 'Spark Plugs');
@@ -62,7 +62,7 @@ Array
 )
 ```
 
-3. 使用`range()`函数
+3.使用`range()`函数
 
 `range()`函数创建数字数组，示例如下：
 
@@ -101,7 +101,7 @@ Array
 )
 ```
 
-4. 从文件载入数组
+4.从文件载入数组
 
 `file()`函数读取文件，并返回一个数组，将文件中的每一行作为数组的一个元素。
 
@@ -136,7 +136,7 @@ Array
 )
 ```
 
-5. 从数据库载入数组
+5.从数据库载入数组
 
 待后续补充。
 
@@ -204,7 +204,118 @@ foreach ($products as $key => $product) {
 ```
 
 
-## 使用不同索引的数组
+## 使用不同索引的数组（关联数组）
+
+在关联数组中，可以将每个变量值与任何关键字或索引关联起来。
+
+### 初始化关联数组
+
+创建数字索引数组的几种方式：
+
+1.自动创建方式
+
+```clike
+$prices['Tires'] = 100;
+$prices['Oil'] = 10;
+$prices['Spark Plugs'] = 4;
+```
+```clike
+Array
+(
+    [Tires] => 100
+    [Oil] => 10
+    [Spark Plugs] => 4
+)
+```
+
+当然，也可以先显示指明`$prices`是一个数组（空数组），然后再向其中添加元素。
+
+```clike
+$prices['Tires'] = 100;
+$prices['Oil'] = 10;
+$prices['Spark Plugs'] = 4;
+```
+
+2.使用array()
+
+```clike
+$prices = array(
+    'Tires' => 100,
+    'Oil' => 10,
+    'Spark Plugs' => 4,
+);
+```
+```clike
+Array
+(
+    [Tires] => 100
+    [Oil] => 10
+    [Spark Plugs] => 4
+)
+```
+
+
+### 访问数组元素
+
+```clike
+echo $prices['Oil'];
+```
+```clike
+10
+```
+
+
+### 使用循环语句
+
+1.`foreach`循环
+
+```clike
+foreach ($prices as $key => $value) {
+    echo $key.' => '.$value.PHP_EOL;
+}
+```
+```clike
+Tires => 100
+Oil => 10
+Spark Plugs => 4
+```
+
+2.`while`循环配合`each()`函数
+
+```clike
+reset($prices);
+while ($element = each($prices)) {
+    echo $element['key'].' => '.$element['value'].PHP_EOL;
+}
+```
+```clike
+Tires => 100
+Oil => 10
+Spark Plugs => 4
+```
+
+说明：`each()`函数内部记录当前的元素，返回一个元素之后会将下一个元素当作当前元素。`each()`函数每次返回一个数组，数组中只有两个关键字，分别是：`key`和`value`，对应的值分别是返回元素的`key`和`value`。
+
+3.`while`循环配合`each()`函数和`list()`函数
+
+```clike
+reset($prices);
+while (list($product, $price) = each($prices)) {
+    echo $product.' => '.$price.PHP_EOL;
+}
+```
+```clike
+Tires => 100
+Oil => 10
+Spark Plugs => 4
+```
+
+说明：`list()`函数用于将一个数组分解为一系列的值，即：`list()`中的变量会依次接收数组中的值。
+
+
+## 数组操作符
+
+参考：[1.10 使用操作符](#docs/pmwd_1#使用操作符)。
 
 ## 数组操作符
 

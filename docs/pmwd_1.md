@@ -477,6 +477,8 @@ $a = @(57 / 0)
 
 重要提示：不能将标量类型与数组类型进行比较。
 
+说明：对应联合操作符，其会尝试将`$arr2`中的元素添加到`$arr1`的末尾，如果`$arr2`中的元素与`$arr1`中一些元素具有相同的索引，它们将不会被添加。也就是说，`$arr1`中的元素不会被覆盖。
+
 ### 类型操作符 `instanceof`
 
 类型操作符在面向对象编程中使用，用来检查一个对象是否是特定类的实例。[示例代码](https://github.com/mumingv/php/blob/master/books/my_php_and_mysql_web_develop/chapter_01/instanceof.php)如下：
