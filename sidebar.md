@@ -14,7 +14,8 @@
 
 ## PHP和MySQL Web开发
 0. [前言](#docs/pmwd_0)
-0. [第一章 PHP快速入门](#docs/pmwd_1)
+0. [PHP快速入门](#docs/pmwd_1)
+0. [数据的存储与检索](#docs/pmwd_2)
 
 ## 附录 
 - [源码](https://github.com/mumingv/phpnote)
