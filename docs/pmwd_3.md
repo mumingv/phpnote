@@ -752,15 +752,209 @@ Array
 2.`ksort()`函数对应`krsort()`函数；
 3.`asort()`函数对应`arsort()`函数；
 
+## 多维数组的排序（用户排序）
 
-## 多维数组的排序
+### 用户定义排序
+
+正向排序
+
+```clike
+function compare($x, $y) {
+    if ($x[1] == $y[1]) {
+        return 0;
+    } else if ($x[1] < $y[1]) {
+        return -1;  // -1表示不颠倒两个元素的顺序
+    } else {
+        return 1;  // 1表示颠倒两个元素的顺序
+    }
+}
+
+$products = array(
+    array('TIR', 'Tires', 100),
+    array('OIL', 'Oil', 10),
+    array('SPK', 'Spark Plugs', 4),
+);
+usort($products, 'compare');
+```
+```clike
+Array
+(
+    [0] => Array
+        (
+            [0] => OIL
+            [1] => Oil
+            [2] => 10
+        )
+
+    [1] => Array
+        (
+            [0] => SPK
+            [1] => Spark Plugs
+            [2] => 4
+        )
+
+    [2] => Array
+        (
+            [0] => TIR
+            [1] => Tires
+            [2] => 100
+        )
+)
+```
+
+
+### 反向用户排序
+
+`usort()`函数没有反向变体。如果需要反向排序，修改下`compare()`函数就可以了。
+
+```clike
+function compare($x, $y) {
+    if ($x[1] == $y[1]) {
+        return 0;
+    } else if ($x[1] < $y[1]) {
+        return 1;  // 1表示颠倒两个元素的顺序
+    } else {
+        return -1;  // -1表示不颠倒两个元素的顺序
+    }
+}
+```
+
 
 ## 对数组进行重新排序
 
+### 使用`shuffle()`函数
+
+```clike
+$products = array('Tires', 'Oil', 'Spark Plugs');
+shuffle($products);
+```
+```clike
+Array
+(
+    [0] => Tires
+    [1] => Oil
+    [2] => Spark Plugs
+)
+```
+
+说明：`shuffle()`函数会直接改变数组的元素顺序，不需要通过返回值。
+
+
+### 使用`array_reverse()`函数
+
+```clike
+$numbers = range(1, 10);
+$numbers = array_reverse($numbers);
+```
+```clike
+Array
+(
+    [0] => 10
+    [1] => 9
+    [2] => 8
+    [3] => 7
+    [4] => 6
+    [5] => 5
+    [6] => 4
+    [7] => 3
+    [8] => 2
+    [9] => 1
+)
+```
+
+
 ## 从文件载入数组
+
+使用`file()`函数将文件转换成数组，文件中的每一行作为数组中的一个元素。对于每一行可以使用`explode()`函数将其切分成多个字段。这样就能处理文件中的每一个字段了。
+
+有许多方法从字符串中提取数字，比如：使用`intval()`函数。
+
 
 ## 执行其他数组操作
 
+### 在数组中浏览：`each() current() reset() end() next() pos() prev()`
+
+说明：每个数组内部都有一个指针指向数组中的当前元素。并且该指针可能会随着函数的执行动态变化。
+
+`each()`函数：先返回当前元素，然后将指针向前移动一个元素；
+
+`current() pos()`函数：返回当前元素；
+
+`next()`函数：先将指针向前移动一个元素，然后返回新的当前元素；
+
+`reset()`函数：将指针复位（指向第一个元素），然后返回新的当前元素；
+
+`end()`函数：将指针指向最后一个元素，然后返回新的当前元素；
+
+`prev()`函数：先将指针向后移动一个元素，然后返回新的当前元素；
+
+
+### 对数组的每一个元素应用任何函数：`array_walk()`
+
+简单示例
+
+```clike
+function my_print($value) {
+    echo $value.PHP_EOL;
+}
+$products = array('Tires', 'Oil', 'Spark Plugs');
+array_walk($products, 'my_print');
+```
+```clike
+Tires
+Oil
+Spark Plugs
+```
+
+使用用户自带的参数
+
+```clike
+function my_string($value, $key, $userData) {
+    echo $userData.' '.$value.PHP_EOL;
+}
+$products = array('Tires', 'Oil', 'Spark Plugs');
+array_walk($products, 'my_string', 0);
+```
+```clike
+0 Tires
+0 Oil
+0 Spark Plugs
+```
+
+如果要将处理结果保存到原数组，可以使用引用方式传递数组，如下：
+```clike
+array_walk(&$products, 'my_string', 0);
+```
+
+
+### 统计数组元素个数：`count() sizeof() array_count_values()`
+
+`count()`和`sizeof()`函数：返回数组中的元素个数；
+
+`array_count_values()`函数：返回一个关联数组，数组的key为原数组的元素值，数组的value为原数组的元素值所对应的出现次数；
+
+
+### 将数组转化成标量变量：`extract()`
+
+`extract()`函数：根据一个数组创建一系列的标量变量，变量名称对应数组中的关键字（key）名称，变量的值对应数组中的元素值（value）。
+
+```clike
+$prices = array(
+    'Tires' => 100,
+    'Oil' => 10,
+    'Spark Plugs' => 4,
+);
+extract($prices);
+echo $Tires.' '.$Oil;
+```
+```clike
+100 10
+```
+
+说明：由于元素组的关键字（'Spark Plugs'）含有空格，所以就不能将其转换成变量名称了。
+
+
 ## 进一步学习
 
+待处理：数组函数整理。
 
