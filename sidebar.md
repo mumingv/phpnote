@@ -17,6 +17,7 @@
 0. [PHP快速入门](#docs/pmwd_1)
 0. [数据的存储与检索](#docs/pmwd_2)
 0. [使用数组](#docs/pmwd_3)
+0. [字符串操作与正则表达式](#docs/pmwd_4)
 
 ## 附录 
 - [源码](https://github.com/mumingv/phpnote)
