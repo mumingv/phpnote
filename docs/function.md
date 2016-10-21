@@ -43,3 +43,9 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 |spliti                 |用正则表达式将字符串分割到数组中，不区分大小写 |
 |sql_regcase            |产生用于匹配的正则表达式，不区分大小写 |
 
+说明：
+1. `ereg()`和`eregi()`都对应PCRE的`preg_match()`函数。
+2. `ereg_replace()`和`eregi_replace()`都对应PCRE的`preg_replace()`函数。
+3. `split()`和`spliti()`都对应PCRE的`preg_split()`函数。
+4. `sql_regcase()`没有对应的PCRE函数。
+
