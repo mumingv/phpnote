@@ -134,8 +134,6 @@ PHP支持两种风格的正则表达式语法：POSIX和Perl。
 
 ## 进一步学习
 
-待整理：正则表达式函数。
-
 参考资料：
 1. [regexp的man页面](http://man.cx/regex)；
 2. [devshed](http://www.devshed.com/)
