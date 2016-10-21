@@ -49,3 +49,34 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 3. `split()`和`spliti()`都对应PCRE的`preg_split()`函数。
 4. `sql_regcase()`没有对应的PCRE函数。
 
+
+## [变量与类型相关扩展](http://php.net/manual/zh/refs.basic.vartype.php)
+
+### 函数处理 `13`
+
+参考：[官方](http://php.net/manual/zh/ref.funchand.php) & [木名](#docs/function_funchand)
+
+|函数                   |功能                                   |
+|-----------------------|---------------------------------------|
+|call_user_func_array   |调用回调函数，并把一个数组参数作为回调函数的参数   |
+|call_user_func         |把第一个参数作为回调函数调用           |
+|create_function        |创建一个lambda风格的匿名函数           |
+|forward_static_call_array  |创建一个静态方法，并用一个数组作为参数 |
+|forward_static_call    |创建一个静态方法                       |
+|func_get_arg           |返回参数列表的某一项                   |
+|func_get_args          |返回一个包含函数参数列表的数组         |
+|func_num_args          |返回传递给函数的参数个数               |
+|function_exists        |如果给定的函数已经被定义就返回 TRUE    |
+|get_defined_functions  |返回所有已定义函数的数组               |
+|register_shutdown_function |注册一个函数，在每次PHP脚本执行完之后执行  |
+|register_tick_function |注册一个定时执行函数                   |
+|unregister_tick_function   |取消已注册的定时执行函数           |
+
+
+
+
+
+
+
+
+
