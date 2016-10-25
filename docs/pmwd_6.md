@@ -208,6 +208,240 @@ mumingv
 如果属性或方法不加访问修饰符的话，默认使用`public`。
 
 
+## 类操作的调用
+
+```clike
+$obj->operation();
+```
+
+
+## 在PHP中实现继承
+
+```clike
+class A {
+    public $attribute1;
+    public function operation1() {
+        echo 'In class '.__CLASS__.', $attribute1 is '.$this->attribute1.PHP_EOL; 
+    }
+}
+
+class B extends A {
+    public $attribute2;
+    public function operation2() {
+        echo 'In class '.__CLASS__.', $attribute2 is '.$this->attribute2.PHP_EOL; 
+    }
+}
+
+$b = new B();
+$b->attribute1 = 10;
+$b->operation1();
+$b->attribute2 = 20;
+$b->operation2();
+```
+
+```clike
+In class A, $attribute1 is 10
+In class B, $attribute2 is 20
+```
+
+说明：继承是单向的。即：子类可以从父类或超类继承属性和方法，父类不能从子类或派生类继承属性和方法。
+
+
+### 通过继承使用`protected`和`private`访问修饰符控制可见性
+
+如果一个属性或方法被指定为`protected`，那么它将在类的外部不可见（和`private`一样），但是可以被继承（和`public`一样）。
+
+
+### 重载
+
+重载是指在子类中给某个属性赋予一个与其超类属性不同的默认值；或者给某个操作赋予一个与其超类操作不同的功能。
+
+几个概念的关系，如下表所示：
+
+|封装   |继承   |多态   |
+|-------|-------|-------|
+|       |重载   |       |
+
+在子类中定义新的属性和操作不会影响超类；同样地，在子类中重载属性和操作也不会影响超类。
+
+```clike
+class A {
+    public $attribute = 'attr_a';
+    public function operation() {
+        echo 'In class A, $attribute is '.$this->attribute.PHP_EOL; 
+    }
+}
+
+class B extends A {
+    public $attribute = 'attr_b';
+    public function operation() {
+        echo 'In class B, $attribute is '.$this->attribute.PHP_EOL;
+    }
+}
+
+$a = new A();
+$a->operation();
+$b = new B();
+$b->operation();
+
+```
+
+```clike
+In class A, $attribute is attr_a
+In class B, $attribute is attr_b
+```
+
+如果子类重载了父类的操作，但是又想调用父类的操作。这时候可以使用`parent`关键字。
+
+```clike
+class A {
+    public $attribute = 'attr_a';
+    public function operation() {
+        echo 'In class A, $attribute is '.$this->attribute.PHP_EOL; 
+    }
+}
+
+class B extends A {
+    public $attribute = 'attr_b';
+    public function operation() {
+        echo "B's operation() is called".PHP_EOL;
+        parent::operation();
+    }
+}
+
+$b = new B();
+$b->operation();
+```
+
+```clike
+B's operation() is called
+In class A, $attribute is attr_b
+```
+
+由上面的示例可以看出，虽然子类调用了父类的操作，但是属性值仍然使用的是子类的属性值。
+
+
+### 使用`final`关键字禁止继承和重载
+
+在函数声明的前面使用`final`关键字，则该函数将不能在任何子类中被重载。
+
+```clike
+class A {
+    public $attribute = 'attr_a';
+    final public function operation() {
+        echo 'In class A, $attribute is '.$this->attribute.PHP_EOL; 
+    }
+}
+```
+
+在类声明的前面使用`final`关键字，则该类将不能被继承。
+
+```clike
+final class A {
+    public $attribute = 'attr_a';
+    public function operation() {
+        echo 'In class A, $attribute is '.$this->attribute.PHP_EOL; 
+    }
+}
+```
+
+
+### 理解多重继承
+
+只有少数的面向对象语言（如：C++、Smalltalk）支持多重继承，大多数面向对象语言（包括PHP）都不支持多重继承。
+
+在PHP中，每个子类只能继承一个父类，一个父类可以有多个子类。
+
+
+### 实现接口 `interface` `implements`
+
+接口用来解决PHP无法多重继承的问题。
+
+接口中定义一系列的方法，子类继承该接口时必须要实现接口中定义的所有方法。
+
+```clike
+interface Fruit {
+    public function getSize();  // 获取颜色
+    public function getColor();  // 获取大小
+}
+
+class Apple implements Fruit {
+    public function getSize() {
+        echo 'Apple is big'.PHP_EOL;
+    }
+    public function getColor() {
+        echo 'Apple is red'.PHP_EOL;
+    }
+}
+
+class Banana implements Fruit {
+    public function getSize() {
+        echo 'Banana is small'.PHP_EOL;
+    }
+    public function getColor() {
+        echo 'Banana is yellow'.PHP_EOL;
+    }
+}
+
+$apple = new Apple();
+$apple->getSize();
+$apple->getColor();
+
+$banana = new Banana();
+$banana->getSize();
+$banana->getColor();
+```
+
+```clike
+Apple is big
+Apple is red
+Banana is small
+Banana is yellow
+```
+
+复杂一点的用法：在继承类的同时实现多个接口。
+
+```clike
+class Fruit {
+    public function info() {
+        echo "I am a fruit".PHP_EOL;
+    }
+}
+
+interface Fruit1 {
+    public function getSize();  // 获取颜色
+}
+
+interface Fruit2 {
+    public function getColor();  // 获取大小
+}
+
+class Apple extends Fruit implements Fruit1, Fruit2 {
+    public function getSize() {
+        echo 'Apple is big'.PHP_EOL;
+    }
+    public function getColor() {
+        echo 'Apple is red'.PHP_EOL;
+    }
+}
+
+$apple = new Apple();
+$apple->info();
+$apple->getSize();
+$apple->getColor();
+```
+
+```clike
+I am a fruit
+Apple is big
+Apple is red
+```
+
+#### 接口 vs 抽象类
+1. 一个子类如果`implements`一个接口，其必须实现接口中定义的所有方法；如果`extends`一个抽象类，其只需要实现需要的方法即可，而不必一定要实现所有的方法。
+2. 抽象类属于类，其只能进行单继承；若要实现类似多继承的功能，则只能使用接口。
+3. 接口中的方法名称如果修改了，则所有实现了该接口的子类必须同步修改方法名称，否则运行脚本时会报错；而抽象类中的方法名称如果修改了，则子类中对应的方法将被认为是其自己的方法，运行脚本时不会报错。
+
 
 
 
