@@ -1,4 +1,4 @@
-# 面向对象的PHP
+# [面向对象的PHP](https://github.com/mumingv/php/blob/master/books/my_php_and_mysql_web_develop/chapter_06/example.php)
 
 ## 理解面向对象的概念
 
@@ -215,7 +215,7 @@ $obj->operation();
 ```
 
 
-## 在PHP中实现继承
+## 在PHP中实现继承 `extends`
 
 ```clike
 class A {
@@ -260,7 +260,7 @@ In class B, $attribute2 is 20
 
 |封装   |继承   |多态   |
 |-------|-------|-------|
-|       |重载   |       |
+|-      |重载   |-      |
 
 在子类中定义新的属性和操作不会影响超类；同样地，在子类中重载属性和操作也不会影响超类。
 
@@ -321,18 +321,7 @@ In class A, $attribute is attr_b
 由上面的示例可以看出，虽然子类调用了父类的操作，但是属性值仍然使用的是子类的属性值。
 
 
-### 使用`final`关键字禁止继承和重载
-
-在函数声明的前面使用`final`关键字，则该函数将不能在任何子类中被重载。
-
-```clike
-class A {
-    public $attribute = 'attr_a';
-    final public function operation() {
-        echo 'In class A, $attribute is '.$this->attribute.PHP_EOL; 
-    }
-}
-```
+### 使用`final`关键字禁止类的继承和函数的重载
 
 在类声明的前面使用`final`关键字，则该类将不能被继承。
 
@@ -345,17 +334,28 @@ final class A {
 }
 ```
 
+在函数声明的前面使用`final`关键字，则该函数将不能在任何子类中被重载。
+
+```clike
+class A {
+    public $attribute = 'attr_a';
+    final public function operation() {
+        echo 'In class A, $attribute is '.$this->attribute.PHP_EOL; 
+    }
+}
+```
+
 
 ### 理解多重继承
 
-只有少数的面向对象语言（如：C++、Smalltalk）支持多重继承，大多数面向对象语言（包括PHP）都不支持多重继承。
+只有少数的面向对象语言（如：`C++`、`Smalltalk`）支持多重继承，其他大多数面向对象语言（包括`PHP`）都不支持多重继承。
 
-在PHP中，每个子类只能继承一个父类，一个父类可以有多个子类。
+在`PHP`中，每个子类只能继承一个父类，一个父类可以有多个子类。
 
 
 ### 实现接口 `interface` `implements`
 
-接口用来解决PHP无法多重继承的问题。
+接口用来解决`PHP`无法多重继承的问题。
 
 接口中定义一系列的方法，子类继承该接口时必须要实现接口中定义的所有方法。
 
@@ -439,7 +439,7 @@ Apple is red
 
 #### 接口 vs 抽象类
 1. 一个子类如果`implements`一个接口，其必须实现接口中定义的所有方法；如果`extends`一个抽象类，其只需要实现需要的方法即可，而不必一定要实现所有的方法。
-2. 抽象类属于类，其只能进行单继承；若要实现类似多继承的功能，则只能使用接口。
+2. 抽象类属于类，其只能进行单继承；若要实现类似多继承的功能，则只能使用接口。即：一个子类只能有一个父类，但可以有多个父接口。
 3. 接口中的方法名称如果修改了，则所有实现了该接口的子类必须同步修改方法名称，否则运行脚本时会报错；而抽象类中的方法名称如果修改了，则子类中对应的方法将被认为是其自己的方法，运行脚本时不会报错。
 
 
