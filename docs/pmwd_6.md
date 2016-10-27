@@ -40,7 +40,7 @@
 
 使用关键字`class`声明一个类。
 
-```clike
+```php
 class classname {
     public $attribute1;
     public $attribute2;
@@ -58,7 +58,7 @@ class classname {
 
 构造函数一般用于执行一些初始化任务，如：设置属性的初始值或者创建该对象需要的其他对象。
 
-```clike
+```php
 class classname {
     function __construct($param) {
         echo 'Constructor called with parameter: '.$param.PHP_EOL;
@@ -68,7 +68,7 @@ class classname {
 $obj = new classname('mumingv');
 ```
 
-```clike
+```php
 Constructor called with parameter: mumingv
 ```
 
@@ -76,7 +76,7 @@ Constructor called with parameter: mumingv
 
 但是，构造函数不能重载。
 
-```clike
+```php
 class classname {
     function __construct($param) {
         echo 'Constructor called with parameter: '.$param.PHP_EOL;
@@ -91,7 +91,7 @@ $obj = new classname('mumingv');
 
 提示错误
 
-```clike
+```php
 Fatal error: Cannot redeclare classname::__construct() in /home/work/git/php/books/my_php_and_mysql_web_develop/chapter_06/example.php on line 16
 ```
 
@@ -102,7 +102,7 @@ Fatal error: Cannot redeclare classname::__construct() in /home/work/git/php/boo
 
 重要说明：析构函数不能带有任何参数。
 
-```clike
+```php
 class classname {
     function __construct($param) {
         echo 'Constructor called with parameter: '.$param.PHP_EOL;
@@ -115,7 +115,7 @@ class classname {
 $obj = new classname('mumingv');
 ```
 
-```clike
+```php
 Constructor called with parameter: mumingv
 Destructor called with no parameter
 ```
@@ -125,7 +125,7 @@ Destructor called with no parameter
 
 使用类创建一个对象，就叫做创建一个实例或者叫做实例化一个对象。类的实例化需要提供给构造函数所需要的参数。
 
-```clike
+```php
 class classname {
     function __construct($param) {
         echo 'Constructor called with parameter: '.$param.PHP_EOL;
@@ -138,7 +138,7 @@ class classname {
 $obj = new classname('mumingv');
 ```
 
-```clike
+```php
 Constructor called with parameter: mumingv
 Destructor called with no parameter
 ```
@@ -148,7 +148,7 @@ Destructor called with no parameter
 
 当需要在类中通过一个操作设置或访问属性时，可以使用`$this->attribute`进行引用。需要注意的是，`attribute`前面不需要加`$`。
 
-```clike
+```php
 class classname {
     public $attribute;
     function operation($param) {
@@ -160,7 +160,7 @@ class classname {
 $obj = new classname();
 $obj->operation('great');
 ```
-```clike
+```php
 great
 ```
 
@@ -168,7 +168,7 @@ great
 
 PHP中可以使用`__get()`和`__set()`函数来实现对所有属性的读取或设置操作。这样做的好处是能够使得属性的访问入口单一化，便于维护和管理。
 
-```clike
+```php
 class classname {
     private $attribute;
     function __get($attrName) {
@@ -187,7 +187,7 @@ echo $obj->attribute;  // call _get('attribute') function
 
 ```
 
-```clike
+```php
 __set(attribute, mumingv) is called.
 __get(attribute) is called.
 mumingv
@@ -210,14 +210,14 @@ mumingv
 
 ## 类操作的调用
 
-```clike
+```php
 $obj->operation();
 ```
 
 
 ## 在PHP中实现继承 `extends`
 
-```clike
+```php
 class A {
     public $attribute1;
     public function operation1() {
@@ -239,7 +239,7 @@ $b->attribute2 = 20;
 $b->operation2();
 ```
 
-```clike
+```php
 In class A, $attribute1 is 10
 In class B, $attribute2 is 20
 ```
@@ -264,7 +264,7 @@ In class B, $attribute2 is 20
 
 在子类中定义新的属性和操作不会影响超类；同样地，在子类中重载属性和操作也不会影响超类。
 
-```clike
+```php
 class A {
     public $attribute = 'attr_a';
     public function operation() {
@@ -286,14 +286,14 @@ $b->operation();
 
 ```
 
-```clike
+```php
 In class A, $attribute is attr_a
 In class B, $attribute is attr_b
 ```
 
 如果子类重载了父类的操作，但是又想调用父类的操作。这时候可以使用`parent`关键字。
 
-```clike
+```php
 class A {
     public $attribute = 'attr_a';
     public function operation() {
@@ -313,7 +313,7 @@ $b = new B();
 $b->operation();
 ```
 
-```clike
+```php
 B's operation() is called
 In class A, $attribute is attr_b
 ```
@@ -325,7 +325,7 @@ In class A, $attribute is attr_b
 
 在类声明的前面使用`final`关键字，则该类将不能被继承。
 
-```clike
+```php
 final class A {
     public $attribute = 'attr_a';
     public function operation() {
@@ -336,7 +336,7 @@ final class A {
 
 在函数声明的前面使用`final`关键字，则该函数将不能在任何子类中被重载。
 
-```clike
+```php
 class A {
     public $attribute = 'attr_a';
     final public function operation() {
@@ -359,7 +359,7 @@ class A {
 
 接口中定义一系列的方法，子类继承该接口时必须要实现接口中定义的所有方法。
 
-```clike
+```php
 interface Fruit {
     public function getSize();  // 获取颜色
     public function getColor();  // 获取大小
@@ -392,7 +392,7 @@ $banana->getSize();
 $banana->getColor();
 ```
 
-```clike
+```php
 Apple is big
 Apple is red
 Banana is small
@@ -401,7 +401,7 @@ Banana is yellow
 
 复杂一点的用法：在继承类的同时实现多个接口。
 
-```clike
+```php
 class Fruit {
     public function info() {
         echo "I am a fruit".PHP_EOL;
@@ -431,7 +431,7 @@ $apple->getSize();
 $apple->getColor();
 ```
 
-```clike
+```php
 I am a fruit
 Apple is big
 Apple is red

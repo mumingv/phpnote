@@ -3,7 +3,7 @@
 ## 创建一个示例应用程序：智能表单邮件
 
 `mail()`函数用来发送电子邮件，函数原型：
-```clike
+```php
 bool mail(string $to, string $subject, string $message [, string $additional_headers [, string $additional_parameters]]);
 ```
 
@@ -99,12 +99,12 @@ PHP配置`magic_quotes_gpc`（可以在php.ini文件中找到），其用于自�
 ### 替换子字符串：`str_replace()` `substr_replace()`
 
 `str_replace()`函数用于子字符串替换。函数原型如下：
-```clike
+```php
 mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
 ```
 
 `substr_replace()`函数用于替换字符串的子串。
-```clike
+```php
 mixed substr_replace ( mixed $string , mixed $replacement , mixed $start [, mixed $length ] )
 ```
 

@@ -58,25 +58,25 @@ action中指定的php脚本processorder.php，代码如下：
 PHP标记一共有4种风格。
 
 风格1：XML风格（默认）
-```clike
+```php
 <?php
     echo '<p>Order processed.</p>';
 ?>
 ```
 
 风格2：PHP短标记
-```clike
+```php
 <?
     echo '<p>Order processed.</p>';
 ?>
 ```
 说明：使用PHP短标记，需要打开php.ini的如下开关(此开关默认关闭)。
-```clike
+```php
 short_open_tag = On
 ```
 
 风格3：script风格
-```clike
+```php
 <script language="php">
         echo '<p>Order processed.</p>';
 </script>
@@ -84,13 +84,13 @@ short_open_tag = On
 说明：PHP默认支持script风格的标记，无需对应的开关。
 
 风格4：ASP风格
-```clike
+```php
 <%
     echo '<p>Order processed.</p>';
 %>
 ```
 说明：使用ASP风格的PHP标记，需要打开php.ini的如下开关(此开关默认关闭)。
-```clike
+```php
 asp_tags = On
 ```
 
@@ -112,19 +112,19 @@ PHP支持C、C++和Shell这三种语言风格的注释。分别是：`/**/` `//`
 当注释符遇到结束标记`?>`，有不同的表现，如下：
 
 对于`//`和`#`，`?>`会结束注释，`?>`后面的内容会被当作HTML：
-```clike
+```php
 <?php
 echo 'header';
 // Comment ?> Here is HTML.
 ```
-```clike
+```php
 <?php
 echo 'header';
 # Comment ?> Here is HTML.
 ```
 
 对于`/* */`，`?>`会被当作注释的一部分：
-```clike
+```php
 <?php
 echo 'header';
 /* Comment ?> Here is COMMENT.*/
@@ -156,13 +156,13 @@ echo 'header';
 
 注：简短风格和冗长风格的配置改为On后，对应的启动失败信息如下：
 
-```clike
+```php
 $ ./php-fpm start
 Starting php_fpm <br />
 <b>Fatal error</b>:  Directive 'register_globals' is no longer available in PHP in <b>Unknown</b> on line <b>0</b><br />
 failed
 ```
-```clike
+```php
 $ ./php-fpm start
 Starting php_fpm <br />
 <b>Fatal error</b>:  Directive 'register_long_arrays' is no longer available in PHP in <b>Unknown</b> on line <b>0</b><br />
@@ -185,7 +185,7 @@ failed
 字符串的表示方法：单引号、双引号、heredoc（多行字符串）。其中单引号字符串不会插补（插值），而双引号字符串和heredoc字符串会插补（插值）。
 
 heredoc是一种perl风格的字符串表示方法，通常用来输出html页面，其使用方式为：
-```clike
+```php
 <?php
 $var1 = 'boy';
 echo <<<EOT
@@ -251,12 +251,12 @@ PHP比较灵活，除了可以改变变量的值，还可以改变变量的类�
 变量名称可以改变的原理是：可以使用一个变量来存储另一个变量的名称。
 
 示例：
-```clike
+```php
 $varname = 'tireqty';
 $$varname = 5;
 ```
 其等价于
-```clike
+```php
 $tireqty = 5;
 ```
 
@@ -265,7 +265,7 @@ $tireqty = 5;
 PHP的常量等同于C语言中的宏，定义之后就无法更改。
 
 PHP的常量定义使用define函数：
-```clike
+```php
 define('TIREPRICE', 100);
 ```
 
@@ -345,7 +345,7 @@ PHP的操作符总计分为7大类：算术、字符串、赋值、比较、逻�
 #### 基本赋值操作符 `=`
 
 赋值运算和其他运算（如：`$a + $b`）一样，也是有返回值的。如：
-```clike
+```php
 $b = 6 + ($a = 5)
 ```
 表达式`($a = 5)`的返回值即为`$a`的值，所以`$b`的值就是11。
@@ -440,14 +440,14 @@ $b = 6 + ($a = 5)
 #### 三元操作符 `?:`
 
 三元操作符类似于条件语句if-else的表达式版本。如：
-```clike
+```php
 (($grade >= 50) ? 'Passed' : 'Failed')
 ```
 
 #### 错误抑制操作符 `@`
 
 错误抑制操作符`@`可以用于任何表达式之前，即可以位于任何有值的或者可以计算出值的表达式之前。如：
-```clike
+```php
 $a = @(57 / 0)
 ```
 提示：如果启用了php.ini中的track_errors特性，错误信息将会被保存在全局变量`$php_errormsg`当中。
@@ -483,14 +483,14 @@ $a = @(57 / 0)
 
 类型操作符在面向对象编程中使用，用来检查一个对象是否是特定类的实例。[示例代码](https://github.com/mumingv/php/blob/master/books/my_php_and_mysql_web_develop/chapter_01/instanceof.php)如下：
 
-```clike
+```php
 class sampleClass {};
 $myObject = new sampleClass();
 if ($myObject instanceof sampleClass) {
     echo "myObject is an instance of sampleClass";
 }
 ```
-```clike
+```php
 $ php instanceof.php 
 myObject is an instance of sampleClass
 ```
@@ -598,14 +598,14 @@ myObject is an instance of sampleClass
 ## 分支语句（根据条件进行决策）
 
 ### if
-```clike
+```php
 if (condition) {
     expression;
 }
 ```
 
 ### if...else
-```clike
+```php
 if (condition) {
     expression;
 } else {
@@ -614,7 +614,7 @@ if (condition) {
 ```
 
 ### if...else if...else
-```clike
+```php
 if (condition) {
     expression;
 } else if (condition) {
@@ -625,7 +625,7 @@ if (condition) {
 ```
 
 ### if...elseif...else
-```clike
+```php
 if (condition) {
     expression;
 } elseif (condition) {
@@ -636,7 +636,7 @@ if (condition) {
 ```
 
 ### switch
-```clike
+```php
 switch (condition) {
     case xxx:
         expression;
@@ -658,28 +658,28 @@ switch (condition) {
 ## 循环语句（通过迭代实现重复动作）
 
 ### while
-```clike
+```php
 while (condition) {
     expression;
 }
 ```
 
 ### do...while
-```clike
+```php
 do {
     expression;
 } while (condition);
 ```
 
 ### for
-```clike
+```php
 for (expression, condition, expression) {
     expression;
 }
 ```
 
 ### foreach（仅针对数组）
-```clike
+```php
 foreach ($array as $key => $value) {
     expression;
 }
@@ -709,7 +709,7 @@ foreach ($array as $key => $value) {
 类似shell脚本的写法，使用：`endif`, `endswitch`, `endwhile`, `endfor`, `endforeach`。
 
 示例：
-```clike
+```php
 if (condition):
     expression;
 endif;
@@ -720,7 +720,7 @@ endif;
 `declare`用来设置代码块的执行指令，也就是设置后续代码如何运行的规则。
 
 语法：
-```clike
+```php
 declare (directive) {
     // block
 }

@@ -35,19 +35,19 @@
 ### 使用fopen()打开文件
 
 示例：
-```clike
+```php
 $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt", "w");
 ```
 
 获取文档根目录的三种方式（推荐第一种方式）：
-```clike
+```php
 1. $_SERVER['DOCUMENT_ROOT']
 2. $DOCUMENT_ROOT
 3. $HTTP_SERVER_VARS['DOCUMENT_ROOT']
 ```
 
 也可以使用文件的绝对路径来指定打开的文件。
-```clike
+```php
 $fp = fopen("/home/work/pmwd/orders/orders.txt", "w");
 ```
 
@@ -71,7 +71,7 @@ Linux和Windows的路径表示方法：
 |t      |文本           |不推荐使用         |
 
 如果指定了使用默认文件查找路径（通过php配置`include_path`指定），则可以不显示指定文件路径。
-```clike
+```php
 $fp = fopen('orders.txt', 'ab', true);
 ```
 
@@ -90,11 +90,11 @@ $fp = fopen('orders.txt', 'ab', true);
 根据服务器设置的不同，PHP脚本可能是作为Web服务器用户或者脚本所在目录的拥有者来运行的。在大多数系统中，脚本将作为Web服务器用户来运行。
 
 对程序执行可能产生的错误，可以使用`@`符号进行抑制。
-```clike
+```php
 @$fp = fopen('orders.txt', 'ab', true);
 ```
 或者
-```clike
+```php
 $fp = @fopen('orders.txt', 'ab', true);
 ```
 说明：推荐将`@`置于行首。
@@ -104,7 +104,7 @@ $fp = @fopen('orders.txt', 'ab', true);
 
 `fputs()`是`fwrite()`的别名函数，两者是等价的。
 
-```clike
+```php
 fwite($fp, $outputstring);
 ```
 
@@ -124,7 +124,7 @@ fwite($fp, $outputstring);
 ## 关闭文件 `fclose()`
 
 函数用法：
-```clike
+```php
 fclose()
 ```
 说明：`fclose()`的返回值为`true`或者`false`，分别表示关闭成功或者关闭失败。
@@ -156,20 +156,20 @@ $order = fgets($fp, 999);
 ### 读取整个文件 `readfile()` `fpassthru()` `file()` `file_get_contents()`
 
 1. `readfile()`函数包含了文件打开和关闭的操作，并且将文件内容输出到标准输出（浏览器）当中。
-```clike
+```php
 readfile("$DOCUMENT_ROOT/../orders/orders.txt");
 ```
 2. `fpassthru()`函数与`readfile()`相比，需要事先打开文件，其他操作和`readfile()`完全一致。
-```clike
+```php
 $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt");
 fpassthru($fp);
 ```
 3. `file()`函数与`readfile()`相比，`file()`会将文件内容转换为数组的形式，文件中的每一行作为数组的一个元素，其他操作和`readfile()`完全一致。
-```clike
+```php
 $filearray = file("$DOCUMENT_ROOT/../orders/orders.txt");
 ```
 4. `file_get_contents()`函数与`readfile()`相比，`file_get_contents()`会将文件内容转换为字符串的形式，其他操作和`readfile()`完全一致。
-```clike
+```php
 $string = file("$DOCUMENT_ROOT/../orders/orders.txt");
 ```
 
@@ -177,7 +177,7 @@ $string = file("$DOCUMENT_ROOT/../orders/orders.txt");
 ### 读取一个字符 `fgetc()`
 
 示例：
-```clike
+```php
 while (!feof($fp)) {
     $char = fgetc($fp);
     if (!feof($fp)) {
@@ -217,7 +217,7 @@ while (!feof($fp)) {
 文件锁定用于防止两个进程同时读或者写文件，从而导致数据不正确的问题。
 
 读文件加锁示例：
-```clike
+```php
 $fp = fopen("/home/work/pmwd/orders/orders.txt", "rb");
 flock($fp, LOCK_SH);
 // 读操作...
@@ -225,7 +225,7 @@ fclose($fp, LOCK_UN);
 ```
 
 写文件加锁示例：
-```clike
+```php
 $fp = fopen("/home/work/pmwd/orders/orders.txt", "wb");
 flock($fp, LOCK_EX);
 // 写操作...

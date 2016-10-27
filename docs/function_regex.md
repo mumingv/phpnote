@@ -6,7 +6,7 @@
 
 ### 匹配日期格式
 
-```clike
+```php
 $date = 'The date is: 2016-05-04.';
 $ret = ereg("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})", $date, $regs);
 echo '$ret => '.$ret.PHP_EOL;
@@ -17,7 +17,7 @@ if ($ret) {
            echo "Invalid date format: $date", PHP_EOL;
 } 
 ```
-```clike
+```php
 $ret => 10
 $regs[0] => 2016-05-04
 04.05.2016
@@ -57,10 +57,10 @@ $regs[0] => 2016-05-04
 
 ### 生成字符串对应的正则表达式
 
-```clike
+```php
 echo sql_regcase("Foo - bar.");
 ```
-```clike
+```php
 [Ff][Oo][Oo] - [Bb][Aa][Rr].
 ```
 说明：该函数仅仅将每个字母使用方括号`[]`表示，且不区分大小写。其他字符一律不变。

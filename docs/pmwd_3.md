@@ -24,12 +24,12 @@ PHP数组主要分为两大类：数字索引数组和关联数组。关联数�
 
 1.自动创建方式
 
-```clike
+```php
 $products[0] = 'Tires';
 $products[1] = 'Oil';
 $products[2] = 'Spark Plugs';
 ```
-```clike
+```php
 Array
 (
     [0] => Tires
@@ -41,7 +41,7 @@ Array
 PHP数组和其他类型一样，数组并不需要预先初始化或创建；在第一次使用数组的时候，会自动创建。数组的大小将根据所增加元素的多少动态地变化，很多其他编程语言都不支持这种特性。
 
 当然，也可以先显示指明`$products`是一个数组（空数组），然后再向其中添加元素。
-```clike
+```php
 $products = [];
 $products[0] = 'Tires';
 $products[1] = 'Oil';
@@ -50,10 +50,10 @@ $products[2] = 'Spark Plugs';
 
 2.使用`array()`
 
-```clike
+```php
 $products = array('Tires', 'Oil', 'Spark Plugs');
 ```
-```clike
+```php
 Array
 (
     [0] => Tires
@@ -67,10 +67,10 @@ Array
 `range()`函数用来创建一个数字数组，示例如下：
 
 创建一个连续的数字数组：
-```clike
+```php
 $numbers = range(1, 10);
 ```
-```clike
+```php
 Array
 (
     [0] => 1
@@ -87,10 +87,10 @@ Array
 ```
 
 创建一个奇数数组：
-```clike
+```php
 $numbers = range(1, 10, 2);
 ```
-```clike
+```php
 Array
 (
     [0] => 1
@@ -105,10 +105,10 @@ Array
 
 `file()`函数读取文件，并返回一个数组，将文件中的每一行作为数组的一个元素。
 
-```clike
+```php
 $products = file("file.txt");
 ```
-```clike
+```php
 Array
 (
     [0] => Tires
@@ -124,10 +124,10 @@ Array
 
 出现上面打印不紧凑的情况，是因为每行末尾的换行符也被读取到数组元素当中了，另外空行也被当作一个单独的元素了。要解决这个问题，使用参数`(FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)`即可。
 
-```clike
+```php
 $products = file("file.txt", (FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
 ```
-```clike
+```php
 Array
 (
     [0] => Tires
@@ -146,10 +146,10 @@ Array
 和C、C++、Java等其他大部分编程语言一样，数组的下标是从0开始的。
 
 访问方式如下
-```clike
+```php
 echo $products[1];
 ```
-```clike
+```php
 Oil
 ```
 
@@ -166,12 +166,12 @@ Oil
 
 3. `for`循环
 
-```clike
+```php
 for ($i = 0; $i < 3; $i++) {
     echo $products[$i] . PHP_EOL;
 }
 ```
-```clike
+```php
 Tires
 Oil
 Spark Plugs
@@ -179,12 +179,12 @@ Spark Plugs
 
 4. `foreach`循环
 
-```clike
+```php
 foreach ($products as $product) {
     echo $product . PHP_EOL;
 }
 ```
-```clike
+```php
 Tires
 Oil
 Spark Plugs
@@ -192,12 +192,12 @@ Spark Plugs
 
 也可以同时使用key
 
-```clike
+```php
 foreach ($products as $key => $product) {
     echo $key.' => '.$product.PHP_EOL;
 }
 ```
-```clike
+```php
 0 => Tires
 1 => Oil
 2 => Spark Plugs
@@ -214,12 +214,12 @@ foreach ($products as $key => $product) {
 
 1.自动创建方式
 
-```clike
+```php
 $prices['Tires'] = 100;
 $prices['Oil'] = 10;
 $prices['Spark Plugs'] = 4;
 ```
-```clike
+```php
 Array
 (
     [Tires] => 100
@@ -230,7 +230,7 @@ Array
 
 当然，也可以先显式指明`$prices`是一个数组（空数组），然后再向其中添加元素。
 
-```clike
+```php
 $prices['Tires'] = 100;
 $prices['Oil'] = 10;
 $prices['Spark Plugs'] = 4;
@@ -238,14 +238,14 @@ $prices['Spark Plugs'] = 4;
 
 2.使用array()
 
-```clike
+```php
 $prices = array(
     'Tires' => 100,
     'Oil' => 10,
     'Spark Plugs' => 4,
 );
 ```
-```clike
+```php
 Array
 (
     [Tires] => 100
@@ -257,10 +257,10 @@ Array
 
 ### 访问数组元素
 
-```clike
+```php
 echo $prices['Oil'];
 ```
-```clike
+```php
 10
 ```
 
@@ -269,12 +269,12 @@ echo $prices['Oil'];
 
 1.`foreach`循环
 
-```clike
+```php
 foreach ($prices as $key => $value) {
     echo $key.' => '.$value.PHP_EOL;
 }
 ```
-```clike
+```php
 Tires => 100
 Oil => 10
 Spark Plugs => 4
@@ -282,13 +282,13 @@ Spark Plugs => 4
 
 2.`while`循环配合`each()`函数
 
-```clike
+```php
 reset($prices);
 while ($element = each($prices)) {
     echo $element['key'].' => '.$element['value'].PHP_EOL;
 }
 ```
-```clike
+```php
 Tires => 100
 Oil => 10
 Spark Plugs => 4
@@ -299,13 +299,13 @@ Spark Plugs => 4
 
 3.`while`循环配合`each()`函数和`list()`函数
 
-```clike
+```php
 reset($prices);
 while (list($product, $price) = each($prices)) {
     echo $product.' => '.$price.PHP_EOL;
 }
 ```
-```clike
+```php
 Tires => 100
 Oil => 10
 Spark Plugs => 4
@@ -325,7 +325,7 @@ Spark Plugs => 4
 
 1.自动创建方式
 
-```clike
+```php
 $products[0][0] = 'TIR';
 $products[0][1] = 'Tires';
 $products[0][2] = 100;
@@ -336,7 +336,7 @@ $products[2][0] = 'SPK';
 $products[2][1] = 'Spark Plugs';
 $products[2][2] = 4;
 ```
-```clike
+```php
 Array
 (
     [0] => Array
@@ -366,14 +366,14 @@ Array
 
 2.使用array()
 
-```clike
+```php
 $products = array(
     array('TIR', 'Tires', 100),
     array('OIL', 'Oil', 10),
     array('SPK', 'Spark Plugs', 4),
 );
 ```
-```clike
+```php
 Array
 (
     [0] => Array
@@ -403,10 +403,10 @@ Array
 
 ### 访问二维数组元素（数字索引数组）
 
-```clike
+```php
 echo $products[1][2]
 ```
-```clike
+```php
 10
 ```
 
@@ -415,7 +415,7 @@ echo $products[1][2]
 
 1.`for`循环
 
-```clike
+```php
 for ($row = 0; $row < 3; $row++) {
     for ($column = 0; $column < 3; $column++) {
         echo '|'.$products[$row][$column]; 
@@ -423,7 +423,7 @@ for ($row = 0; $row < 3; $row++) {
     echo '|'.PHP_EOL;
 }
 ```
-```clike
+```php
 |TIR|Tires|100|
 |OIL|Oil|10|
 |SPK|Spark Plugs|4|
@@ -438,7 +438,7 @@ for ($row = 0; $row < 3; $row++) {
 
 2.使用array()
 
-```clike
+```php
 $products = array(
     array(
         'Code' => 'TIR',
@@ -454,7 +454,7 @@ $products = array(
         'Price' => 4),
 );
 ```
-```clike
+```php
 Array
 (
     [0] => Array
@@ -484,10 +484,10 @@ Array
 
 ### 访问二维数组元素（数字索引&关联混合数组）
 
-```clike
+```php
 echo $products[1]['Price'];
 ```
-```clike
+```php
 10
 ```
 
@@ -496,7 +496,7 @@ echo $products[1]['Price'];
 
 1.外层`for`循环 & 内层`while`循环配合`each()`函数和`list()`函数
 
-```clike
+```php
 for ($row = 0; $row < 3; $row++) {
     while (list($key, $value) = each($products[$row])) {
         echo $key.' => '.$value."\t"; 
@@ -504,7 +504,7 @@ for ($row = 0; $row < 3; $row++) {
     echo PHP_EOL;
 }
 ```
-```clike
+```php
 Code => TIR     Description => Tires    Price => 100
 Code => OIL     Description => Oil      Price => 10
 Code => SPK     Description => Spark Plugs      Price => 4
@@ -518,7 +518,7 @@ Code => SPK     Description => Spark Plugs      Price => 4
 
 2.使用array()
 
-```clike
+```php
 $products = array(array(array('CAR_TIR', 'Tires', 100),
                         array('CAR_OIL', 'Oil', 10),
                         array('CAR_SPK', 'Spark Plugs', 4),
@@ -533,7 +533,7 @@ $products = array(array(array('CAR_TIR', 'Tires', 100),
                         ),
 );
 ```
-```clike
+```php
 Array
 (
     [0] => Array
@@ -617,10 +617,10 @@ Array
 
 ### 访问三维数组元素
 
-```clike
+```php
 echo $products[1][2][2];
 ```
-```clike
+```php
 5
 ```
 
@@ -631,7 +631,7 @@ echo $products[1][2][2];
 
 1.`for`循环
 
-```clike
+```php
 for ($layer = 0; $layer < 3; $layer++) {
     echo 'layer '.$layer.PHP_EOL;
     for ($row = 0; $row < 3; $row++) {
@@ -642,7 +642,7 @@ for ($layer = 0; $layer < 3; $layer++) {
     }
 }
 ```
-```clike
+```php
 layer 0
 |CAR_TIR|Tires|100|
 |CAR_OIL|Oil|10|
@@ -669,11 +669,11 @@ PHP支持更高维的数组，但一般情况下超过三维的数组很少使�
 
 示例
 
-```clike
+```php
 $products = array('Tires', 'Oil', 'Spark Plugs');
 sort($products);
 ```
-```clike
+```php
 Array
 (
     [0] => Oil
@@ -688,11 +688,11 @@ Array
 
 示例：根据字符串方式排序
 
-```clike
+```php
 $products = array('2', '16', '12');
 sort($products, SORT_STRING);
 ```
-```clike
+```php
 Array
 (
     [0] => 12
@@ -706,7 +706,7 @@ Array
 
 `ksort()`根据关联数组的关键字（key）进行排序。
 
-```clike
+```php
 $prices = array(
     'Tires' => 100,
     'Oil' => 10,
@@ -714,7 +714,7 @@ $prices = array(
 );
 ksort($prices);
 ```
-```clike
+```php
 Array
 (
     [Oil] => 10
@@ -725,7 +725,7 @@ Array
 
 `asort()`根据关联数组的元素值（value）进行排序。
 
-```clike
+```php
 $prices = array(
     'Tires' => 100,
     'Oil' => 10,
@@ -733,7 +733,7 @@ $prices = array(
 );
 asort($prices);
 ```
-```clike
+```php
 Array
 (
     [Spark Plugs] => 4
@@ -759,7 +759,7 @@ Array
 
 正向排序（从小到大排序）
 
-```clike
+```php
 function compare($x, $y) {
     // 根据第一列元素值进行比较
     if ($x[1] == $y[1]) {
@@ -778,7 +778,7 @@ $products = array(
 );
 usort($products, 'compare');
 ```
-```clike
+```php
 Array
 (
     [0] => Array
@@ -809,7 +809,7 @@ Array
 
 `usort()`函数没有反向变体。如果需要反向排序，修改下`compare()`函数就可以了。
 
-```clike
+```php
 function compare($x, $y) {
     // 根据第一列元素值进行比较
     if ($x[1] == $y[1]) {
@@ -827,11 +827,11 @@ function compare($x, $y) {
 
 ### 使用`shuffle()`函数
 
-```clike
+```php
 $products = array('Tires', 'Oil', 'Spark Plugs');
 shuffle($products);
 ```
-```clike
+```php
 Array
 (
     [0] => Tires
@@ -845,11 +845,11 @@ Array
 
 ### 使用`array_reverse()`函数
 
-```clike
+```php
 $numbers = range(1, 10);
 $numbers = array_reverse($numbers);
 ```
-```clike
+```php
 Array
 (
     [0] => 10
@@ -896,14 +896,14 @@ Array
 
 简单示例
 
-```clike
+```php
 function my_print($value) {
     echo $value.PHP_EOL;
 }
 $products = array('Tires', 'Oil', 'Spark Plugs');
 array_walk($products, 'my_print');
 ```
-```clike
+```php
 Tires
 Oil
 Spark Plugs
@@ -911,21 +911,21 @@ Spark Plugs
 
 使用用户自带的参数
 
-```clike
+```php
 function my_string($value, $key, $userData) {
         echo $key.' => '.$value.' '.$userData.PHP_EOL;
 }
 $products = array('Tires', 'Oil', 'Spark Plugs');
 array_walk($products, 'my_string', 0);
 ```
-```clike
+```php
 0 => Tires 0
 1 => Oil 0
 2 => Spark Plugs 0
 ```
 
 如果要将处理结果保存到原数组，可以使用引用方式传递数组，如下：
-```clike
+```php
 array_walk(&$products, 'my_string', 0);
 ```
 
@@ -941,7 +941,7 @@ array_walk(&$products, 'my_string', 0);
 
 `extract()`函数：根据一个数组创建一系列的标量变量，变量名称对应数组中的关键字（key）名称，变量的值对应数组中的元素值（value）。
 
-```clike
+```php
 $prices = array(
     'Tires' => 100,
     'Oil' => 10,
@@ -950,7 +950,7 @@ $prices = array(
 extract($prices);
 echo $Tires.' '.$Oil;
 ```
-```clike
+```php
 100 10
 ```
 

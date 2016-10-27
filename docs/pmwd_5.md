@@ -27,7 +27,7 @@
 两者唯一的区别是在函数调用失败后的行为，`require()`会报致命的错误，而`include()`只会报一个警告。
 
 `require()`和`include()`都有对应的变体函数，分别是`require_once()`和`include_once()`，它们的作用是为了防止在一个PHP脚本中重复引入一个文件。该功能类似于C语言头文件开头的`#ifndef`语句。
-```clike
+```php
 #ifndef _XXX_H
 #define _XXX_H
 ...
@@ -96,7 +96,7 @@
 ### 可变函数
 
 可变函数是指函数的名称存储在变量当中，使用下面的方式进行调用。
-```clike
+```php
 $function_name();
 ```
 
@@ -119,21 +119,21 @@ $function_name();
 参数的引用传递和值传递，在函数定义形式上有所区分，在调用形式上则是完全一致的。
 
 值传递
-```clike
+```php
 function increment($value, $amount = 1) {
     ...
 } 
 ```
 
 引用传递
-```clike
+```php
 function increment(&$value, $amount = 1) {
     ...
 } 
 ```
 
 两种参数传递方式都可以通过下面的形式进行调用
-```clike
+```php
 increment($number, 1);
 ```
 
