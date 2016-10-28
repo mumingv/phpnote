@@ -19,3 +19,7 @@ echo $obj::CONSTANT;
 ## static
 
 
+## abstract
+
+
+
