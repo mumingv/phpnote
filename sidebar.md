@@ -7,6 +7,7 @@
 ## 语法基础
 0. [前言](#README)
 0. [基本语法](#docs/basic_syntax)
+0. [关键字](#docs/basic_keyword)
 0. [常用函数](#docs/function)
 0. [系统变量](#docs/system_variable)
 0. [系统配置](#docs/system_config)
