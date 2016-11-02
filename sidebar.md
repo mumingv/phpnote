@@ -11,6 +11,7 @@
 0. [常用函数](#docs/function)
 0. [系统变量](#docs/system_variable)
 0. [系统配置](#docs/system_config)
+0. [FAQ](#docs/basic_faq)
 
 ## 库函数
 
