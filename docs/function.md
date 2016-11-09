@@ -6,7 +6,7 @@
 
 参考：[官方](http://php.net/manual/zh/ref.mysql.php) & [木名](#docs/function_mysql)
 
-PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方式。
+说明：mysql扩展在PHP 5.5版本废弃（还能使用但是会产生告警），在PHP 7.0版本移除，需要使用mysqli或者PDO_MySQL替换。
 
 |函数                   |功能                                   |
 |-----------------------|---------------------------------------|
