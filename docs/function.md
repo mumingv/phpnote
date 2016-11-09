@@ -1,5 +1,21 @@
 # [常用函数](http://php.net/manual/zh/funcref.php)
 
+## [数据库扩展](http://php.net/manual/zh/refs.database.php)
+
+### MySQL `48 (部分)`
+
+参考：[官方](http://php.net/manual/zh/ref.mysql.php) & [木名](#docs/function_mysql)
+
+PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方式。
+
+|函数                   |功能                                   |
+|-----------------------|---------------------------------------|
+|mysql_connect          |打开一个到 MySQL 服务器的连接          |
+|mysql_select_db        |选择 MySQL 数据库                      |
+|mysql_query            |发送一条 MySQL 查询                    |
+|mysql_fetch_array      |从结果集中取得一行作为关联数组，或数字数组，或二者兼有|
+|mysql_close            |关闭 MySQL 连接                        |
+
 ## [文件系统相关扩展](http://php.net/manual/zh/refs.fileprocess.file.php)
 
 
