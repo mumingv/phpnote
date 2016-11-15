@@ -16,7 +16,35 @@
 
 ```bash
 $ php index.php 
-CDXMLStrategy
+<?xml version="1.0"?>
+<CD><TITLE>&#x5149;&#x8F89;&#x5C81;&#x6708;</TITLE><BAND>beyond</BAND></CD>
 {"CD":{"band":"beyond","title":"\u5149\u8f89\u5c81\u6708"}}
+```
+
+XML文档用浏览器打开的效果为：
+```
+  <?xml version="1.0"?>
+- <CD>
+    <TITLE>光辉岁月</TITLE>
+    <BAND>beyond</BAND>
+  </CD>
+```
+
+
+## FAQ
+
+**问题描述：执行脚本时，php5.4提示如下错误。**
+
+```bash
+$ php index.php 
+PHP Fatal error:  Class 'DomDocument' not found in ...
+```
+
+**问题原因**：php5.4版本默认安装是不带xml插件的，需要自行安装。
+
+**解决方法**：安装php-xml即可。
+
+```bash
+$ sudo yum install php-xml
 ```
 
