@@ -14,3 +14,9 @@
 
 代码示例: [更改CD属性值为大写并生成XML文档](https://github.com/mumingv/php/tree/master/books/my_php_design_patterns/chapter_08)。
 
+```php
+$ php index.php 
+<?xml version="1.0"?>
+<CD><TITLE>LOVE YOU</TITLE><BAND>BEYOND</BAND><TRACKS><TRACK>FIRST SONG</TRACK><TRACK>SECOND SONG</TRACK><TRACK>THIRD SONG</TRACK></TRACKS></CD>
+```
+
