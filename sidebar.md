@@ -13,11 +13,15 @@
 0. [系统配置](#docs/system_config)
 0. [FAQ](#docs/basic_faq)
 
-## 库函数
+
+## 实例应用
+
 
 ## 读书笔记
 - [《PHP和MySQL Web开发》](#docs/book_pmwd)
 - [《PHP设计模式》](#docs/book_pdp)
+- [《PHP深度分析》](#docs/book_qa)
+
 
 ## 附录 
 - [源码](https://github.com/mumingv/phpnote)
