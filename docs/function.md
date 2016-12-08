@@ -10,13 +10,13 @@
 
 |函数                       |功能                                   |
 |---------------------------|---------------------------------------|
-|mysql_connect              |打开一个到 MySQL 服务器的连接          |
+|**mysql_connect**          |打开一个到 MySQL 服务器的连接          |
 |mysql_select_db            |选择 MySQL 数据库                      |
 |mysql_query                |发送一条 MySQL 查询                    |
 |mysql_fetch_array          |从结果集中取得一行作为关联数组，或数字数组，或二者兼有|
 |mysql_close                |关闭 MySQL 连接                        |
 |mysql_escape_string        |转义一个字符串用于 mysql_query         |
-|mysql_real_escape_string   |转义 SQL 语句中使用的字符串中的特殊字符，并考虑到连接的当前字符集|
+|**mysql_real_escape_string**   |转义 SQL 语句中使用的字符串中的特殊字符，并考虑到连接的当前字符集|
 
 ## [文件系统相关扩展](http://php.net/manual/zh/refs.fileprocess.file.php)
 
