@@ -76,6 +76,8 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 |-----------------------|---------------------------------------|
 |htmlentities           |将HTML页面中的特殊字符转换成HTML实体   |
 |nl2br                  |在字符串所有新行之前插入 HTML 换行标记 |
+|strip_tags             |从字符串中去除 HTML 和 PHP 标记        |
+|wordwrap               |打断字符串为指定数量的字串             |
 
 
 ## [变量与类型相关扩展](http://php.net/manual/zh/refs.basic.vartype.php)
