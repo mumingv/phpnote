@@ -68,6 +68,15 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 4. `sql_regcase()`没有对应的PCRE函数。
 
 
+### 字符串 `98 (部分)`
+
+参考：[官方](http://php.net/manual/zh/ref.strings.php) & [木名](#docs/function_strings)
+
+|函数                   |功能                                   |
+|-----------------------|---------------------------------------|
+|htmlentities           |将HTML页面中的特殊字符转换成HTML实体   |                         |
+
+
 ## [变量与类型相关扩展](http://php.net/manual/zh/refs.basic.vartype.php)
 
 ### 函数处理 `13`
