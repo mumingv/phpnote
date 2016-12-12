@@ -13,11 +13,12 @@
 0. [系统配置](#docs/system_config)
 0. [包安装使用](#docs/basic_package)
 0. [相关资源](#docs/resource)
-0. [FAQ](#docs/basic_faq)
+0. [语法FAQ](#docs/basic_faq)
+0. [运行FAQ](#docs/basic_run_faq)
 
 
 ## 实例应用
-- [功能点](#docs/sample_funcpoint)
+- [功能点FAQ](#docs/sample_funcpoint)
 - [模块接口](#docs/sample_interface)
 
 
