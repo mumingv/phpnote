@@ -32,3 +32,46 @@ $copy_of_object = clone $object;
 
 具体示例，请参考：[PHP手册](http://www.php.net/manual/zh/language.oop5.cloning.php)。
 
+
+## use
+
+`use`用于导入/使用别名。类似于类Unix系统中创建其它文件或目录的符号链接。
+
+导入命名空间：
+
+```php
+use My\Full\NSname;  // 等价于：use My\Full\NSname as NSname;
+```
+
+导入类：
+
+```php
+use My\Full\Classname as Another;
+```
+
+导入全局类：
+
+```php
+use Classname;
+```
+
+导入函数：
+
+```php
+use function My\Full\functionName;
+```
+
+```php
+use function My\Full\functionName as func;  // 设置别名
+```
+
+导入常量：
+
+```php
+use const My\Full\CONSTANT;
+```
+
+具体示例，请参考：[PHP手册](http://php.net/manual/zh/language.namespaces.importing.php)。
+
+
+
