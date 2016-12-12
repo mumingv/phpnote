@@ -18,7 +18,7 @@
 
 
 ## 实例应用
-- [功能点FAQ](#docs/sample_funcpoint)
+- [功能FAQ](#docs/sample_funcpoint)
 - [模块接口](#docs/sample_interface)
 
 
