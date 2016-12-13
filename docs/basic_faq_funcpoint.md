@@ -38,7 +38,7 @@ function mbStringSplit($string) {
 ```
 
 
-## 如何将Json字符串转换成数组格式字符串并输出到文件中？
+## 如何将JSON字符串转换成数组格式字符串并输出到文件中？
 
 使用`var_export`和`file_put_contents`函数，完成代码参考：[GitHub](https://github.com/mumingv/php/tree/master/demo/string/demo_json_to_array)。
 
@@ -53,8 +53,82 @@ file_put_contents('output', $result);
 
 ## 如何进行变量的序列化和反序列化？
 
+序列化是将变量转换为可保存或可传输的字符串的过程；反序列化则相反。
+
+完整代码请参考：[GitHub](https://github.com/mumingv/php/tree/master/demo/string/demo_serialize_and_unserialize)。
+
+### serialize和unserialize函数
+
+```php
+$arr = array('a' => 'Apple' ,'b' => 'Banana' , 'c' => 'Coconut');  
+// 序列化
+$s = serialize($arr);
+echo $s.PHP_EOL;  // 输出结果：a:3:{s:1:"a";s:5:"Apple";s:1:"b";s:6:"banana";s:1:"c";s:7:"Coconut";}  
+// 反序列化  
+$o = unserialize($s);  
+print_r($o);
+```
+
+```php
+a:3:{s:1:"a";s:5:"Apple";s:1:"b";s:6:"Banana";s:1:"c";s:7:"Coconut";}
+Array
+(
+    [a] => Apple
+    [b] => Banana
+    [c] => Coconut
+)
+```
+
+使用`serialize`函数可能对特殊字符处理不好，可以使用`base64_encode`函数进行处理。
+
+```php
+$arr = array('a' => 'Apple:1' ,'b' => 'Banana"2' , 'c' => 'Coconut\'3');  
+  
+//序列化数组  
+$s = base64_encode(serialize($arr));
+echo $s.PHP_EOL;  // 输出结果：a:3:{s:1:"a";s:5:"Apple";s:1:"b";s:6:"banana";s:1:"c";s:7:"Coconut";}  
+  
+//反序列化  
+$o = unserialize(base64_decode($s));  
+print_r($o);  
+```
+
+```php
+YTozOntzOjE6ImEiO3M6NzoiQXBwbGU6MSI7czoxOiJiIjtzOjg6IkJhbmFuYSIyIjtzOjE6ImMiO3M6OToiQ29jb251dCczIjt9
+Array
+(
+    [a] => Apple:1
+    [b] => Banana"2
+    [c] => Coconut'3
+)
+```
+
+使用`base64_decode`函数会增加序列化字符串的长度，可以在编码前使用`gzcompress`函数进行压缩。
+
+```php
+$arr = array('a' => 'Apple:1' ,'b' => 'Banana"2' , 'c' => 'Coconut\'3');  
+  
+//序列化数组  
+$s = base64_encode(gzcompress(serialize($arr)));
+echo $s.PHP_EOL;  // 输出结果：a:3:{s:1:"a";s:5:"Apple";s:1:"b";s:6:"banana";s:1:"c";s:7:"Coconut";}  
+
+//反序列化  
+$o = unserialize(gzuncompress(base64_decode($s)));  
+print_r($o);
+```
+
+```php
+eJxLtDK2qi62MrRSSlSyLrYyt1JyLCjISbUyBPGAokkg2sJKySkxDwiVjKDCySDa0krJOT85P6+0RN1YyboWAA91FO0=
+Array
+(
+    [a] => Apple:1
+    [b] => Banana"2
+    [c] => Coconut'3
+)
+```
 
 
+### 
 
 
 
