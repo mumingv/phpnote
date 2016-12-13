@@ -38,7 +38,7 @@ function mbStringSplit($string) {
 ```
 
 
-## 如何将Json转换成数组格式字符串并输出到文件中？
+## 如何将Json字符串转换成数组格式字符串并输出到文件中？
 
 使用`var_export`和`file_put_contents`函数，完成代码参考：[GitHub](https://github.com/mumingv/php/tree/master/demo/string/demo_json_to_array)。
 
