@@ -100,6 +100,29 @@ print_r($data);
 
 ## Redis
 
+Redis的默认端口号是`6379`。
+
+### 安装
+
+使用yum进行安装。
+
+```
+# yum install redis
+```
+
+
+### 启动
+
+在后台启动。
+
+```
+# nohup redis-server &
+```
+
+
+### 使用PHP访问
+
+
 
 ## RPC
 
