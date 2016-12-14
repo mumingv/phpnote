@@ -16,6 +16,25 @@
 # ...
 ```
 
+## 类型
+
+### 数组
+
+详细内容，请参考官方文档：[php.net](http://php.net/manual/zh/language.types.array.php)。
+
+示例：创建一个数组
+
+```php
+$arr = ['Apple', 'Oragnge'];
+print_r($arr);
+```
+```php
+Array
+(
+    [0] => Apple
+    [1] => Oragnge
+)
+```
 
 ## 变量
 
@@ -84,8 +103,6 @@ d
 
 <font color="red">说明：字符串作为数组的能力仅限于此，不能将字符串作为参数传递给处理数组的函数。</font>
 
-
-## 数组
 
 
 ## 分支语句
