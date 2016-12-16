@@ -33,9 +33,14 @@ $copy_of_object = clone $object;
 具体示例，请参考：[PHP手册](http://www.php.net/manual/zh/language.oop5.cloning.php)。
 
 
+## namespace
+
+
 ## use
 
 `use`用于导入/使用别名。类似于类Unix系统中创建其它文件或目录的符号链接。
+
+<font color="red">注：可以理解成，namespace是目录，use是针对目录或文件的快捷方式。</font>
 
 导入命名空间：
 
