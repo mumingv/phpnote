@@ -11,7 +11,7 @@
 
 ## php命令各参数的功能和使用方法？
 
-参考：[http://www.cnblogs.com/myjavawork/articles/1869205.html](http://www.cnblogs.com/myjavawork/articles/1869205.html)
+参考：[PHP手册](http://php.net/manual/zh/features.commandline.php)。
 
 ### 
 
@@ -184,6 +184,49 @@ PHP Parse error:  syntax error, unexpected '=' in Command line code on line 1
 $ php -r '$foo = "bar"; echo $foo.PHP_EOL;'
 bar
 ```
+
+
+### 
+
+`-B <begin_code>`：在处理 stdin 之前先执行 PHP 代码
+
+`-R <code>`：对每个输入行都执行 PHP 代码
+
+`-F <file>`：对每个输入行都执行 PHP 文件
+
+`-E <end_code>`：在处理完输入后执行的 PHP 代码
+
+<font color="red">该模式下可以使用内置变量 $argn 和 $argi，分别表示当前处理行的内容以及行号。</font>
+
+示例：计算目录dir及其子目录下所有文件的总行数。
+
+```
+$ ls dir
+float.c  number.c
+```
+```php
+$ find dir | php -B '$line = 0;' -R '$line += count(file($argn));' -E 'echo "Total Lines: ".$line."\n";'
+Total Lines: 22
+```
+
+示例：计算目录dir及其子目录下所有文件的行数(每个文件显示一行)。
+
+```php
+$ cat run.php 
+<?php
+echo "$argn's Lines: ".count(file($argn))."\n";
+```
+```
+$ find dir | php -F run.php 
+dir's Lines: 0
+dir/number.c's Lines: 8
+dir/float.c's Lines: 14
+```
+
+
+###  
+
+
 
 
 
