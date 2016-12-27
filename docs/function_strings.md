@@ -79,7 +79,7 @@ This is <b>bold</b> and this is <i>italic</i>. What about this link?
 string vsprintf ( string $format , array $args )
 ```
 
-<font color="red">vsprintf和sprintf的区别在于，参数是个数组。</font>
+<font color="red">vsprintf和sprintf的区别在于，vsprintf的$args参数是个数组，sprintf的$args参数是个列表。</font>
 
 示例：
 ```php

@@ -123,7 +123,7 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 |sha1 | 计算字符串的 sha1 散列值|
 |similar_text | 计算两个字符串的相似度|
 |soundex | Calculate the soundex key of a string|
-|sprintf | 返回格式化字符串|
+|**sprintf** | 返回格式化字符串|
 |sscanf | 根据指定格式解析输入的字符|
 |str_getcsv | 解析 CSV 字符串为一个数组|
 |str_ireplace | str_replace 的忽略大小写版本|
@@ -170,7 +170,7 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 |ucwords | 将字符串中每个单词的首字母转换为大写|
 |vfprintf | 将格式化字符串写入流|
 |vprintf | 输出格式化字符串|
-|vsprintf | 返回格式化字符串|
+|**vsprintf** | 返回格式化字符串|
 |**wordwrap** | 打断字符串为指定数量的字串|
 
 
