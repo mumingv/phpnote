@@ -18,6 +18,25 @@ string nl2br ( string $string [, bool $is_xhtml = true ] )
 ```
 
 
+## sprintf 返回格式化的字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.sprintf.php)。
+
+```php
+string sprintf ( string $format [, mixed $args [, mixed $... ]] )
+```
+
+<font color="red">各类格式化类型(如: %s)参考官方文档，大部分和C语言类似。</font>
+
+示例：
+```php
+$num = 5;
+$location = 'tree';
+$format = 'There are %d monkeys in the %s';
+echo sprintf($format, $num, $location)."\n";  // There are 5 monkeys in the tree
+```
+
+
 ## strip_tags 从字符串中去除 HTML 和 PHP 标记
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strip-tags.php)。
@@ -49,6 +68,28 @@ echo strip_tags($text, '<b><i>').PHP_EOL;
 ```
 ```
 This is <b>bold</b> and this is <i>italic</i>. What about this link?
+```
+
+
+## vsprintf 返回格式化的字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.vsprintf.php)。
+
+```php
+string vsprintf ( string $format , array $args )
+```
+
+<font color="red">vsprintf和sprintf的区别在于，参数是个数组。</font>
+
+示例：
+```php
+print vsprintf("%04d-%02d-%02d", explode('-', '1988-8-1'));  // 1988-08-01
+```
+
+示例：
+```php
+$arr = array('1988', '8', '1');
+print vsprintf("%04s-%02s-%02s", $arr);  // 1988-08-01
 ```
 
 
