@@ -128,8 +128,14 @@ Array
 ```
 
 
-### 
+## 如何读取文件并逐行处理？
 
+使用`file_get_contents`和`explode`函数，完整代码请参考：[GitHub](https://github.com/mumingv/php/blob/master/demo/http_get_post/keyword/get_qu_info.php)。
+
+```php
+$query_str = file_get_contents("./input_query.txt");
+$query_arr = explode("\n", $query_str);
+```
 
 
 
