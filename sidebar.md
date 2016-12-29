@@ -12,10 +12,10 @@
 0. [系统变量](#docs/system_variable)
 0. [系统配置](#docs/system_config)
 0. [包安装使用](#docs/basic_package)
-0. [相关资源](#docs/resource)
 0. [语法FAQ](#docs/basic_faq_syntax)
 0. [运行FAQ](#docs/basic_faq_run)
 0. [功能FAQ](#docs/basic_faq_funcpoint)
+0. [相关资源](#docs/resource)
 
 
 ## 实例应用
