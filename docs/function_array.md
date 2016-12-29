@@ -104,7 +104,7 @@ Array
 ```
 
 
-## array_column 返回数组中指定的一列
+## array_column (PHP5.5) 返回数组中指定的一列
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-column.php)。
 
