@@ -21,7 +21,7 @@
 ## [文件系统相关扩展](http://php.net/manual/zh/refs.fileprocess.file.php)
 
 
-## [文本处理](http://php.net/manual/zh/refs.basic.text.php)
+## [文本处理（字符串）](http://php.net/manual/zh/refs.basic.text.php)
 
 ### PCRE `10`
 
@@ -174,7 +174,7 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 |**wordwrap** | 打断字符串为指定数量的字串|
 
 
-## [变量与类型相关扩展](http://php.net/manual/zh/refs.basic.vartype.php)
+## [变量与类型相关扩展（数组）](http://php.net/manual/zh/refs.basic.vartype.php)
 
 ### 数组 `79`
 
