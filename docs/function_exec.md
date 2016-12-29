@@ -8,6 +8,8 @@
 string exec ( string $command [, array &$output [, int &$return_var ]] )
 ```
 
+<font color="red">注：命令的标准输出作为函数的返回值。</font>
+
 ### 示例：执行一个外部程序
 
 ```php

@@ -383,7 +383,7 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 |-----------------------|---------------------------------------|
 |escapeshellarg | 把字符串转码为可以在 shell 命令里使用的参数|
 |escapeshellcmd | shell 元字符转义|
-|exec | 执行一个外部程序|
+|**exec** | 执行一个外部程序|
 |passthru | 执行外部程序并且显示原始输出|
 |proc_close | 关闭由 proc_open 打开的进程并且返回进程退出码|
 |proc_get_status | 获取由 proc_open 函数打开的进程的信息|
