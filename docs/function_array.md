@@ -178,7 +178,7 @@ Array
 array array_count_values ( array $input )
 ```
 
-### 统计数组中各value出现的次数
+### 示例：统计数组中各value出现的次数
 
 ```php
 $array = array(1, "hello", 1, "world", "hello");
@@ -194,16 +194,156 @@ Array
 ```
 
 
+## array_diff_assoc 带索引检查计算数组的差集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff-assoc.php)。
+
+```php
+array array_diff_assoc ( array $array1 , array $array2 [, array $... ] )
+```
+
+<font color="red">
+说明：</br>
+1. 和array_diff相比，不仅会比较值是否相同，也会比较键是否相同; </br>
+2. 可以多个数组一起求差集，不仅仅限于两个; </br>
+3. 键或值比较的时候，都是统一转换成字符串进行比较; </br>
+</font>
+
+### 示例：两个数组的差集，即：$array1 - $array2
+
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red"); 
+$array2 = array("a" => "green", "yellow", "red");
+$result = array_diff_assoc($array1, $array2);
+print_r($result);              
+```
+```php
+Array
+( 
+    [b] => brown
+    [c] => blue
+    [0] => red
+)
+```
 
 
+### 示例：两个数组的差集，数字默认会转换成字符串进行比较
+
+```php
+$array1 = array(0, 1, 2);      
+$array2 = array("00", "01", "2");
+$result = array_diff_assoc($array1, $array2);
+print_r($result);              
+```
+```php
+Array
+( 
+    [0] => 0
+    [1] => 1
+)
+```
 
 
+### 多个数组的差集，即：$array1 - $array2 - $array3
+
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "green", "yellow", "red");
+$array3 = array("a" => "green", "b" => "brown");
+$result = array_diff_assoc($array1, $array2, $array3);
+print_r($result);
+```
+```php
+Array
+(
+    [c] => blue
+    [0] => red
+)
+```
 
 
+## array_diff_key 使用键名比较计算数组的差集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff-key.php)。
+
+```php
+array array_diff_key ( array $array1 , array $array2 [, array $... ] )
+```
+
+### 示例：两个数组的差集
+
+```php
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+$result = array_diff_key($array1, $array2);
+print_r($result);
+```
+```php
+Array
+(
+    [red] => 2
+    [purple] => 4
+)
+```
 
 
+### 示例：多个数组的差集
+
+```php
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+$array3 = array('purple' => 9);
+$result = array_diff_key($array1, $array2, $array3);
+print_r($result);
+```
+```php
+Array
+(
+    [red] => 2
+)
+```
 
 
+## array_diff 计算数组的差集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff.php)。
+
+```php
+array array_diff ( array $array1 , array $array2 [, array $... ] )
+```
+
+### 示例：两个数组的差集
+
+```php
+$array1 = array("a" => "green", "red", "blue", "red", "purple");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
+print_r($result);
+```
+```php
+Array
+(
+    [1] => blue
+    [3] => purple
+)
+```
+
+
+### 示例：多个数组的差集
+
+```php
+$array1 = array("a" => "green", "red", "blue", "red", "purple");
+$array2 = array("b" => "green", "yellow", "red");
+$array3 = array(0 => "purple");
+$result = array_diff($array1, $array2, $array3);
+print_r($result);
+```
+```php
+Array
+(
+    [1] => blue
+)
+```
 
 
 
