@@ -584,6 +584,150 @@ Array
 ```
 
 
+## array_intersect_assoc 带索引检查计算数组的交集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-assoc.php)。
+
+```php
+array array_intersect_assoc ( array $array1 , array $array2 [, array $ ... ] )
+```
+
+### 示例：获取两个数组的交集（键和值都相同才会保存到结果中）
+
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "green", "b" => "yellow", "blue", "red");
+$result_array = array_intersect_assoc($array1, $array2);
+print_r($result_array);
+```
+```php
+Array
+(
+    [a] => green
+```
+
+
+# array_intersect_key 使用键名比较计算数组的交集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-assoc.php)。
+
+```php
+array array_intersect_key ( array $array1 , array $array2 [, array $ ... ] )
+```
+
+### 示例：获取两个数组的交集（键相同就会保存到结果中）
+
+```php
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+print_r(array_intersect_key($array1, $array2));
+```
+```php
+Array
+(
+    [blue] => 1
+    [green] => 3
+)
+```
+
+
+# array_intersect_uassoc 带索引检查计算数组的交集，用回调函数比较索引
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-assoc.php)。
+
+```php
+array array_intersect_uassoc ( array $array1 , array $array2 [, array $ ... ], callable $key_compare_func )
+```
+
+### 示例：获取两个数组的交集，用户提供自定义比较函数
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "GREEN", "B" => "brown", "yellow", "red");
+$result = array_intersect_uassoc($array1, $array2, "strcasecmp");
+print_r($result);
+```
+```php
+Array
+(
+    [b] => brown
+)
+```
+
+
+# array_intersect_ukey 用回调函数比较键名来计算数组的交集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-ukey.php)。
+
+```php
+array array_intersect_ukey ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+```
+
+### 示例：获取两个数组的交集
+
+```php
+function key_compare_func($key1, $key2)
+{
+    if ($key1 == $key2)
+        return 0;
+    else if ($key1 > $key2)
+        return 1;
+    else
+        return -1;
+}
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+print_r(array_intersect_ukey($array1, $array2, 'key_compare_func'));
+```
+```php
+Array
+(
+    [blue] => 1
+    [green] => 3
+)
+```
+
+
+# array_intersect 计算数组的交集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect.php)。
+
+```php
+array array_intersect ( array $array1 , array $array2 [, array $ ... ] )
+```
+
+### 示例：获取两个数组的交集
+
+```php
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_intersect($array1, $array2);
+print_r($result);
+```
+```php
+Array
+(
+    [a] => green
+    [0] => red
+)
+```
+
+
+### 示例：获取多个数组的交集
+
+```php
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$array3 = array("c" => "green", "blue");
+$result = array_intersect($array1, $array2, $array3);
+print_r($result);
+```
+```php
+Array
+(
+    [a] => green
+)
+```
+
 
 
 
