@@ -309,7 +309,7 @@ Array
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff-uassoc.php)。
 
 ```php
-rray array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+array array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
 ```
 
 ### 示例：求两个数组的差集 $array1 - $array2
@@ -333,6 +333,39 @@ Array
     [b] => brown
     [c] => blue
     [0] => red
+)
+```
+
+
+## array_diff_ukey 用回调函数对键名比较计算数组的差集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff-ukey.php)。
+
+```php
+array array_diff_ukey ( array $array1 , array $array2 [, array $ ... ], callable $key_compare_func )
+```
+
+### 示例：两个数组的差集
+
+```php
+function key_compare_func($key1, $key2)
+{
+    if ($key1 == $key2)
+        return 0;
+    else if ($key1 > $key2)
+        return 1;
+    else
+        return -1;
+}
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+print_r(array_diff_ukey($array1, $array2, 'key_compare_func'));
+```
+```php
+Array
+(
+    [red] => 2
+    [purple] => 4
 )
 ```
 
