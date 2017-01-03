@@ -480,7 +480,108 @@ Array
 ```
 
 
+## array_filter 用回调函数过滤数组中的单元
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-filter.php)。
+
+```php
+array array_filter ( array $array [, callable $callback [, int $flag = 0 ]] )
+```
+
+### 示例：过滤数组中基数值或偶数值
+
+```php
+function odd($var)
+{
+    return($var & 1);
+}
+
+function even($var)
+{
+    return(!($var & 1));
+}
+
+$array1 = array("a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5);
+$array2 = array(6, 7, 8, 9, 10, 11, 12);
+
+echo "Odd :\n";
+print_r(array_filter($array1, "odd"));
+echo "Even:\n";
+print_r(array_filter($array2, "even"));
+```
+```php
+Odd :
+Array
+(
+    [a] => 1
+    [c] => 3
+    [e] => 5
+)
+Even:
+Array
+(
+    [0] => 6
+    [2] => 8
+    [4] => 10
+    [6] => 12
+)
+```
+
+
+### 示例：不使用自定义的判定函数，去除值为FALSE的项
+
+```php
+$array1 = array("apple" => 5, "banana" => 0, "pear" => 6);
+print_r(array_filter($array1));
+```
+```php
+Array
+(
+    [apple] => 5
+    [pear] => 6
+)
+```
+
+
+## array_flip 交换数组中的键和值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-flip.php)。
+
+```php
+array array_flip ( array $trans )
+```
+
+### 交换键和值
+
+```php
+$trans = array("a" => 1, "b" => 2, "c" => 3);
+$trans = array_flip($trans);
+print_r($trans);
+```
+```php
+Array
+(
+    [1] => a
+    [2] => b
+    [3] => c
+)
+```
+
+
+### 交换键和值，含有多个值相同的项，则只保留最后一个
+
+```php
+$trans = array("a" => 1, "b" => 2, "c" => 2);
+$trans = array_flip($trans);
+print_r($trans);
+```
+```php
+Array
+(
+    [1] => a
+    [2] => c  # key为"b"的项被丢弃
+)
+```
 
 
 
