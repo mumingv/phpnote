@@ -304,6 +304,39 @@ Array
 ```
 
 
+## array_diff_uassoc 用用户提供的回调函数做索引检查来计算数组的差集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff-uassoc.php)。
+
+```php
+rray array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+```
+
+### 示例：求两个数组的差集 $array1 - $array2
+
+```php
+function key_compare_func($a, $b)
+{
+    if ($a === $b) {
+        return 0;
+    }
+    return (($a > $b) ? 1 : -1);
+}
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "green", "yellow", "red");
+$result = array_diff_uassoc($array1, $array2, "key_compare_func");
+print_r($result);
+```
+```php
+Array
+(
+    [b] => brown
+    [c] => blue
+    [0] => red
+)
+```
+
+
 ## array_diff 计算数组的差集
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-diff.php)。
