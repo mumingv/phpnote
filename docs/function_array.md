@@ -412,5 +412,77 @@ Array
 ```
 
 
+## array_fill_keys 使用指定的键和值填充数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-fill-keys.php)。
+
+```php
+array array_fill_keys ( array $keys , mixed $value )
+```
+
+```php
+$keys = array('foo', 5, 10, 'bar');
+$a = array_fill_keys($keys, 'banana');
+print_r($a);
+```
+```php
+Array
+(
+    [foo] => banana
+    [5] => banana
+    [10] => banana
+    [bar] => banana
+)
+```
+
+
+## array_fill 用给定的值填充数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-fill.php)。
+
+```php
+array array_fill ( int $start_index , int $num , mixed $value )
+```
+
+### 示例：填充数组，第一个元素的key为正数
+
+```php
+$a = array_fill(5, 6, 'banana');
+print_r($a);
+```
+```php
+Array
+(
+    [5] => banana
+    [6] => banana
+    [7] => banana
+    [8] => banana
+    [9] => banana
+    [10] => banana
+)
+```
+
+
+### 示例：填充数组，第一个元素的key为负数
+
+```php
+$b = array_fill(-2, 4, 'pear');
+print_r($b);
+```
+```php
+Array
+(
+    [-2] => pear  # 第1个元素的key对应函数的第1个参数
+    [0] => pear   # 第2个元素的key为0
+    [1] => pear
+    [2] => pear
+)
+```
+
+
+
+
+
+
 
 
