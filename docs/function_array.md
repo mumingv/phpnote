@@ -1149,9 +1149,9 @@ int array_push ( array &$array , mixed $var [, mixed $... ] )
 ```
 
 <font color="red">
-说明：</ br>
-1. 该函数和语句 "$array[] = $var" 功能相同；</ br>
-2. 返回值为元素插入后，数组中元素的总个数；</ br>
+说明：<br/>
+1. 该函数和语句 "$array[] = $var" 功能相同；<br/>
+2. 返回值为元素插入后，数组中元素的总个数；<br/>
 </font>
 
 ### 示例：入栈操作
@@ -1340,7 +1340,7 @@ Array
 array array_replace ( array $array1 , array $array2 [, array $... ] )
 ```
 
-# 示例：使用一个数组作为替换数组
+### 示例：使用一个数组作为替换数组
 
 ```php
 $base = array("orange", "banana", "apple", "raspberry");
@@ -1416,6 +1416,7 @@ Array
 ## array_search 在数组中搜索给定的值，如果成功则返回相应的键名
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-search.php)。 
+
 ### 示例：在数组中搜索值
 
 ```php
@@ -1631,8 +1632,8 @@ number array_sum ( array $array )
 ```php
 $a = array(2, 4, 6, 8);
 echo "sum(a) = " . array_sum($a) . "\n"; //sum(a) = 20
-```php
 ```
+```php
 sum(a) = 20
 ```
 
@@ -1642,8 +1643,8 @@ sum(a) = 20
 ```php
 $b = array("a" => 1.2, "b" => 2.3, "c" => 3.4);
 echo "sum(b) = " . array_sum($b) . "\n"; //sum(b) = 6.9
-```php
 ```
+```php
 sum(b) = 6.9
 ```
 
