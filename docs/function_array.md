@@ -1019,5 +1019,75 @@ array (
 ```
 
 
+## array_pad 用值将数组填补到指定长度
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-pad.php)。
+
+```php
+array array_pad ( array $input , int $pad_size , mixed $pad_value )
+```
+
+### 示例：填充数组，在数组尾部进行填充
+
+```php
+$input = array(12, 10, 9); 
+$result1 = array_pad($input, 5, 0); 
+print_r($result1);
+```
+```php
+Array
+(
+    [0] => 12
+    [1] => 10
+    [2] => 9
+    [3] => 0
+    [4] => 0
+)
+```
+
+
+### 示例：填充数组，在数组头部进行填充
+
+```php
+$result2 = array_pad($input, -7, -1);
+print_r($result2);
+```
+```php
+Array
+(
+    [0] => -1
+    [1] => -1
+    [2] => -1
+    [3] => -1
+    [4] => 12
+    [5] => 10
+    [6] => 9
+)
+```
+
+
+### 示例：如果目标长度小于当前长度，则不进行填充
+
+```php
+$result3 = array_pad($input, 2, "noop");
+print_r($result3);
+```
+```php
+Array
+(
+    [0] => 12
+    [1] => 10
+    [2] => 9
+)
+```
+
+
+
+
+
+
+
+
+
 
 
