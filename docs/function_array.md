@@ -1618,6 +1618,81 @@ array (
 ```
 
 
+## array_sum 计算数组中所有值的和
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-sum.php)。
+
+```php
+number array_sum ( array $array )
+```
+
+### 示例：计算数组中所有值的和，整数求和
+
+```php
+$a = array(2, 4, 6, 8);
+echo "sum(a) = " . array_sum($a) . "\n"; //sum(a) = 20
+```php
+```
+sum(a) = 20
+```
+
+
+### 示例：计算数组中所有值的和，浮点数求和
+
+```php
+$b = array("a" => 1.2, "b" => 2.3, "c" => 3.4);
+echo "sum(b) = " . array_sum($b) . "\n"; //sum(b) = 6.9
+```php
+```
+sum(b) = 6.9
+```
+
+
+## array_udiff 用回调函数比较数据来计算数组的差集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-udiff.php)。
+
+```php
+array array_udiff ( array $array1 , array $array2 [, array $ ... ], callable $data_compare_func )
+```
+
+### 示例：两个数组的差集
+
+```php
+class cr {
+    private $priv_member;
+    function cr($val)
+    {   
+        $this->priv_member = $val;
+    }   
+
+    static function comp_func_cr($a, $b) 
+    {   
+        if ($a->priv_member === $b->priv_member) return 0;
+        return ($a->priv_member > $b->priv_member)? 1:-1;
+    }   
+}
+$a = array("0.1" => new cr(9), "0.5" => new cr(12), 0 => new cr(23), 1=> new cr(4), 2 => new cr(-15),);
+$b = array("0.2" => new cr(9), "0.5" => new cr(22), 0 => new cr(3), 1=> new cr(4), 2 => new cr(-15),);
+$result = array_udiff($a, $b, array("cr", "comp_func_cr"));
+print_r($result);
+```
+```php
+Array
+(
+    [0.5] => cr Object
+        (
+            [priv_member:cr:private] => 12
+        )
+
+    [0] => cr Object
+        (
+            [priv_member:cr:private] => 23
+        )
+)
+```
+
+
 
 
 
