@@ -21,6 +21,13 @@
 php-pecl-redis.x86_64              2.2.8-1.el7                         @epel  
 ```
 
+查看redis扩展是否安装成功。
+
+```
+$ php -m | grep redis
+redis
+```
+
 
 ## xml-rpc
 
