@@ -395,6 +395,18 @@ PCRE是Perl格式的正则表达式，是PHP语言官方推荐的正则匹配方
 
 ## [其它基本扩展](http://php.net/manual/zh/refs.basic.other.php)
 
+### JSON `4`
+
+参考：[官方](http://php.net/manual/zh/ref.json.php) & [木名](#docs/function_json)
+
+|函数                   |功能                                   |
+|-----------------------|---------------------------------------|
+|json_decode | 对 JSON 格式的字符串进行解码|
+|json_encode | 对变量进行 JSON 编码|
+|json_last_error_msg | Returns the error string of the last json_encode() or json_decode() call|
+|json_last_error | 返回最后发生的错误|
+
+
 ### URLs `10`
 
 参考：[官方](http://php.net/manual/zh/ref.url.php) & [木名](#docs/function_url)
