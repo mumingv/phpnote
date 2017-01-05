@@ -1082,7 +1082,128 @@ Array
 ```
 
 
+## array_pop 将数组最后一个单元弹出（出栈）
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-pop.php)。
+
+```php
+mixed array_pop ( array &$array )
+```
+
+### 示例：将元素弹出栈，返回值为弹出的元素
+
+```php
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_pop($stack);
+print_r($fruit);
+echo PHP_EOL;
+print_r($stack);
+```
+```php
+raspberry
+Array
+(
+    [0] => orange
+    [1] => banana
+    [2] => apple
+)
+```
+
+
+## array_product 计算数组中所有值的乘积
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-product.php)。
+
+```php
+number array_product ( array $array )
+```
+
+### 示例：计算数组所有元素的乘积
+
+```php
+$a = array(2, 4, 6, 8); 
+echo "product(a) = " . array_product($a) . "\n";
+```
+```php
+product(a) = 384
+```
+
+
+### 示例：对空数组计算乘积
+
+```php
+$a = array();
+echo "product(a) = " . array_product($a) . "\n";
+```
+```php
+product(a) = 1
+```
+
+
+## array_push 将一个或多个单元压入数组的末尾（入栈）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-push.php)。
+
+```php
+int array_push ( array &$array , mixed $var [, mixed $... ] )
+```
+
+<font color="red">
+说明：</ br>
+1. 该函数和语句 "$array[] = $var" 功能相同；</ br>
+2. 返回值为元素插入后，数组中元素的总个数；</ br>
+</font>
+
+### 示例：入栈操作
+```php
+$stack = array("orange", "banana");
+$number = array_push($stack, "apple", "raspberry");
+print_r($stack);
+print_r($number);
+```
+```php
+Array
+(
+    [0] => orange
+    [1] => banana
+    [2] => apple
+    [3] => raspberry
+)
+4
+```
+
+
+## array_rand 从数组中随机取出一个或多个单元
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-rand.php)。
+
+```php
+mixed array_rand ( array $input [, int $num_req = 1 ] )
+```
+
+### 示例：随机获取一个元素的键名，返回键名单个值 
+
+```php
+$input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+$rand_key = array_rand($input);
+print_r($rand_key);  // 4
+echo "\n";
+```
+
+
+### 示例：随机获取两个元素的键名，返回包含多个键名的数组
+
+```php
+$rand_keys = array_rand($input, 2);
+print_r($rand_keys);
+```
+```php
+Array
+(
+    [0] => 0
+    [1] => 2
+)
+```
 
 
 
