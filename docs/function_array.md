@@ -1206,8 +1206,69 @@ Array
 ```
 
 
+## array_reduce 用回调函数迭代地将数组简化为单一的值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-reduce.php)。
+
+```php
+mixed array_reduce ( array $input , callable $function [, mixed $initial = NULL ] )
+mixed callback ( mixed &$result , mixed $item )
+```
+
+### 示例：简化数组，计算数组中所有元素的和
+
+```php
+function rsum($v, $w)
+{
+    $v += $w;
+    return $v;
+}
+$a = array(1, 2, 3, 4, 5);
+$b = array_reduce($a, "rsum");
+print_r($b);
+echo "\n";
+```
+```php
+15
+```
 
 
+### 示例：简化数组，计算数组中所有元素的积
+
+<font color="red">说明：第三个参数为初始值。</font>
+
+```php
+function rmul($v, $w)
+{
+    $v *= $w;
+    return $v;
+}
+$a = array(1, 2, 3, 4, 5);
+$c = array_reduce($a, "rmul", 10);
+print_r($c);
+echo "\n";
+```
+```php
+1200
+```
+
+
+### 示例：简化空数组
+
+```php
+function rsum2($v, $w)
+{
+    $v += $w;
+    return $v;
+}
+$x = array();
+$d = array_reduce($x, "rsum2", "No data to reduce");
+print_r($d);
+echo "\n";
+```
+```php
+No data to reduce
+```
 
 
 
