@@ -607,7 +607,7 @@ Array
 ```
 
 
-# array_intersect_key 使用键名比较计算数组的交集
+## array_intersect_key 使用键名比较计算数组的交集
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-assoc.php)。
 
@@ -631,7 +631,7 @@ Array
 ```
 
 
-# array_intersect_uassoc 带索引检查计算数组的交集，用回调函数比较索引
+## array_intersect_uassoc 带索引检查计算数组的交集，用回调函数比较索引
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-assoc.php)。
 
@@ -654,7 +654,7 @@ Array
 ```
 
 
-# array_intersect_ukey 用回调函数比较键名来计算数组的交集
+## array_intersect_ukey 用回调函数比较键名来计算数组的交集
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect-ukey.php)。
 
@@ -687,7 +687,7 @@ Array
 ```
 
 
-# array_intersect 计算数组的交集
+## array_intersect 计算数组的交集
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-intersect.php)。
 
@@ -727,6 +727,56 @@ Array
     [a] => green
 )
 ```
+
+
+## array_key_exists 检查给定的键名或索引是否存在于数组中
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-key-exists.php)。
+
+```php
+bool array_key_exists ( mixed $key , array $search )
+```
+
+### 示例：检查key是否在数组当中
+
+```php
+$search_array = array('first' => 1, 'second' => 4);
+if (array_key_exists('first', $search_array)) {
+        echo "The 'first' element is in the array\n";
+}
+```
+```php
+The 'first' element is in the array
+```
+
+
+### 示例：isset() 对于数组中为 NULL 的值不会返回 TRUE，而 array_key_exists() 会返回TRUE
+
+```php
+$search_array = array('first' => null, 'second' => 4);
+if (isset($search_array['first'])) {
+    echo "isset: The 'first' element is in the array\n";
+} else {
+    echo "isset: The 'first' element is not in the array\n";  // 打印该行
+}
+
+if (array_key_exists('first', $search_array)) {
+    echo "array_key_exists: The 'first' element is in the array\n";  // 打印该行
+} else {
+    echo "array_key_exists: The 'first' element is not in the array\n";
+}
+```
+```php
+isset: The 'first' element is not in the array
+array_key_exists: The 'first' element is in the array
+```
+
+
+
+
+
+
+
 
 
 

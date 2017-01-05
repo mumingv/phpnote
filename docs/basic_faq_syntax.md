@@ -236,7 +236,7 @@ dir/float.c's Lines: 14
 默认情况下是传递引用。参考：[PHP手册](http://www.php.net/manual/zh/language.oop5.references.php)。
 
 
-
+## PHP有哪些打印函数，它们之间的区别是什么？
 
 
 
