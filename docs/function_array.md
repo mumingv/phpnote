@@ -1413,8 +1413,209 @@ Array
 ```
 
 
+## array_search 在数组中搜索给定的值，如果成功则返回相应的键名
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-search.php)。 
+### 示例：在数组中搜索值
+
+```php
+$array = array(0 => 'blue', 1 => 'red', 2 => 'green', 3 => 'red');
+$key = array_search('green', $array); // $key = 2;
+echo($key."\n");
+$key = array_search('red', $array);   // $key = 1;
+echo($key."\n");
+```
 
 
+## array_shift 将数组开头的单元移出数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-shift.php)。
+
+```php
+mixed array_shift ( array &$array )
+```
+
+### 示例：移除开头的单元，数组的key值会自动调整
+
+```php
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_shift($stack);
+var_export($stack);
+echo PHP_EOL;
+```
+```php
+array (
+  0 => 'banana',
+  1 => 'apple',
+  2 => 'raspberry',
+)
+```
+
+
+## array_slice 从数组中取出一段
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-slice.php)。
+
+```php
+array array_slice ( array $array , int $offset [, int $length = NULL [, bool $preserve_keys = false ]] )
+```
+
+### 示例：截取数组第2个元素一直到最后一个元素
+
+```php
+$input = array("a", "b", "c", "d", "e");
+$output = array_slice($input, 2);      // returns "c", "d", and "e"
+var_export($output);
+```
+```php
+array (
+    0 => 'c',
+    1 => 'd',
+    2 => 'e',
+)
+```
+
+
+### 示例：截取数组倒数第二个元素
+
+```php
+$input = array("a", "b", "c", "d", "e");
+$output = array_slice($input, -2, 1);  // returns "d"
+var_export($output);
+```
+```php
+array (
+    0 => 'd',
+)
+```
+
+
+### 示例：获取数组的前三个元素
+
+```php
+$input = array("a", "b", "c", "d", "e");
+$output = array_slice($input, 0, 3);   // returns "a", "b", and "c"
+var_export($output);
+```
+```php
+array (
+    0 => 'a',
+    1 => 'b',
+    2 => 'c',
+)
+```
+
+
+# 示例：获取数组元素的同时，保留原key值
+
+```php
+$input = array("a", "b", "c", "d", "e");
+print_r(array_slice($input, 2, -1, true));
+```
+```php
+Array
+(
+    [2] => c
+    [3] => d
+)
+```
+
+
+## array_splice 把数组中的一部分去掉并用其它值取代
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-splice.php)。
+
+```php
+array array_splice ( array &$input , int $offset [, int $length = 0 [, mixed $replacement ]] )
+```
+
+<font color="red">
+关于参数$length：</ br>
+1. 如果省略 length，则移除数组中从 offset 到结尾的所有部分；
+2. 如果指定了 length 并且为正值，则移除这么多单元；
+3. 如果指定了 length 并且为负值，则移除从 offset 到数组末尾倒数 length 为止中间所有的单元；
+4. 当给出了 replacement 时要移除从 offset 到数组末尾所有单元时，用 count($input) 作为 length； 
+</font>
+
+### 示例：删除数组中第二个及之后的元素
+
+```php
+$input = array("red", "green", "blue", "yellow");
+array_splice($input, 2);
+var_export($input);
+```
+```php
+array (
+    0 => 'red',
+    1 => 'green',
+)
+```
+
+
+### 示例：删除数组中除了首尾之外的所有元素
+
+```php
+$input = array("red", "green", "blue", "yellow");
+array_splice($input, 1, -1);
+var_export($input);
+```php
+```
+array (
+    0 => 'red',
+    1 => 'yellow',
+)
+```
+
+
+### 示例：替换元素（多个元素替换成一个）
+
+```php
+$input = array("red", "green", "blue", "yellow");
+array_splice($input, 1, count($input), "orange");
+var_export($input);
+```
+```php
+array (
+    0 => 'red',
+    1 => 'orange',
+)
+```
+
+
+### 示例：替换元素（一个元素替换成多个）
+
+```php
+$input = array("red", "green", "blue", "yellow");
+array_splice($input, -1, 1, array("black", "maroon"));
+var_export($input);
+```
+```php
+array (
+    0 => 'red',
+    1 => 'green',
+    2 => 'blue',
+    3 => 'black',
+    4 => 'maroon',
+)
+```
+
+
+### 插入元素
+
+```php
+$input = array("red", "green", "blue", "yellow");
+array_splice($input, 3, 0, "purple");
+var_export($input);
+```
+```php
+array (
+    0 => 'red',
+    1 => 'green',
+    2 => 'blue',
+    3 => 'purple',
+    4 => 'yellow',
+)
+```
 
 
 
