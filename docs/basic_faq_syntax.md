@@ -236,7 +236,17 @@ dir/float.c's Lines: 14
 默认情况下是传递引用。参考：[PHP手册](http://www.php.net/manual/zh/language.oop5.references.php)。
 
 
+## PEAR和PECL有什么区别？
+
+PEAR 是“PHP Extension and Application Repository”的缩写，即PHP扩展和应用仓库。
+
+PECL 是“PHP Extension Community Library”的缩写，即PHP扩展库。
+
+两者的区别：PEAR是PHP的上层扩展，使用PHP语言编写；PECL是PHP的底层扩展，使用C语言编写。
+
+
 ## PHP有哪些打印函数，它们之间的区别是什么？
+
 
 
 
