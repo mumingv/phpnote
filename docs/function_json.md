@@ -8,6 +8,8 @@
 mixed json_decode ( string $json [, bool $assoc = false [, int $depth = 512 [, int $options = 0 ]]] )
 ```
 
+<font color="red">说明：本函数只能接受UTF-8编码的数据。</font>
+
 ### 示例：常用用法，将JSON字符串转换成一个PHP数组
 
 ```php
@@ -132,5 +134,19 @@ Last error: JSON_ERROR_NONE
 NULL
 Last error: JSON_ERROR_DEPTH
 ```
+
+
+## json_encode 对变量进行 JSON 编码
+
+
+
+
+
+
+
+
+
+
+
 
 
