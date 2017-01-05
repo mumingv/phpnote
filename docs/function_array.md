@@ -949,7 +949,74 @@ Array
 ```
 
 
+## array_multisort 对多个数组或多维数组进行排序
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-multisort.php)。
+
+```php
+bool array_multisort ( array &$arr [, mixed $arg = SORT_ASC [, mixed $arg = SORT_REGULAR [, mixed $... ]]] )
+```
+
+### 示例：对多个数组进行排序
+
+```php
+$ar1 = array(10, 100, 100, 0);
+$ar2 = array(1, 3, 2, 4);
+array_multisort($ar1, $ar2);
+var_export($ar1);
+```
+```php
+array (
+    0 => 0,
+    1 => 10,
+    2 => 100,
+    3 => 100,
+)
+```
+```php
+var_export($ar2);
+```
+```php
+array (
+    0 => 4,
+    1 => 1,
+    2 => 2,
+    3 => 3,
+)
+```
+
+
+### 示例：对多维数组按行进行排序
+
+```php
+$ar = array(
+    array("10", 11, 100, 100, "a"),
+    array(   1,  2, "2",   3,   1)
+);
+array_multisort($ar[0], SORT_ASC, SORT_STRING,
+    $ar[1], SORT_DESC, SORT_NUMERIC);
+var_export($ar);
+```
+```php
+array (
+    0 => 
+    array (
+        0 => '10',
+        1 => 100,
+        2 => 100,
+        3 => 11,
+        4 => 'a',
+    ),
+    1 => 
+    array (
+        0 => 1,
+        1 => 3,
+        2 => '2',
+        3 => 2,
+        4 => 1,
+    ),
+)
+```
 
 
 
