@@ -827,11 +827,126 @@ Array
 ```
 
 
+## array_map 为数组的每个元素应用回调函数
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-map.php)。
+
+```php
+array array_map ( callable $callback , array $array1 [, array $... ] )
+```
+
+### 示例：一个数组参数
+
+```php
+function cube($n)
+{
+    return($n * $n * $n);
+}
+$a = array(1, 2, 3, 4, 5); 
+$b = array_map("cube", $a);
+print_r($b);
+```
+```php
+Array
+(
+    [0] => 1
+    [1] => 8
+    [2] => 27
+    [3] => 64
+    [4] => 125
+)
+```
 
 
+### 示例：两个数组参数
+
+```php
+function add($m, $n)
+{
+    return($m + $n);
+}
+$a = array(1, 2, 3, 4, 5);
+$b = array(1, 2, 3, 4, 5);
+$c = array_map("add", $a, $b);
+print_r($c);
+```
+```php
+Array
+(
+    [0] => 2
+    [1] => 4
+    [2] => 6 
+    [3] => 8
+    [4] => 10
+)
+```
 
 
+## array_merge_recursive 递归地合并一个或多个数组
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-merge-recursive.php)。
+
+### 示例：递归合并数组
+
+```php
+$ar1 = array("color" => array("favorite" => "red"), 5);
+$ar2 = array(10, "color" => array("favorite" => "green", "blue"));
+$result = array_merge_recursive($ar1, $ar2);
+print_r($result);
+```
+```php
+Array
+(
+    [color] => Array
+        (
+            [favorite] => Array
+                (
+                    [0] => red
+                    [1] => green
+                )
+
+            [0] => blue
+        )
+
+    [0] => 5
+    [1] => 10
+)
+```
+
+
+## array_merge 合并一个或多个数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-merge.php)。
+
+```php
+array array_merge ( array $array1 [, array $... ] )
+```
+
+<font color="red">说明：
+1. 如果两个字符串key值相同，则后面的直接丢弃，不会覆盖前面的；
+2. 如果两个数字key值相同，则不会丢弃，所有的数字key值均会重新编号；
+</font>
+
+### 示例：合并数组
+
+```php
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
+print_r($result);
+```
+```php
+Array
+(
+    [color] => green
+    [0] => 2
+    [1] => 4
+    [2] => a
+    [3] => b
+    [shape] => trapezoid
+    [4] => 4
+)
+```
 
 
 
