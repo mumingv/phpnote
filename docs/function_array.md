@@ -1271,5 +1271,97 @@ No data to reduce
 ```
 
 
+## array_replace_recursive 使用传递的数组递归替换第一个数组的元素
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-replace-recursive.php)。
+
+```php
+array array_replace_recursive ( array $array1 , array $array2 [, array $... ] )
+```
+
+### 示例：使用一个数组作为替换数组
+
+```php
+$base = array('citrus' => array( "orange") , 'berries' => array("blackberry", "raspberry"), );
+$replacements = array('citrus' => array('pineapple'), 'berries' => array('blueberry'));
+$basket = array_replace_recursive($base, $replacements);
+print_r($basket);
+```
+```php
+Array
+(
+    [citrus] => Array
+        (
+            [0] => pineapple
+        )
+
+    [berries] => Array
+        (
+            [0] => blueberry
+            [1] => raspberry
+        )
+)
+```
+
+
+### 示例：使用两个数组作为替换数组
+
+```php
+$base = array('citrus' => array("orange") , 'berries' => array("blackberry", "raspberry"), 'others' => 'banana' );
+$replacements = array('citrus' => 'pineapple', 'berries' => array('blueberry'), 'others' => array('litchis'));
+$replacements2 = array('citrus' => array('pineapple'), 'berries' => array('blueberry'), 'others' => 'litchis');
+$basket = array_replace_recursive($base, $replacements, $replacements2);
+print_r($basket);
+```
+```php
+Array
+(
+    [citrus] => Array
+        (
+            [0] => pineapple
+        )
+
+    [berries] => Array
+        (
+            [0] => blueberry
+            [1] => raspberry
+        )
+
+    [others] => litchis
+)
+```
+
+
+## array_replace 使用传递的数组替换第一个数组的元素
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-replace.php)。
+
+```php
+array array_replace ( array $array1 , array $array2 [, array $... ] )
+```
+
+# 示例：使用一个数组作为替换数组
+
+```php
+$base = array("orange", "banana", "apple", "raspberry");
+$replacements = array(0 => "pineapple", 4 => "cherry");
+$replacements2 = array(0 => "grape");
+$basket = array_replace($base, $replacements, $replacements2);
+print_r($basket);
+```
+```php
+Array
+(
+    [0] => grape
+    [1] => banana
+    [2] => apple
+    [3] => raspberry
+    [4] => cherry
+)
+```
+
+
+
+
 
 
