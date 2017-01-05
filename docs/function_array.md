@@ -772,6 +772,64 @@ array_key_exists: The 'first' element is in the array
 ```
 
 
+## array_keys 返回数组中部分的或所有的键名
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-keys.php)。
+
+```php
+array array_keys ( array $array [, mixed $search_value [, bool $strict = false ]] )
+```
+
+### 示例：返回所有键名
+
+```php
+$array = array(0 => 100, "color" => "red");
+print_r(array_keys($array));
+```
+```php
+Array
+(
+    [0] => 0
+    [1] => color
+)
+```
+
+
+### 示例：返回指定的值对应的键名
+
+```php
+$array = array("blue", "red", "green", "blue", "blue");
+print_r(array_keys($array, "blue"));
+```
+```php
+Array
+(
+    [0] => 0
+    [1] => 3
+    [2] => 4
+)
+```
+
+
+### 示例：返回指定的值对应的键名，使用严格的比较
+
+```php
+$array = array("blue", "red", "green", "blue", "blue");
+print_r(array_keys($array, "blue", true));
+```
+```php
+Array
+(
+    [0] => 0
+    [1] => 3
+    [2] => 4
+)
+```
+
+
+
+
+
 
 
 
