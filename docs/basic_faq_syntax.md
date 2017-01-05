@@ -4,6 +4,11 @@
 
 ### Yum安装
 
+各配置文件/目录如下：
+
+|名称                   |路径                   |
+|-----------------------|-----------------------|
+|扩展目录               |/usr/lib64/php/modules |
 
 ### 手动安装
 
@@ -14,6 +19,7 @@
 
 ```php
 # yum install php-mbstring  // mbstring，多字节字符串
+# yum install php-redis  // redis，redis扩展
 ```
 
 
