@@ -1361,6 +1361,68 @@ Array
 ```
 
 
+## array_reverse 返回一个单元顺序相反的数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-reverse.php)。
+
+```php
+array array_reverse ( array $array [, bool $preserve_keys = false ] )
+```
+
+### 示例：颠倒数组，key值重新编号
+
+```php
+$input  = array("php", 4.0, array("green", "red"));
+$result = array_reverse($input);
+print_r($result);
+```
+```php
+Array
+(
+    [0] => Array
+    (
+        [0] => green
+        [1] => red
+    )
+
+    [1] => 4
+    [2] => php
+)
+```
+
+
+### 示例：颠倒数组，key值保留
+
+```php
+$input  = array("php", 4.0, array("green", "red"));
+$result_keyed = array_reverse($input, true);
+print_r($result);
+```
+```php
+Array
+(
+    [2] => Array
+    (
+        [0] => green
+        [1] => red
+    )
+
+    [1] => 4
+    [0] => php
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
