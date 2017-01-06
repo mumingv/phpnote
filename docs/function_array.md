@@ -2018,6 +2018,183 @@ c. fruit: apple
 ```
 
 
+## array 新建一个数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array.php)。
+
+```php
+array array ([ mixed $... ] )
+```
+
+### 示例：创建一个数组
+
+```php
+$fruits = array (
+    "fruits"  => array("a" => "orange", "b" => "banana", "c" => "apple"),
+    "numbers" => array(1, 2, 3, 4, 5, 6),
+    "holes"   => array("first", 5 => "second", "third")
+);
+print_r($fruits);
+```
+```php
+Array
+(
+    [fruits] => Array
+        (
+            [a] => orange
+            [b] => banana
+            [c] => apple
+        )
+
+    [numbers] => Array
+        (
+            [0] => 1
+            [1] => 2
+            [2] => 3
+            [3] => 4
+            [4] => 5
+            [5] => 6
+        )
+
+    [holes] => Array
+        (
+            [0] => first
+            [5] => second
+            [6] => third
+        )
+)
+```
+
+
+### 示例：访问双引号内的数组
+
+<font color="red">说明：双引号内使用数组，需要使用大括号括起来。</font>
+
+```php
+$foo = array('bar' => 'baz');
+echo "Hello {$foo['bar']}!"; // Hello baz!
+```
+```php
+Hello baz!
+```
+
+
+## arsort 对数组进行逆向排序并保持索引关系
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.arsort.php)。
+
+```php
+bool arsort ( array &$array [, int $sort_flags = SORT_REGULAR ] )
+```
+
+### 示例：数组逆向排序
+
+```php
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+arsort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+```
+```php
+a = orange
+d = lemon
+b = banana
+c = apple
+```
+
+
+## asort 对数组进行排序并保持索引关系
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.asort.php)。
+
+```php
+bool asort ( array &$array [, int $sort_flags = SORT_REGULAR ] )
+```
+
+### 示例：数组排序
+
+```php
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+asort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+```
+```php
+c = apple
+b = banana
+d = lemon
+a = orange
+```
+
+
+## compact 建立一个数组，包括变量名和它们的值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.compact.php)。
+
+```php
+array compact ( mixed $varname [, mixed $... ] )
+```
+
+### 示例：根据变量创建数组
+
+```php
+$country = 'China';
+$city  = "Beijing";
+$company = 'Baidu';
+
+$location = array('country', 'city');
+$array = compact($location, 'company');
+print_r($array);
+```
+```php
+Array
+(
+    [country] => China
+    [city] => Beijing
+    [company] => Baidu
+)
+```
+
+
+## count 计算数组中的单元数目或对象中的属性个数
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.count.php)。
+
+```php
+int count ( mixed $var [, int $mode = COUNT_NORMAL ] )
+```
+
+### 示例：获取数组中的单元数目
+
+```php
+$a[0] = 1;
+$a[1] = 3;
+$a[2] = 5;
+$result = count($a);
+print_r($result);  // 3
+
+$result = count(null);
+print_r($result);  // 0
+
+$result = count(false);
+print_r($result);  // 1
+```
+
+
+### 示例：获取数组中的单元数目(递归)
+
+```php
+$food = array('fruits' => array('orange', 'banana', 'apple'),
+              'veggie' => array('carrot', 'collard', 'pea'));
+echo count($food, COUNT_RECURSIVE);  // 8
+echo count($food);  // 2
+```
+
+
+
+
 
 
 
