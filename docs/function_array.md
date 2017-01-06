@@ -2905,3 +2905,56 @@ foreach ($a as $key => $value) {
 ```
 
 
+## 总结
+
+### 数组排序()
+
+|函数名称           |含义                                   |
+|-------------------|---------------------------------------|
+|sort               |根据value排序，从小到大排列。原key丢弃。|
+|rsort              |根据value排序，从大到小排列。原key丢弃。|
+|usort              |根据value排序，排列顺序由用户自定义函数指定。原key丢弃。|
+|ksort              |根据key排序，从小到大排列。原key保留。|
+|krsort             |根据key排序，从大到小排列。原key保留。|
+|uksort             |根据key排序，排列顺序由用户自定义函数指定。原key保留。|
+|asort              |根据value排序，从小到大排列。原key保留。|
+|arsort             |根据value排序，从大到小排列。原key保留。|
+|uasort             |根据value排序，排列顺序由用户自定义函数指定。原key保留。|
+|natsort            ||
+|natcasesort        ||
+|array_multisort    ||
+
+
+### 数组差集(8)
+
+|函数名称           |含义                                   |
+|-------------------|---------------------------------------|
+|array_diff         |只比较value，使用内置比较函数|
+|array_udiff        |只比较value，使用用户自定义比较函数|
+|array_diff_key     |只比较key，使用内置比较函数|
+|array_diff_ukey    |只比较key，使用用户自定义比较函数|
+|array_diff_assoc   |比较key和value，value和key都使用内置比较函数|
+|array_diff_uassoc  |比较key和value，value使用内置比较函数，key使用用户自定义比较函数|
+|array_udiff_assoc  |比较key和value，value使用用户自定义比较函数，key使用内置比较函数|
+|array_udiff_uassoc |比较key和value，value使用用户自定义比较函数，key使用用户自定义比较函数|
+
+
+### 数组交集(8)
+
+|函数名称                |含义                                   |
+|------------------------|---------------------------------------|
+|array_intersect         |只比较value，使用内置比较函数|
+|array_uintersect        |只比较value，使用用户自定义比较函数|
+|array_intersect_key     |只比较key，使用内置比较函数|
+|array_intersect_ukey    |只比较key，使用用户自定义比较函数|
+|array_intersect_assoc   |比较key和value，value和key都使用内置比较函数|
+|array_intersect_uassoc  |比较key和value，value使用内置比较函数，key使用用户自定义比较函数|
+|array_uintersect_assoc  |比较key和value，value使用用户自定义比较函数，key使用内置比较函数|
+|array_uintersect_uassoc |比较key和value，value使用用户自定义比较函数，key使用用户自定义比较函数|
+
+
+
+
+
+
+
