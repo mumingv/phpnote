@@ -2561,7 +2561,71 @@ Array
 ```
 
 
+## natsort “自然排序”算法对数组排序
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.natsort.php)。
+
+```php
+bool natsort ( array &$array )
+```
+
+### 示例：“普通排序”和“自然排序”的对比
+
+```php
+$array1 = $array2 = array("img12.png", "img10.png", "img2.png", "img1.png");
+
+asort($array1);
+echo "Standard sorting\n";
+print_r($array1);
+
+natsort($array2);
+echo "\nNatural order sorting\n";
+print_r($array2);
+```
+```php
+Standard sorting
+Array
+(
+    [3] => img1.png
+    [1] => img10.png
+    [0] => img12.png
+    [2] => img2.png
+)
+
+Natural order sorting
+Array
+(
+    [3] => img1.png
+    [2] => img2.png
+    [1] => img10.png
+    [0] => img12.png
+) 
+```
+
+
+## next 将数组中的内部指针向前移动一位
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.next.php)。
+
+```php
+mixed next ( array &$array )
+```
+
+### 示例：参考 array_current.php
+
+```php
+$transport = array('foot', 'bike', 'car', 'plane');
+echo current($transport)."\n";  // foot
+echo next($transport)."\n";     // bike
+echo next($transport)."\n";     // car
+echo prev($transport)."\n";     // bike
+echo end($transport)."\n";      // plane
+```
+
+
+## pos 返回数组中的当前单元
+
+说明：该函数是current的别名。
 
 
 
