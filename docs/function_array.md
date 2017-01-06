@@ -2193,8 +2193,325 @@ echo count($food);  // 2
 ```
 
 
+## current 返回数组中的当前单元
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.current.php)。
+
+```php
+mixed current ( array &$array )
+```
+
+<font color="red">
+说明：<br/>
+1. 该函数返回FALSE或者是等同于FALSE的数值，比较需要使用全等号"==="；<br/>
+2. 该函数不改变数组内部指针的值；<br/>
+</font>
+
+### 示例：
+
+```php
+$transport = array('foot', 'bike', 'car', 'plane');
+$mode = current($transport);
+echo $mode . PHP_EOL; //foot
+
+$mode = next($transport);
+echo $mode . PHP_EOL; //bike
+
+$mode = current($transport);
+echo $mode . PHP_EOL; //bike
+
+$mode = prev($transport);
+echo $mode . PHP_EOL; //foot
+
+$mode = end($transport);
+echo $mode . PHP_EOL; //plane
+
+$mode = current($transport);
+echo $mode . PHP_EOL; //plane
+
+$mode = reset($transport);
+echo $mode . PHP_EOL; //foot
+
+$arr = array();
+var_dump(current($arr)); // bool(false)
+
+$arr = array(array());
+var_dump(current($arr)); // array(0) { } 
+```
 
 
+## each 返回数组中当前的键／值对并将数组指针向前移动一步
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.each.php)。
+
+```php
+mixed each ( array &$array )
+```
+
+### 示例：使用each
+
+```php
+$transport = array('foot', 'bike', 'car', 'plane');
+$return = each($transport);
+print_r($return);
+$return = each($transport);
+print_r($return);
+```
+```php
+Array
+(
+    [1] => foot
+    [value] => foot
+    [0] => 0
+    [key] => 0
+)
+Array
+(
+    [1] => bike
+    [value] => bike
+    [0] => 1
+    [key] => 1
+)
+```
+
+
+### 示例：遍历数组(使用list和each)
+
+```php
+$fruit = array('a' => 'apple', 'b' => 'banana', 'c' => 'cranberry');
+reset($fruit);
+while (list($key, $val) = each($fruit)) {
+    echo "$key => $val\n";
+}
+```
+```php
+a => apple
+b => banana
+c => cranberry
+```
+
+
+## end 将数组的内部指针指向最后一个单元
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.end.php)。
+
+```php
+mixed end ( array &$array )
+```
+
+### 示例：
+
+```php
+$fruits = array('apple', 'banana', 'cranberry');
+echo end($fruits);  // cranberry
+```
+
+
+## extract 从数组中将变量导入到当前的符号表
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.extract.php)。
+
+```php
+int extract ( array &$var_array [, int $extract_type = EXTR_OVERWRITE [, string $prefix = NULL ]] )
+```
+
+### 示例：从数组中导入变量
+
+```php
+$size = "large";
+$var_array = array("color" => "blue",
+                   "size"  => "medium",
+                   "shape" => "sphere");
+extract($var_array, EXTR_PREFIX_SAME, "wddx");
+echo "$color, $size, $shape, $wddx_size\n";
+```
+```php
+blue, large, sphere, medium
+```
+
+
+## in_array 检查数组中是否存在某个值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.in-array.php)。
+
+```php
+bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )
+```
+
+### 示例：字符串是区分大小写的
+
+```php
+$os = array("Mac", "NT", "Irix", "Linux");
+if (in_array("mac", $os)) {
+    echo "Got mac";
+} else {
+    echo "Can't got mac" . PHP_EOL; //Can't got mac
+}
+```
+
+### 示例：数值型数据
+
+```php
+if (in_array(1, array(0, 1))) {
+    echo "1 is in array(0, 1)", PHP_EOL;
+} else {
+    echo "1 is not in array(0, 1)", PHP_EOL;
+}
+```
+```php
+1 is in array(0, 1)
+```
+
+
+## key_exists 检查给定的键名或索引是否存在于数组中
+
+说明：该函数是array_key_exists的别名。
+
+
+## key 从关联数组中取得键名
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.key.php)。
+
+```php
+mixed key ( array &$array )
+```
+
+<font color="red">
+说明：<br/>
+1. key和current都不会移动数组指针；<br/>
+2. key返回当前数组指针的key，current返回当前数组指针的value；<br/>
+</font>
+
+### 示例：从关联数组中获取键名
+
+```php
+$array = array(
+    'fruit1' => 'apple',
+    'fruit2' => 'orange',
+    'fruit3' => 'grape',
+    'fruit4' => 'apple',
+    'fruit5' => 'apple',
+);
+while ($fruit_name = current($array)) {
+    if ($fruit_name == 'apple') {
+        echo key($array)."\n";
+    }
+    next($array);
+}
+```
+```php
+fruit1
+fruit4
+fruit5
+```
+
+
+## krsort 对数组按照键名逆向排序
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.krsort.php)。
+
+```php
+bool krsort ( array &$array [, int $sort_flags = SORT_REGULAR ] )
+```
+
+### 示例：数组按照键名逆向排序
+
+```php
+$fruits = array("d"=>"lemon", "a"=>"orange", "b"=>"banana", "c"=>"apple");
+krsort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+```
+```php
+d = lemon
+c = apple
+b = banana
+a = orange
+```
+
+
+## ksort 对数组按照键名排序
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.ksort.php)。
+
+```php
+bool ksort ( array &$array [, int $sort_flags = SORT_REGULAR ] )
+```
+
+### 示例：数组按照键名排序
+
+```php
+$fruits = array("d" => "lemon", "c" => "orange", "b" => "banana", "a" => "apple");
+ksort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+```
+```php
+fruits[a] = apple
+fruits[b] = banana
+fruits[c] = orange
+fruits[d] = lemon
+```
+
+
+## list 把数组中的值赋给一些变量
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.list.php)。
+
+```php
+array list ( mixed $varname [, mixed $... ] )
+```
+
+### 示例：一般用法
+
+```php
+$info = array('coffee', 'brown', 'caffeine');
+
+// 列出所有变量
+list($drink, $color, $power) = $info;
+echo "$drink is $color and $power makes it special.\n"; //coffee is brown and caffeine makes it special.
+
+// 列出部分变量
+list($drink, , $power) = $info;
+echo "$drink has $power.\n"; //coffee has caffeine.
+
+// 列出部分变量
+list( , , $power) = $info;
+echo "I need $power!\n"; //I need caffeine!
+
+// list()不能对字符串起作用
+list($bar) = "abcde";
+var_dump($bar); // NULL
+```
+
+
+### 示例：嵌套list
+
+```php
+list($a, list($b, $c)) = array(1, array(2, 3));
+var_dump($a, $b, $c); //int(1) int(2) int(3)
+```
+
+
+### 示例：返回值
+
+```php
+$arr = list($a, list($b, $c)) = array(1, array(2, 3));
+var_export($arr);
+echo PHP_EOL;
+```
+```php
+array (
+  0 => 1,
+  1 => 
+  array (
+      0 => 2,
+      1 => 3,
+  ),
+)
+```
 
 
 
