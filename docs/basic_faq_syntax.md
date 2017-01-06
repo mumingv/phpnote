@@ -262,17 +262,18 @@ PECL 是“PHP Extension Community Library”的缩写，即PHP扩展库。
 ## PHP有哪些打印函数，它们之间的区别是什么？
 
 
+## 计算数组差集的array_diff函数及其各变种函数之间的区别是什么？
 
-
-
-
-
-
-
-
-
-
-
+|函数名称           |含义                                   |
+|-------------------|---------------------------------------|
+|array_diff         |只比较value，使用内置比较函数|
+|array_udiff        |只比较value，使用用户自定义比较函数|
+|array_diff_key     |只比较key，使用内置比较函数|
+|array_diff_ukey    |只比较key，使用用户自定义比较函数|
+|array_diff_assoc   |比较key和value，value和key都使用内置比较函数|
+|array_diff_uassoc  |比较key和value，value使用内置比较函数，key使用用户自定义比较函数|
+|array_udiff_assoc  |比较key和value，value使用用户自定义比较函数，key使用内置比较函数|
+|array_udiff_uassoc |比较key和value，value使用用户自定义比较函数，key使用用户自定义比较函数|
 
 
 
