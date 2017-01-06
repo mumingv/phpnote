@@ -1804,6 +1804,81 @@ Array
 ```
 
 
+## array_uintersect_assoc 带索引检查计算数组的交集，用回调函数比较数据
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-uintersect-assoc.php)。
+
+```php
+array array_uintersect_assoc ( array $array1 , array $array2 [, array $ ... ], callable $data_compare_func )
+```
+
+### 示例：计算数组的交集
+
+<font color="red">说明：函数strcasecmp是不区分大小写比较字符串。</font>
+
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "GREEN", "B" => "brown", "yellow", "red");
+print_r(array_uintersect_assoc($array1, $array2, "strcasecmp"));
+```
+```php
+Array
+(
+    [a] => green
+)
+```
+
+
+## array_uintersect_uassoc 带索引检查计算数组的交集，用回调函数比较数据和索引
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-uintersect-uassoc.php)。
+
+```php
+array array_uintersect_uassoc ( array $array1 , array $array2 [, array $ ... ], callable $data_compare_func , callable $key_compare_func )
+```
+
+### 示例：计算数组的交集
+
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "GREEN", "B" => "brown", "yellow", "red");
+print_r(array_uintersect_uassoc($array1, $array2, "strcasecmp", "strcasecmp"));
+```
+```php
+Array
+(
+    [a] => green
+    [b] => brown
+)
+```
+
+
+## array_uintersect 计算数组的交集，用回调函数比较数据
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-uintersect.php)。
+
+```php
+array array_uintersect ( array $array1 , array $array2 [, array $ ... ], callable $data_compare_func )
+```
+
+### 示例：计算数组的交集
+
+```php
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "GREEN", "B" => "brown", "yellow", "red");
+print_r(array_uintersect($array1, $array2, "strcasecmp"));
+```
+```php
+Array
+(
+    [a] => green
+    [b] => brown
+    [0] => red
+)
+```
+
+
+
 
 
 
