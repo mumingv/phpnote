@@ -1531,11 +1531,11 @@ array array_splice ( array &$input , int $offset [, int $length = 0 [, mixed $re
 ```
 
 <font color="red">
-关于参数$length：</ br>
-1. 如果省略 length，则移除数组中从 offset 到结尾的所有部分；
-2. 如果指定了 length 并且为正值，则移除这么多单元；
-3. 如果指定了 length 并且为负值，则移除从 offset 到数组末尾倒数 length 为止中间所有的单元；
-4. 当给出了 replacement 时要移除从 offset 到数组末尾所有单元时，用 count($input) 作为 length； 
+关于参数length：<br/>
+1. 如果省略 length，则移除数组中从 offset 到结尾的所有部分；<br/>
+2. 如果指定了 length 并且为正值，则移除这么多单元；<br/>
+3. 如果指定了 length 并且为负值，则移除从 offset 到数组末尾倒数 length 为止中间所有的单元；<br/>
+4. 当给出了 replacement 时要移除从 offset 到数组末尾所有单元时，用 count($input) 作为 length；<br/> 
 </font>
 
 ### 示例：删除数组中第二个及之后的元素
@@ -1875,6 +1875,146 @@ Array
     [b] => brown
     [0] => red
 )
+```
+
+
+## array_unique 移除数组中重复的值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-unique.php)。
+
+```php
+array array_unique ( array $array [, int $sort_flags = SORT_STRING ] )
+```
+
+### 示例：移除数组中重复的值
+
+```php
+$input = array("a" => "green", "red", "b" => "green", "blue", "red");
+$result = array_unique($input);
+print_r($result);
+```
+```php
+Array
+(
+    [a] => green
+    [0] => red
+    [1] => blue
+)
+```
+
+
+## array_unshift 在数组开头插入一个或多个单元
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-unshift.php)。
+
+```php
+int array_unshift ( array &$array , mixed $var [, mixed $... ] )
+```
+
+### 示例：在数组开头插入两个元素
+
+```php
+$queue = array("orange", "banana");
+array_unshift($queue, "apple", "raspberry");
+print_r($queue);
+```
+```php
+Array
+(
+    [0] => apple
+    [1] => raspberry
+    [2] => orange
+    [3] => banana
+) 
+```
+
+
+## array_values 返回数组中所有的值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-values.php)。
+
+```php
+array array_values ( array $input )
+```
+
+### 示例：获取数组中所有的值
+
+```php
+$array = array("size" => "XL", "color" => "gold");
+print_r(array_values($array));
+```
+```php
+Array
+(
+    [0] => XL
+    [1] => gold
+)
+```
+
+
+## array_walk_recursive 对数组中的每个成员递归地应用用户函数
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-walk-recursive.php)。
+
+```php
+bool array_walk_recursive ( array &$input , callable $funcname [, mixed $userdata = NULL ] )
+```
+
+### 例：针对数组中的每个成员作用用户自定义函数
+
+```php
+$sweet = array('a' => 'apple', 'b' => 'banana');
+$fruits = array('sweet' => $sweet, 'sour' => 'lemon');
+function test_print($item, $key)
+{
+    echo "$key holds $item\n";
+}
+array_walk_recursive($fruits, 'test_print');
+```
+```php
+a holds apple
+b holds banana
+sour holds lemon
+```
+
+
+## array_walk 使用用户自定义函数对数组中的每个元素做回调处理
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.array-walk.php)。
+
+```php
+bool array_walk ( array &$array , callable $callback [, mixed $userdata = NULL ] )
+```
+
+### 示例：针对数组中的每个成员作用用户自定义函数
+
+```php
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+function test_alter(&$item1, $key, $prefix)
+{
+    $item1 = "$prefix: $item1";
+}
+function test_print($item2, $key)
+{
+    echo "$key. $item2\n";
+}
+echo "Before ...:\n";
+array_walk($fruits, 'test_print');
+array_walk($fruits, 'test_alter', 'fruit');
+echo "... and after:\n";
+array_walk($fruits, 'test_print');
+```
+```php
+Before ...:
+d. lemon
+a. orange
+b. banana
+c. apple
+... and after:
+d. fruit: lemon
+a. fruit: orange
+b. fruit: banana
+c. fruit: apple
 ```
 
 
