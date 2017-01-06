@@ -2628,6 +2628,280 @@ echo end($transport)."\n";      // plane
 说明：该函数是current的别名。
 
 
+## prev 将数组的内部指针倒回一位
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.prev.php)。
+
+```php
+mixed prev ( array &$array )
+```
+
+### 示例：参考 array_current.php
+
+```php
+$transport = array('foot', 'bike', 'car', 'plane');
+echo current($transport)."\n";  // foot
+echo next($transport)."\n";     // bike
+echo next($transport)."\n";     // car
+echo prev($transport)."\n";     // bike
+echo end($transport)."\n";      // plane
+```
+
+
+## range 建立一个包含指定范围单元的数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.range.php)。
+
+```php
+array range ( mixed $start , mixed $limit [, number $step = 1 ] )
+```
+
+### 示例：生成数组
+
+```php
+foreach (range(0, 10, 1) as $number) {
+        echo $number . " ";  // 0 1 2 3 4 5 6 7 8 9 10 
+}
+echo PHP_EOL;
+```
+
+
+## reset 将数组的内部指针指向第一个单元
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.reset.php)。
+
+```php
+mixed reset ( array &$array )
+```
+
+### 示例：使用reset
+
+```php
+$array = array('step one', 'step two', 'step three', 'step four');
+next($array);
+next($array);
+reset($array);
+echo current($array)."\n";
+```
+```php
+step one
+```
+
+
+## rsort 对数组逆向排序
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.rsort.php)。
+
+```php
+bool rsort ( array &$array [, int $sort_flags = SORT_REGULAR ] )
+```
+
+<font color="red">说明：该函数将使得所有的key都重新设置。</font>
+
+### 示例：
+
+```php
+$fruits = array("lemon", "orange", "banana", "apple");
+rsort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+```
+```php
+fruits[0] = orange
+fruits[1] = lemon
+fruits[2] = banana
+fruits[3] = apple
+```
+
+
+### 示例：自然排序且不区分大小写
+
+```php
+$fruits = array(
+    "Orange1", "orange2", "Orange3", "orange20"
+);
+rsort($fruits, SORT_NATURAL | SORT_FLAG_CASE);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+} 
+```
+```php
+fruits[0] = orange20
+fruits[1] = Orange3
+fruits[2] = orange2
+fruits[3] = Orange1
+```
+
+
+## shuffle 将数组打乱
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function..php)。
+
+```php
+bool shuffle ( array &$array )
+```
+
+### 示例：打乱数组
+
+```php
+$numbers = range(1, 20);
+shuffle($numbers);
+foreach ($numbers as $number) {
+    echo "$number ";
+}
+```
+```php
+12 19 18 3 2 14 13 15 10 9 17 7 1 5 20 16 4 11 6 8 
+```
+
+
+## sizeof 计算数组中的单元数目或对象中的属性个数
+
+说明：该函数是count的别名。
+
+
+## sort 对数组排序
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.sort.php)。
+
+```php
+bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )
+```
+
+### 示例：数组排序
+
+```php
+$fruits = array("lemon", "orange", "banana", "apple");
+sort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+```
+```php
+fruits[0] = apple
+fruits[1] = banana
+fruits[2] = lemon
+fruits[3] = orange
+```
+
+
+### 示例：自然排序且不区分大小写
+
+```php
+$fruits = array(
+    "Orange1", "orange2", "Orange3", "orange20"
+);
+sort($fruits, SORT_NATURAL | SORT_FLAG_CASE);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+```
+```php
+fruits[0] = Orange1
+fruits[1] = orange2
+fruits[2] = Orange3
+fruits[3] = orange20
+```
+
+
+## uasort 使用用户自定义的比较函数对数组中的值进行排序并保持索引关联
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.uasort.php)。
+
+```php
+bool uasort ( array &$array , callable $cmp_function )
+```
+
+### 示例：数组排序(使用自定义函数进行比较)
+
+```php
+function cmp($a, $b) {
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a < $b) ? -1 : 1;
+}
+$array = array('a' => 4, 'b' => 8, 'c' => -1, 'd' => -9, 'e' => 2, 'f' => 5, 'g' => 3, 'h' => -4);
+uasort($array, 'cmp');
+print_r($array);
+```
+```php
+Array
+(
+    [d] => -9
+    [h] => -4
+    [c] => -1
+    [e] => 2
+    [g] => 3
+    [a] => 4
+    [f] => 5
+    [b] => 8
+)
+```
+
+
+## uksort 使用用户自定义的比较函数对数组中的键名进行排序
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.uksort.php)。
+
+```php
+bool uksort ( array &$array , callable $cmp_function )
+```
+
+### 示例：根据数组键名排序
+
+```php
+function cmp($a, $b)
+{
+    $a = preg_replace('@^(a|an|the) @', '', $a);
+    $b = preg_replace('@^(a|an|the) @', '', $b);
+    return strcasecmp($a, $b);
+}
+$a = array("John" => 1, "the Earth" => 2, "an apple" => 3, "a banana" => 4);
+uksort($a, "cmp");
+foreach ($a as $key => $value) {
+    echo "$key: $value\n";
+}
+```
+```php
+an apple: 3
+a banana: 4
+the Earth: 2
+John: 1
+```
+
+
+## usort 使用用户自定义的比较函数对数组中的值进行排序
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.usort.php)。
+
+```php
+bool usort ( array &$array , callable $cmp_function )
+```
+
+### 示例：数组排序
+
+```php
+function cmp($a, $b)
+{
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a < $b) ? -1 : 1;
+}
+$a = array(3, 2, 5, 6, 1);
+usort($a, "cmp");
+foreach ($a as $key => $value) {
+    echo "$key: $value\n";
+}
+```
+```php
+0: 1
+1: 2
+2: 3
+3: 5
+4: 6
+```
 
 
