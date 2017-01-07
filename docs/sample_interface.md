@@ -122,9 +122,91 @@ Redis的默认端口号是`6379`。
 
 ### 使用PHP访问
 
+### 示例1：连接redis，设置字符串
+
+代码：[php/demo/redis/connect.php]()
+
+```php
+<?php
+// 连接本地的Redis
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+echo "Connection to server sucessfully\n";
+
+// 设置&读取字符串数据
+$redis->set("name", "Jay");
+echo "Stored string in redis:: ".$redis->get("name")."\n";
+```
+```php
+Connection to server sucessfully
+Stored string in redis:: Jay
+```
+
+
+### 示例2：连接redis，设置列表
+
+代码：[php/demo/redis/list.php]()
+
+```php
+<?php
+// 连接本地的 Redis 服务
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+echo "Connection to server sucessfully.\n";
+
+// 存储数据到列表中
+$redis->lpush("list", "Redis");
+$redis->lpush("list", "Mongodb");
+$redis->lpush("list", "Mysql");
+
+// 获取存储的数据并输出
+$array = $redis->lrange("list", 0 ,5);
+echo "Stored string in redis:\n";
+print_r($array);
+```
+```php
+Connection to server sucessfully.
+Stored string in redis:
+Array
+(
+    [0] => Mysql
+    [1] => Mongodb
+    [2] => Redis
+    [3] => Mysql
+    [4] => Mongodb
+    [5] => Redis
+)
+```
+
+
+### 示例3：连接redis，查询keys
+
+代码：[php/demo/redis/keys.php]()
+
+```php
+<?php
+// 连接本地的 Redis 服务
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+echo "Connection to server sucessfully.\n";
+
+// 获取数据并输出
+$array = $redis->keys("*");
+echo "Stored keys in redis:\n";
+print_r($array);
+```
+```php
+Connection to server sucessfully.
+Stored keys in redis:
+Array
+(
+    [0] => list
+    [1] => name
+    [2] => tutorial-name
+)
+```
 
 
 ## RPC
-
 
 
