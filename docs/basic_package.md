@@ -8,7 +8,7 @@
 
 ## redis
 
-### Yum安装
+### 使用Yum安装
 
 ```
 # yum install php-redis
@@ -27,6 +27,11 @@ php-pecl-redis.x86_64              2.2.8-1.el7                         @epel
 $ php -m | grep redis
 redis
 ```
+
+
+### 访问Redis
+
+
 
 
 ## xml-rpc
