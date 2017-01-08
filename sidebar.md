@@ -31,6 +31,10 @@
 - [《PHP深度分析》(Q&A)](#docs/book_qa)
 
 
+## 扩展笔记
+- [phpredis](#docs/ext_phpredis)
+
+
 ## 项目笔记
 
 
