@@ -29,6 +29,7 @@
 - [《PHP和MySQL Web开发》](#docs/book_pmwd)
 - [《PHP设计模式》](#docs/book_pdp)
 - [《PHP深度分析》(Q&A)](#docs/book_qa)
+- [《Mordern PHP》](#docs/book_modernphp)
 
 
 ## 扩展笔记
