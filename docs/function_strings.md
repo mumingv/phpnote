@@ -1,5 +1,46 @@
 # [字符串函数](https://github.com/mumingv/php/tree/master/func/strings)
 
+## addcslashes 以 C 语言风格使用反斜线转义字符串中的字符
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.addcslashes.php)。
+
+```php
+string addcslashes ( string $str , string $charlist )
+```
+
+### 示例：转义a到z之间所有的字符
+
+```php
+echo addcslashes('foo[ ]', 'a..z')."\n";
+```
+```php
+\f\o\o[ ]
+```
+
+
+### 示例：转义A到z之间所有的字符
+
+```php
+echo addcslashes('foo[ ]', 'A..z')."\n";
+```
+```php
+\f\o\o\[ \]
+```
+
+
+## addslashes 使用反斜线引用字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.addslashes.php)。
+
+```php
+string addslashes ( string $str )
+```
+
+<font color="red">说明：转义的字符：单引号、双引号、反斜线（\）与 NUL（NULL 字符）。</font>
+
+
+
+
 ## htmlentities 将HTML页面中的特殊字符转换成HTML实体
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.htmlentities.php)。
