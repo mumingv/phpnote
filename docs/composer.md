@@ -92,6 +92,17 @@ $ composer config -l -g
 ```
 
 
+## composer install 安装软件
+
+前提：必须存在composer.lock或composer.json文件。如果同时存在，则使用composer.lock文件。
+
+示例：
+
+```
+$ composer install
+```
+
+
 ## composer require 增加composer.json配置并安装包
 
 示例：安装flysystem包

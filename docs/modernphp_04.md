@@ -64,8 +64,35 @@ Composer version 1.3.1 2017-01-07 18:08:51
 
 #### 安装组件
 
+示例：安装组件league/flysystem
+
+```
+$ composer require league/flysystem
+Using version ^1.0 for league/flysystem
+./composer.json has been created
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing league/flysystem (1.0.32) Downloading: 100%         
+league/flysystem suggests installing league/flysystem-aws-s3-v2 (Allows you to use S3 storage with AWS SDK v2)
+league/flysystem suggests installing league/flysystem-aws-s3-v3 (Allows you to use S3 storage with AWS SDK v3)
+league/flysystem suggests installing league/flysystem-azure (Allows you to use Windows Azure Blob storage)
+league/flysystem suggests installing league/flysystem-cached-adapter (Flysystem adapter decorator for metadata caching)
+league/flysystem suggests installing league/flysystem-copy (Allows you to use Copy.com storage)
+league/flysystem suggests installing league/flysystem-dropbox (Allows you to use Dropbox storage)
+league/flysystem suggests installing league/flysystem-eventable-filesystem (Allows you to use EventableFilesystem)
+league/flysystem suggests installing league/flysystem-rackspace (Allows you to use Rackspace Cloud Files)
+league/flysystem suggests installing league/flysystem-sftp (Allows you to use SFTP server storage via phpseclib)
+league/flysystem suggests installing league/flysystem-webdav (Allows you to use WebDAV storage)
+league/flysystem suggests installing league/flysystem-ziparchive (Allows you to use ZipArchive adapter)
+Writing lock file
+Generating autoload files
+```
 
 
+### 示例项目
+
+代码：[Github](https://github.com/mumingv/php/tree/master/books/modernphp/modern-php-master/04-components/url-scanner-app)。
 
 
 ## 参考资料

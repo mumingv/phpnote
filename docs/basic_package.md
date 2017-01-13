@@ -1,4 +1,15 @@
-# 包安装使用
+# 安装PHP和软件包
+
+## PHP
+
+### YUM安装PHP56
+
+前提：安装epel和remi源。
+
+```
+$ sudo yum --enablerepo=remi-safe install php56 php56-php-mbstring
+```
+
 
 ## gd
 
