@@ -55,3 +55,22 @@ Composer version 1.3.1 2017-01-07 18:08:51
 ```
 
 
+### 如何使用Composer
+
+#### 组件的名称
+
+组件的名称由厂商名和包名组成。如：league/flysystem，league为厂商名，flysystem为包名。
+
+
+#### 安装组件
+
+
+
+
+
+## 参考资料
+
+- [Packagist官网](http://packagist.org/)
+- [Packagist镜像](http://pkg.phpcomposer.com/)
+
+
