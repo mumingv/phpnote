@@ -10,5 +10,6 @@
 ### 其他资源
 
 - [RFC文档](http://www.faqs.org/rfcs/)
+- [JSON (http://json.org/)](http://json.org/)
 
 
