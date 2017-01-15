@@ -34,11 +34,12 @@
 - [《Mordern PHP》](#docs/book_modernphp)
 
 
+## 视频笔记
+- [慕课网](#docs/video_imooc)
+
+
 ## 扩展笔记
 - [phpredis](#docs/ext_phpredis)
-
-
-## 项目笔记
 
 
 ## 附录 
