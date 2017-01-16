@@ -95,7 +95,7 @@ PECL：The PHP Extension Community Library。打包安装的PHP扩展库仓库�
 Linux下的扩展就是一个.so文件。
 
 安装流程：
-- 下载
+- 下载 http://pecl.php.net/
 - 选择版本
 - 解压下载文件
 
@@ -127,6 +127,24 @@ yum install audoconf
 
 
 ### 实战-Linux下直接装ZendGuardLoader扩展
+
+1.下载安装.so文件
+
+```
+$ tar xvzf zend-loader-php5.6-linux-x86_64.tar.gz
+$ cd zend-loader-php5.6-linux-x86_64/
+$ cp ZendGuardLoader.so /home/work/mdp/output/php/lib/php/extensions/no-debug-non-zts-20131226/
+```
+
+2.修改配置
+$ vim /home/work/mdp/output/php/etc/php.ini
+zend_extension=/home/work/mdp/output/php/lib/php/extensions/no-debug-non-zts-20131226/ZendGuardLoader.so
+zend_loader.enable=1
+
+3.重启php-fpm
+```
+$ service php-fpm restart
+```
 
 
 ### 实战-Linux下编译安装redis扩展
