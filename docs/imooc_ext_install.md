@@ -131,17 +131,24 @@ yum install audoconf
 1.下载安装.so文件
 
 ```
+$ wget http://downloads.zend.com/guard/7.0.0/zend-loader-php5.6-linux-x86_64.tar.gz
 $ tar xvzf zend-loader-php5.6-linux-x86_64.tar.gz
 $ cd zend-loader-php5.6-linux-x86_64/
 $ cp ZendGuardLoader.so /home/work/mdp/output/php/lib/php/extensions/no-debug-non-zts-20131226/
 ```
 
+注：[zend-loader各版本下载地址](http://www.newsmth.net/nForum/#!article/PHP/96548?p=1)。当然也可以从[Zend官方网站](http://www.zend.com/)下载，不做需要先注册。
+
 2.修改配置
+
+```
 $ vim /home/work/mdp/output/php/etc/php.ini
 zend_extension=/home/work/mdp/output/php/lib/php/extensions/no-debug-non-zts-20131226/ZendGuardLoader.so
 zend_loader.enable=1
+```
 
 3.重启php-fpm
+
 ```
 $ service php-fpm restart
 ```
@@ -149,8 +156,45 @@ $ service php-fpm restart
 
 ### 实战-Linux下编译安装redis扩展
 
+1.下载redis扩展源码并解压
 
-## 课程顾问
+```
+$ wget http://pecl.php.net/get/redis-3.1.0.tgz
+$ tar xvzf redis-3.1.0.tgz 
+```
+
+注：redis扩展源码下载地址 http://pecl.php.net。
+
+2.预编译和编译安装
+
+```
+$ cd redis-3.1.0/
+$ /home/work/mdp/output/php/bin/phpize 
+Configuring for:
+PHP Api Version:         20131106
+Zend Module Api No:      20131226
+Zend Extension Api No:   220131226
+$ ./configure --with-php-config=/home/work/mdp/output/php/bin/php-config
+$ make
+$ make install
+Installing shared extensions:     /home/work/mdp/output/php/lib/php/extensions/no-debug-non-zts-20131226/
+```
+
+3.修改配置
+
+```
+$ vim /home/work/mdp/output/php/etc/php.ini
+extension=/home/work/mdp/output/php/lib/php/extensions/no-debug-non-zts-20131226/redis.so
+```
+
+4.重启php-fpm
+
+```
+$ service php-fpm restart
+```
+
+
+## 课程回顾
 
 ### 课程回顾
 
