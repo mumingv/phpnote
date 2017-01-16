@@ -8,6 +8,7 @@
 
 |名称                   |路径                           |
 |-----------------------|-------------------------------|
+|php-fpm文件            |/usr/sbin/php-fpm              |
 |配置目录               |/etc/php.ini                   |
 |扩展目录               |/usr/lib64/php/modules         |
 |扩展配置               |/etc/php.d/<module-name>.ini   |
