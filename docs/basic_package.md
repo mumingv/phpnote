@@ -22,6 +22,20 @@ $ tar xvzf php-5.6.29.tar.gz
 
 2.配置
 
+安装依赖：
+
+```
+$ sudo yum install libxml2-devel libjpeg-devel libpng-devel 
+```
+
+说明：
+- libxml2-devel：很多功能都依赖该软件
+- libjpeg-devel：GD模块依赖；实际包名称为：libjpeg-turbo-devel
+- libpng-devel：GD模块依赖；
+
+
+执行comfigure：
+
 ```
 $ mkdir -p output/php/etc/ext
 $ cd php-5.6.29/
@@ -29,7 +43,7 @@ $ ./configure \
 --prefix=/home/work/mdp/output/php \
 --with-config-file-path=/home/work/mdp/output/php/etc \
 --with-config-file-scan-dir=home/work/mdp/output/php/etc/ext \
---enable-opcache\
+--enable-opcache \
 --enable-fpm \
 --with-mysql=mysqlnd \
 --with-mysqli=mysqlnd \
@@ -94,10 +108,14 @@ $ ./configure \
 |**--with-t1lib**                   |            |y，/home/yeshiquan/bdp/dep/t1lib|
 |**--with-libxml-dir**              |            |y, /home/yeshiquan/bdp/dep/libxml2/bin/xml2-config|
 
-
-
-
 3.编译
+
+```
+$ make -j8
+$ make install
+```
+
+4.配置文件
 
 
 
