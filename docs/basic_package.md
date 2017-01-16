@@ -31,7 +31,26 @@ $ ./configure \
 --with-config-file-scan-dir=home/work/mdp/output/php/etc/ext \
 --enable-opcache\
 --enable-fpm \
-
+--with-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--enable-mbstring \
+--with-iconv \
+--enable-bcmath \
+--with-gd \
+--enable-gd-native-ttf \
+--enable-exif \
+--enable-soap \
+--enable-ftp \
+--enable-wddx \
+--enable-pcntl \
+--enable-shmop \
+--enable-sysvmsg \
+--enable-sysvsem \
+--enable-sysvshm \
+--enable-sockets \
+--with-pear \
+--enable-zip
 ```
 
 各配置参数的含义如下：
