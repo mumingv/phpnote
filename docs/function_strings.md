@@ -39,6 +39,52 @@ string addslashes ( string $str )
 <font color="red">说明：转义的字符：单引号、双引号、反斜线（\）与 NUL（NULL 字符）。</font>
 
 
+## bin2hex 函数把包含数据的二进制字符串转换为十六进制值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.bin2hex.php)。
+
+```php
+string bin2hex ( string $str )
+```
+
+<font color="red">说明：该函数将字符串中的每个字符逐个转换成对应的ASCII码16进制表示。</font>
+
+# 示例：转换成16进制字符串
+
+```php
+$binary = "11111001";
+$hex = bin2hex($binary);
+echo $hex, PHP_EOL; //3131313131303031
+```
+```php
+echo bin2hex('abc'), PHP_EOL;  // 616263
+```
+
+
+## chop 删除字符串末端的空白字符（或者其他字符）(rtrim的别名)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.chop.php)。
+
+说明：该函数是rtrim的别名。
+
+
+## chr 返回指定的字符
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.chr.php)。
+
+```
+string chr ( int $ascii )
+```
+
+<font color="red">说明：将整数ascii码转换成对应的字符。</font>
+
+# 示例：将ascii码转成字符
+
+```php
+echo chr(65) . PHP_EOL; //A
+echo chr(97) . PHP_EOL; //a
+```
+
 
 
 ## htmlentities 将HTML页面中的特殊字符转换成HTML实体
