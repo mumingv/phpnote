@@ -197,6 +197,244 @@ Array
 ```
 
 
+## crc32 计算一个字符串的 crc32 多项式
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.crc32.php)。
+
+```php
+int crc32 ( string $str )
+```
+
+### 示例：计算校验码
+
+```php
+$checksum = crc32("The quick brown fox jumped over the lazy dog.");
+printf("%u\n", $checksum);
+```
+```php
+2191738434
+```
+
+
+## crypt 单向字符串散列
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.crypt.php)。
+
+```php
+string crypt ( string $str [, string $salt ] )
+```
+
+### 示例：获取散列值，使用自动盐值
+
+```php
+$password = 'mypassword';
+$hash = crypt($password, 'mm');
+echo $hash."\n";
+```
+```php
+mmqunkvQ77kH2
+```
+
+
+## echo 输出一个或多个字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.echo.php)。
+
+```php
+void echo ( string $arg1 [, string $... ] )
+```
+
+### 示例：单个参数，使不使用括号都可以
+
+```php
+echo("Hello world\n");
+echo "Hello world\n";
+```
+```php
+Hello world
+Hello world
+```
+
+
+### 示例：多个参数，不能使用括号
+
+```php
+echo "Hello world. ", "I'm coming!\n";
+```
+```php
+Hello world. I'm coming!
+```
+
+
+## explode 使用一个字符串分割另一个字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.explode.php)。
+
+```php
+array explode ( string $delimiter , string $string [, int $limit ] )
+```
+
+### 示例：使用空格拆分字符串
+
+```php
+$str = "I am a stutdent. Right?";
+print_r (explode(" ",$str));  
+```
+```php
+Array
+(
+    [0] => I
+    [1] => am
+    [2] => a
+    [3] => stutdent.
+    [4] => Right?
+)
+```
+
+
+### 示例：使用空格拆分字符串
+
+```php
+$pizza  = "piece1 piece2 piece3 piece4 piece5 piece6";
+$pieces = explode(" ", $pizza);
+echo $pieces[0] . PHP_EOL; //piece1
+echo $pieces[1] . PHP_EOL; //piece2
+```
+
+
+### 示例：使用冒号拆分字符串
+
+```php
+$data = "foo:*:1023:1000::/home/foo:/bin/sh";
+list($user, $pass, $uid, $gid, $gecos, $home, $shell) = explode(":", $data);
+echo $user . PHP_EOL; //foo
+echo $pass . PHP_EOL; //*
+echo $uid . PHP_EOL; //1023
+echo $gid . PHP_EOL; //1000
+echo $gecos . PHP_EOL; // 
+echo $home . PHP_EOL; ///home/foo
+echo $shell . PHP_EOL; ///bin/sh
+```
+
+
+### 示例：中文字符串分割
+
+```php
+$str = "我爱北京天安门，哈哈。你好啊！";  
+print_r (explode("。",$str));  
+```
+```php
+Array
+(
+    [0] => 我爱北京天安门，哈哈
+    [1] => 你好啊！
+)
+```
+
+
+## fprintf 将格式化后的字符串写入到流
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.fprintf.php)。
+
+```php
+int fprintf ( resource $handle , string $format [, mixed $args [, mixed $... ]] )
+```
+
+### 示例：格式化字符串并将其写入文件当中
+
+```php
+if (!($fp = fopen('date.txt', 'w'))) {
+    return;
+}
+$year = "2017";
+$month = "01";
+$day = "17";
+fprintf($fp, "%04d-%02d-%02d", $year, $month, $day);
+```
+```php
+2017-01-17
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
