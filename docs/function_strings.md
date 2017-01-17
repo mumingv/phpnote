@@ -454,103 +454,177 @@ echo $b."\n"; // I'll "walk" the <b>dog</b> now
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## htmlentities 将HTML页面中的特殊字符转换成HTML实体
+## htmlentities Convert all applicable characters to HTML entities
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.htmlentities.php)。
 
 ```php
 string htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get("default_charset") [, bool $double_encode = true ]]] )
 ```
+
+### 示例：转换html标记
+
+```php
+$str = "A 'quote' is <b>bold</b>";
+echo htmlentities($str)."\n";
+echo htmlentities($str, ENT_QUOTES)."\n";
+```
+```php
+A 'quote' is &lt;b&gt;bold&lt;/b&gt;
+A &#039;quote&#039; is &lt;b&gt;bold&lt;/b&gt;
+```
+
+
+## htmlspecialchars_decode 将特殊的 HTML 实体转换回普通字符
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.htmlspecialchars_decode.php)。
+
+```php
+string htmlspecialchars_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 ] )
+```
+
+### 示例：转换html标记
+
+```php
+$str = "<p>this -&gt; &quot;</p>\n";
+echo htmlspecialchars_decode($str)."\n";
+echo htmlspecialchars_decode($str, ENT_NOQUOTES)."\n";
+```
+```php
+<p>this -> "</p>
+<p>this -> &quot;</p>
+```
+
+
+## htmlspecialchars Convert special characters to HTML entities
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.htmlspecialchars.php)。
+
+```php
+string htmlspecialchars ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get("default_charset") [, bool $double_encode = true ]]] )
+```
+
+### 示例：转换html标记
+
+```php
+$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+echo $new."\n";
+```
+```php
+&lt;a href=&#039;test&#039;&gt;Test&lt;/a&gt;
+```
+
+
+## implode 将一个一维数组的值转化为字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.implode.php)。
+
+```php
+string implode ( string $glue , array $pieces )
+string implode ( array $pieces )
+```
+
+### 示例
+
+```php
+$array = array('lastname', 'email', 'phone');
+$comma_separated = implode(",", $array);
+echo $comma_separated."\n";
+```
+```php
+lastname,email,phone
+```
+
+
+## join 将一个一维数组的值转化为字符串 (implode的别名)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.join.php)。
+
+```php
+string join ( string $glue , array $pieces )
+string join ( array $pieces )
+```
+
+### 示例
+
+```php
+$array = array('lastname', 'email', 'phone');
+$comma_separated = join(",", $array);
+echo $comma_separated."\n";
+```
+```php
+lastname,email,phone
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## nl2br 在字符串所有新行之前插入 HTML 换行标记
