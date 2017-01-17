@@ -49,7 +49,7 @@ string bin2hex ( string $str )
 
 <font color="red">说明：该函数将字符串中的每个字符逐个转换成对应的ASCII码16进制表示。</font>
 
-# 示例：转换成16进制字符串
+### 示例：转换成16进制字符串
 
 ```php
 $binary = "11111001";
@@ -78,12 +78,150 @@ string chr ( int $ascii )
 
 <font color="red">说明：将整数ascii码转换成对应的字符。</font>
 
-# 示例：将ascii码转成字符
+### 示例：将ascii码转成字符
 
 ```php
 echo chr(65) . PHP_EOL; //A
 echo chr(97) . PHP_EOL; //a
 ```
+
+
+## chunk_split 将字符串分割成小块
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.chunk_split.php)。
+
+```php
+string chunk_split ( string $body [, int $chunklen = 76 [, string $end = "\r\n" ]] )
+```
+
+### 示例：将一个字符串拆分成多行
+
+```php
+$string = '1234'; 
+echo chunk_split($string, 2);
+```
+```php
+12
+34
+```
+
+### 示例：将一个字符串使用冒号分隔
+
+```php
+$string = '1234'; 
+echo chunk_split($string, 2, ':');
+```
+```php
+12:34:
+```
+
+
+## convert_cyr_string 将字符由一种 Cyrillic 字符转换成另一种
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.convert_cyr_string.php)。
+
+```php
+string convert_cyr_string ( string $str , string $from , string $to )
+```
+
+### 示例：不会使用该函数，略。
+
+
+## convert_uudecode 解码一个 uuencode 编码的字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.convert_uudecode.php)。
+
+```php
+string convert_uudecode ( string $data )
+```
+
+### 示例：解码使用uuencode算法进行编码的字符串
+
+```php
+echo convert_uudecode("0=&5S=`IT97AT('1E>'0-\"@``\n`");
+```
+```php
+test
+text text
+```
+
+
+## convert_uuencode 使用 uuencode 编码一个字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.convert_uuencode.php)。
+
+```php
+string convert_uuencode ( string $data )
+```
+
+### 示例：使用uuencode算法对字符串进行编码
+
+```php
+$some_string = "test\ntext text\r\n";
+echo convert_uuencode($some_string);
+/*
+0=&5S=`IT97AT('1E>'0-"@``
+`
+```
+
+
+## count_chars 返回字符串所用字符的信息
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.count_chars.php)。
+
+```php
+mixed count_chars ( string $string [, int $mode = 0 ] )
+```
+
+### 示例：统计字符传中各字符出现的次数, $mode为1表示只显示次数大于0的字符。返回的数组中，key为字母的ascii值。
+
+```php
+$data = "Two Ts and one F.";
+print_r(count_chars($data, 1));
+```
+```php
+Array
+(
+    [32] => 4
+    [46] => 1
+    [70] => 1
+    [84] => 2
+    [97] => 1
+    [100] => 1
+    [101] => 1
+    [110] => 2
+    [111] => 2
+    [115] => 1
+    [119] => 1
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
