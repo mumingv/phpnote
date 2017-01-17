@@ -356,21 +356,102 @@ fprintf($fp, "%04d-%02d-%02d", $year, $month, $day);
 ```
 
 
+## get_html_translation_table 返回使用 htmlspecialchars() 和 htmlentities() 后的转换表
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.get_html_translation_table.php)。
+
+```php
+array get_html_translation_table ([ int $table = HTML_SPECIALCHARS [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = 'UTF-8' ]]] )
+```
+
+### 示例：查看转换表
+
+```php
+var_dump(get_html_translation_table(HTML_ENTITIES, ENT_QUOTES | ENT_HTML5));
+```
+```php
+array(1511) {
+  ["    "]=>
+  string(5) "&Tab;"
+  ["
+"]=>
+  string(9) "&NewLine;"
+  ["!"]=>
+  string(6) "&excl;"
+  ["""]=>
+  string(6) "&quot;"
+  ["#"]=>
+  string(5) "&num;"
+  ["$"]=>
+  string(8) "&dollar;"
+  ["%"]=>
+  string(8) "&percnt;"
+  ["&"]=>
+  string(5) "&amp;"
+  ["'"]=>
+...
+}
+```
 
 
+## hebrev 将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.hebrev.php)。
+
+```php
+string hebrev ( string $hebrew_text [, int $max_chars_per_line = 0 ] )
+```
+
+### 示例：不使用该函数，略。
 
 
+## hebrevc 将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew），并且转换换行符
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.hebrevc.php)。
+
+```php
+string hebrevc ( string $hebrew_text [, int $max_chars_per_line = 0 ] )
+```
+
+### 示例：不使用该函数，略。
 
 
+## hex2bin 转换十六进制字符串为二进制字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.hex2bin.php)。
+
+```php
+string hex2bin ( string $data )
+```
+
+### 示例：
+
+```php
+$hex = hex2bin("6578616d706c65206865782064617461");
+var_dump($hex);
+```
+```php
+string(16) "example hex data"
+```
 
 
+## html_entity_decode Convert all HTML entities to their applicable characters
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.html_entity_decode.php)。
 
+```php
+string html_entity_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get("default_charset") ]] )
+```
 
+### 示例
 
-
-
-
+```php
+$orig = "I'll \"walk\" the <b>dog</b> now";
+$a = htmlentities($orig);
+$b = html_entity_decode($a);
+echo $a."\n"; // I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now
+echo $b."\n"; // I'll "walk" the <b>dog</b> now
+```
 
 
 
