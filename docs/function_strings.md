@@ -557,21 +557,170 @@ lastname,email,phone
 ```
 
 
+## lcfirst 使一个字符串的第一个字符小写
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.lcfirst.php)。
+
+```php
+string lcfirst ( string $str )
+```
+
+### 示例
+
+```php
+$foo = lcfirst("HelloWorld");
+echo $foo."\n";
+```
+```php
+helloWorld
+```
 
 
+## levenshtein 计算两个字符串之间的编辑距离
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.levenshtein.php)。
+
+```php
+int levenshtein ( string $str1 , string $str2 )
+int levenshtein ( string $str1 , string $str2 , int $cost_ins , int $cost_rep , int $cost_del )
+```
+
+### 示例：找出与错误单词最接近的单词
+
+```php
+// 输入拼写错误的单词
+$input = 'carrrot';
+
+// 要检查的单词数组
+$words  = array('apple','pineapple','banana','orange',
+                'radish','carrot','pea','bean','potato');
+
+// 目前没有找到最短距离
+$shortest = -1;
+
+// 遍历单词来找到最接近的
+foreach ($words as $word) {
+
+    // 计算输入单词与当前单词的距离
+    $lev = levenshtein($input, $word);
+
+    // 检查完全的匹配
+    if ($lev == 0) {
+
+        // 最接近的单词是这个（完全匹配）
+        $closest = $word;
+        $shortest = 0;
+
+        // 退出循环；我们已经找到一个完全的匹配
+        break;
+    }
+
+    // 如果此次距离比上次找到的要短
+    // 或者还没找到接近的单词
+    if ($lev <= $shortest || $shortest < 0) {
+        // 设置最接近的匹配以及它的最短距离
+        $closest  = $word;
+        $shortest = $lev;
+    }
+}
+
+echo "Input word: $input\n";
+if ($shortest == 0) {
+    echo "Exact match found: $closest\n";
+} else {
+    echo "Did you mean: $closest?\n";
+}
+```
+```php
+Input word: carrrot
+Did you mean: carrot?
+``` 
 
 
+## localeconv Get numeric formatting information
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.localeconv.php)。
+
+```php
+array localeconv ( void )
+```
+
+### 示例：设置系统区域并获取数字格式信息
+
+```php
+if (false !== setlocale(LC_ALL, 'zh_CN.UTF-8')) {
+    $locale_info = localeconv();
+    print_r($locale_info);
+}
+```
+```php
+Array
+(
+    [decimal_point] => .
+    [thousands_sep] => ,
+    [int_curr_symbol] => CNY 
+    [currency_symbol] => ￥
+    [mon_decimal_point] => .
+    [mon_thousands_sep] => ,
+    [positive_sign] => 
+    [negative_sign] => -
+    [int_frac_digits] => 2
+    [frac_digits] => 2
+    [p_cs_precedes] => 1
+    [p_sep_by_space] => 0
+    [n_cs_precedes] => 1
+    [n_sep_by_space] => 0
+    [p_sign_posn] => 4
+    [n_sign_posn] => 4
+    [grouping] => Array
+        (
+            [0] => 3
+        )
+
+    [mon_grouping] => Array
+        (
+            [0] => 3
+        )
+
+)
+```
 
 
+## ltrim 删除字符串开头的空白字符（或其他字符）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.ltrim.php)。
+
+```php
+string ltrim ( string $str [, string $character_mask ] )
+```
+
+### 示例：删除字符串开头的空白字符
+
+```php
+$string = "    Hello world!";
+echo $string."\n";
+echo ltrim($string)."\n";
+```
+```php
+    Hello world!
+Hello world!
+```
 
 
+## md5_file 计算指定文件的 MD5 散列值
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.md5_file.php)。
 
+```php
+string md5_file ( string $filename [, bool $raw_output = false ] )
+```
 
+### 示例：删除字符串开头的空白字符
 
-
-
-
+```php
+echo md5_file("echo.php")."\n";  // 32211c00eb56055e8bbe528ce31fc1b5 (32字符的十六进制数字)
+echo md5_file("echo.php", true)."\n";  // 2!.............. (16位二进制)
+```
 
 
 
