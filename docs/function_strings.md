@@ -723,22 +723,115 @@ echo md5_file("echo.php", true)."\n";  // 2!.............. (16位二进制)
 ```
 
 
+## md5 算字符串的 MD5 散列值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.md5.php)。
+
+```php
+string md5 ( string $str [, bool $raw_output = false ] )
+```
+
+### 示例
+
+```php
+// 非空字符串
+$str = 'apple';
+echo md5($str) . PHP_EOL; //1f3870be274f6c49b3e31a0c6728957f
+
+// 空字符串
+echo md5("") . PHP_EOL; //d41d8cd98f00b204e9800998ecf8427e
+
+// 第二个参数为true, 打印结果中16个字符对应的ASCII码
+$bin = md5($str, true);  
+for ($i = 0; $i < strlen($bin); $i++){  
+    echo ord($bin[$i]) . ','; //31,56,112,190,39,79,108,73,179,227,26,12,103,40,149,127,
+}
+echo PHP_EOL;
+```
 
 
+## metaphone Calculate the metaphone key of a string
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.metaphone.php)。
+
+```php
+string metaphone ( string $str [, int $phonemes = 0 ] )
+```
+
+### 示例：根据发音创建的metaphone键
+
+```php
+var_dump(metaphone('programming'));
+var_dump(metaphone('programmer'));
+```
+```php
+string(7) "PRKRMNK"
+string(6) "PRKRMR"
+```
 
 
+## money_format 将数字格式化成货币字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.money_format.php)。
+
+```php
+string money_format ( string $format , float $number )
+```
+
+### 示例：根据发音创建的metaphone键
+
+```php
+$number = 1234.56;
+// 国际化格式
+setlocale(LC_MONETARY, 'en_US');
+echo money_format('%i', $number) . "\n";
+/*
+USD 1,234.56
+*/
+// 中国的货币格式，带两位浮点小数
+setlocale(LC_MONETARY, 'zh_CN');
+echo money_format('%i', $number) . "\n";
+/*
+CNY1,234.56
+*/
+```
 
 
+## nl_langinfo Query language and locale information
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.nl_langinfo.php)。
+
+```php
+string nl_langinfo ( int $item )
+```
+
+### 示例：一般不使用，略。
 
 
+## nl2br 在字符串所有新行之前插入 HTML 换行标记
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.nl2br.php)。
 
+```php
+string nl2br ( string $string [, bool $is_xhtml = true ] )
+```
 
+### 示例：将换行替换成HTML换行标记
 
-
-
-
-
+```php
+echo nl2br("foo isn't\n bar");
+/*
+foo isn't<br />
+ bar
+*/
+echo nl2br("This\r\nis\n\ra\nstring\r");
+/*
+This<br />
+is<br />
+a<br />
+string<br />
+*/
+```
 
 
 
