@@ -124,6 +124,18 @@ Connection closed by foreign host.
 
 ## HTTP协议综合运用
 
+三种方式模拟表单发布留言：
+1. 利用file_get_contents的第三个参数；
+2. socket方式；
+3. curl扩展；
+
+### 利用file_get_contents的第三个参数；
+
+
+
+
+
+
 
 ## 反向Ajax实现即时聊天程序
 
