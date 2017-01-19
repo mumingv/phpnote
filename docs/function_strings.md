@@ -946,20 +946,85 @@ var_dump($num);  // int(3) (字符串长度)
 ```
 
 
+## quoted_printable_decode  quoted-printable 字符串转换为 8-bit 字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.quoted_printable_decode.php)。
+
+```php
+string quoted_printable_decode ( string $str )
+```
+
+### 示例：不使用该函数，略。
 
 
+## quoted_printable_encode  8-bit 字符串转换成 quoted-printable 字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.quoted_printable_encode.php)。
+
+```php
+tring quoted_printable_encode ( string $str )
+```
+
+### 示例：不使用该函数，略。
 
 
+## quotemeta 转义元字符集
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.quotemeta.php)。
+
+```php
+string quotemeta ( string $str )
+```
+
+### 示例：
+
+```php
+$str = "Hello world. (can you hear me?)";
+echo quotemeta($str);
+```
+```php
+Hello world\. \(can you hear me\?\)
+```
 
 
+##  rtrim 删除字符串末端的空白字符（或者其他字符）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function..php)。
+
+```php
+string rtrim ( string $str [, string $character_mask ] )
+```
+
+### 示例：
+
+```php
+// 去除尾部空格
+$string1 = "  Hello world!   ";
+print_r("Before trim --> string1: [" . $string1 . "]\n");
+print_r("After trim --> string1: [" . rtrim($string1) . "]\n");
+
+// 去除尾部tab键
+$string2 = "\tHello world!\t";
+print_r("Before trim --> string2: [" . $string2 . "]\n");
+print_r("After trim --> string2: [" . rtrim($string2) . "]\n");
+
+// 去除尾部指定字符(本例中，END是三个单独的字符，不是一个字符串整体)
+$string3 = "ENDHello world!NDE";
+print_r("Before trim --> string3: [" . $string3 . "]\n");
+print_r("After trim --> string3: [" . rtrim($string3, "END") . "]\n");
+```
 
 
+## setlocale 设置地区信息
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.setlocale.php)。
 
+```php
+string setlocale ( int $category , string $locale [, string $... ] )
+string setlocale ( int $category , array $locale )
+```
 
-
-
-
+### 示例：略。
 
 
 
