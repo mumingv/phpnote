@@ -834,17 +834,116 @@ string<br />
 ```
 
 
+## number_format 以千位分隔符方式格式化一个数字
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.number_format.php)。
+
+```php
+string number_format ( float $number [, int $decimals = 0 ] )
+string number_format ( float $number , int $decimals = 0 , string $dec_point = "." , string $thousands_sep = "," )
+```
+
+### 示例：1位参数
+
+```php
+$number = 1234.56;
+$english_format_number = number_format($number);
+echo $english_format_number.PHP_EOL;  // 1,235
+```
+
+### 示例：4位参数
+
+```php
+$number = 1234.5678;
+$english_format_number = number_format($number, 2, '.', '');
+echo $english_format_number.PHP_EOL;  // 1234.57
+```
 
 
+## ord 返回字符的 ASCII 码值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.ord.php)。
+
+```php
+int ord ( string $string )
+```
+
+<font color="red">
+说明：返回字符串 string 第一个字符的 ASCII 码值。
+</font>
+
+### 示例：入参是一个字符
+
+```php
+$str = "A";
+echo ord($str) . PHP_EOL; //65
+```
+
+### 示例：入参是一个字符串
+
+```php
+$str2 = "ABC";
+echo ord($str2) . PHP_EOL; //65
+```
 
 
+## parse_str 将字符串解析成多个变量
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.parse_str.php)。
+
+```php
+void parse_str ( string $str [, array &$arr ] )
+```
+
+### 示例：
+
+```php
+$str = "first=value&arr[]=foo+bar&arr[]=baz";
+parse_str($str);
+echo $first."\n";  // value
+echo $arr[0]."\n"; // foo bar
+echo $arr[1]."\n"; // baz
+```
+
+```php
+parse_str($str, $output);
+echo $output['first']."\n";  // value
+echo $output['arr'][0]."\n"; // foo bar
+echo $output['arr'][1]."\n"; // baz
+```
 
 
+## print 输出字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.print.php)。
+
+```php
+int print ( string $arg )
+```
+
+### 示例：
+
+```php
+print("Hello World\n");
+print "print() also works without parentheses.\n";
+```
 
 
+## printf 输出格式化字符串
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.printf.php)。
 
+```php
+int printf ( string $format [, mixed $args [, mixed $... ]] )
+```
 
+### 示例: 整数字符串后面加一位小数，如：'2' -> '2.0'
+
+```php
+$num = '2';
+$num = printf("%.1f", $num);  // 2.0 (直接打印到屏幕)
+var_dump($num);  // int(3) (字符串长度)
+```
 
 
 
