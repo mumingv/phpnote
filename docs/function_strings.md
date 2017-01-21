@@ -1027,11 +1027,83 @@ string setlocale ( int $category , array $locale )
 ### 示例：略。
 
 
+## sha1_file 计算文件的 sha1 散列值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.sha1_file.php)。
+
+```php
+string sha1_file ( string $filename [, bool $raw_output = false ] )
+```
+
+### 示例：计算目录下所有php文件的散列值
+
+```php
+foreach(glob('./*.php') as $ent)
+{
+    if(is_dir($ent))
+    {
+        continue;
+    }
+    echo $ent . ' (SHA1: ' . sha1_file($ent) . ')', PHP_EOL;
+}
+```
+```php
+./trim.php (SHA1: f3204ce956037d97c3cd6f285bb0c0ac4f4239f3)
+./ucfirst.php (SHA1: 3e414bb27d2fb26a3affcb283d22134381a24f14)
+./vsprintf.php (SHA1: e7c74513998adbb93f5735f403b164cc73082080)
+./wordwrap.php (SHA1: 59017fe459a484edb879f2b0b7ed4c97bac4ef95)
+```
 
 
+## sha1 计算字符串的 sha1 散列值
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.sha1.php)。
+
+```php
+string sha1 ( string $str [, bool $raw_output = false ] )
+```
+
+### 示例：计算字符串的散列值
+
+```php
+$str = 'apple';
+echo sha1($str);  // d0be2dc421be4fcd0172e5afceea3970e2f3d940
+```
 
 
+## similar_text 计算两个字符串的相似度
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.similar_text.php)。
+
+```php
+int similar_text ( string $first , string $second [, float &$percent ] )
+```
+
+### 示例：计算字符串的相似度
+
+```php
+$var_1 = 'PHP IS GREAT'; 
+$var_2 = 'WITH MYSQL'; 
+similar_text($var_1, $var_2, $percent); 
+echo $percent."\n";
+similar_text($var_2, $var_1, $percent); 
+echo $percent."\n";
+```
+```php
+27.272727272727
+18.181818181818
+```
+
+
+## soundex Calculate the soundex key of a string
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.soundex.php)。
+
+```php
+string soundex ( string $str )
+```
+
+### 示例：判断两个字符串读音的相似度，略。
 
 
 ## sprintf 返回格式化的字符串
@@ -1051,6 +1123,18 @@ $location = 'tree';
 $format = 'There are %d monkeys in the %s';
 echo sprintf($format, $num, $location)."\n";  // There are 5 monkeys in the tree
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## strip_tags 从字符串中去除 HTML 和 PHP 标记
