@@ -1125,9 +1125,162 @@ echo sprintf($format, $num, $location)."\n";  // There are 5 monkeys in the tree
 ```
 
 
+## sscanf 根据指定格式解析输入的字符
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.sscanf.php)。
+
+```php
+mixed sscanf ( string $str , string $format [, mixed &$... ] )
+```
+
+### 示例：
+
+```php
+list($serial) = sscanf("SN/2350001", "SN/%d");
+$mandate = "January 01 2000";
+list($month, $day, $year) = sscanf($mandate, "%s %d %d");
+echo "Item $serial was manufactured on: $year-" . substr($month, 0, 3) . "-$day\n";
+```
+```php
+Item 2350001 was manufactured on: 2000-Jan-1
+```
 
 
+## str_getcsv 解析 CSV 字符串为一个数组
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_getcsv.php)。
+
+```php
+array str_getcsv ( string $input [, string $delimiter = "," [, string $enclosure = '"' [, string $escape = "\\" ]]] )
+```
+
+### 示例
+
+```php
+print_r(str_getcsv("1,mumingv\n2,henry", "\n"));
+```
+```php
+Array
+(
+    [0] => 1,mumingv
+    [1] => 2,henry
+)
+```
+
+
+### 示例
+
+```php
+$csv = array_map('str_getcsv', file('../../data/data.csv'));
+print_r($csv);
+```
+```php
+array (
+  0 => 
+  array (
+    0 => '1',
+    1 => 'mumingv',
+  ),
+  1 => 
+  array (
+    0 => '2',
+    1 => 'henry',
+  ),
+)
+```
+
+
+## str_ireplace 子字符串替换(忽略大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_ireplace.php)。
+
+```php
+mixed str_ireplace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
+```
+
+### 示例
+
+```php
+$bodytag = str_ireplace("%Body%", "black", "<body text='%body%'>");
+echo $bodytag . PHP_EOL; //<body text='black'>
+```
+
+
+### 示例
+
+```php
+$vowels = array("A", "E", "I", "O", "U");
+$onlyconsonants = str_ireplace($vowels, "", "Hello World of PHP");
+echo $onlyconsonants . PHP_EOL;  //Hll Wrld f PHP
+```
+
+
+### 示例
+
+```php
+$phrase  = "You should eat fruits, vegetables, and fiber every day.";
+$healthy = array("fruits", "vegetables", "fiber");
+$yummy   = array("pizza", "beer", "ice cream");
+$newphrase = str_ireplace($healthy, $yummy, $phrase);
+echo $newphrase . PHP_EOL;  //You should eat pizza, beer, and ice cream every day.
+```
+
+
+### 示例
+
+```php
+$str = str_ireplace("LL", "", "good golly miss molly!", $count);
+echo $count . PHP_EOL; //2
+```
+
+
+## str_pad 使用另一个字符串填充字符串为指定长度
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_pad.php)。
+
+```php
+string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )
+```
+
+### 示例
+
+```php
+$str = "Hello world!";
+$result_str = str_pad($str, 20);
+echo $result_str, "//END", PHP_EOL; //Hello world!        //END
+
+$result_str = str_pad($str, 20, "-");
+echo $result_str, "//END", PHP_EOL; //Hello world!--------//END
+
+$result_str = str_pad($str, 20, "-", STR_PAD_LEFT);
+echo $result_str, "//END", PHP_EOL; //--------Hello world!//END
+
+$result_str = str_pad($str, 20, "-*^", STR_PAD_BOTH);
+echo $result_str, "//END", PHP_EOL; //-*^-Hello world!-*^-//END
+```
+
+
+## str_repeat 重复一个字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function..php)。
+
+```php
+string str_repeat ( string $input , int $multiplier )
+```
+
+### 示例
+
+```php
+$str = "Hello!";
+$result_str = str_repeat($str, 3);
+echo $result_str, "//END", PHP_EOL; //Hello!Hello!Hello!//END
+```
+
+```php
+// 重复次数为0时，返回空字符串
+$result_str = str_repeat($str, 0);
+echo $result_str, "//END", PHP_EOL;
+```
 
 
 
