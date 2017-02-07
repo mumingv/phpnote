@@ -1555,18 +1555,6 @@ var_dump($d);  // 2
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## strip_tags 从字符串中去除 HTML 和 PHP 标记
 
 函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strip-tags.php)。
@@ -1599,6 +1587,101 @@ echo strip_tags($text, '<b><i>').PHP_EOL;
 ```
 This is <b>bold</b> and this is <i>italic</i>. What about this link?
 ```
+
+
+## stripcslashes 反引用一个使用 addcslashes() 转义的字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.stripcslashes.php)。
+
+```php
+string stripcslashes ( string $str )
+```
+
+### 示例：
+
+略。
+
+
+## stripos 查找字符串首次出现的位置 (不区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.stripos.php)。
+
+```php
+int stripos ( string $haystack , string $needle [, int $offset = 0 ] )
+```
+
+### 示例：
+
+```php
+$findme    = 'a';
+$mystring1 = 'xyz';
+$mystring2 = 'ABC';
+
+$pos1 = stripos($mystring1, $findme);
+$pos2 = stripos($mystring2, $findme);
+
+// 'a' 当然不在 'xyz' 中
+if ($pos1 === false) {
+        echo "The string '$findme' was not found in the string '$mystring1'\n";
+}
+
+// 注意这里使用的是 ===。简单的 == 不能像我们期望的那样工作，
+// 因为 'a' 的位置是 0（第一个字符）。
+if ($pos2 !== false) {
+        echo "We found '$findme' in '$mystring2' at position $pos2\n";
+}
+```
+```php
+The string 'a' was not found in the string 'xyz'
+We found 'a' in 'ABC' at position 0
+```
+
+
+## stripslashes 反引用一个引用字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.stripslashes.php)。
+
+```php
+string stripslashes ( string $str )
+```
+
+### 示例：
+
+```php
+$str = "Is your name O\'reilly?";
+echo $str."\n";
+echo stripslashes($str)."\n";
+```
+```php
+Is your name O\'reilly?
+Is your name O'reilly?
+```
+
+
+## stristr 查找字符串的首次出现 (不区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.stristr.php)。
+
+```php
+string stristr ( string $haystack , mixed $needle [, bool $before_needle = false ] )
+```
+
+### 示例：
+
+```php
+$email  = 'name@example.com';
+$domain = stristr($email, 'E');
+echo $domain;
+```
+```php
+e@example.com
+```
+
+
+
+
+
+
 
 
 ## vsprintf 返回格式化的字符串
