@@ -2105,6 +2105,136 @@ ABCDEFGH:/bob/
 ```
 
 
+## substr 返回字符串的子串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.substr.php)。
+
+```php
+string substr ( string $string , int $start [, int $length ] )
+```
+
+### 示例：
+
+```php
+$rest = substr('abcdef', 1); //$length未指定，默认到字符串结束 
+echo "11) " . $rest . PHP_EOL; //bcdef
+
+$rest = substr('abcdef', 1, 3);  //$length指定了长度，则(尽量)获取该长度的子字符串
+echo "12) " . $rest . PHP_EOL; //bcd
+```
+
+
+## trim 去除字符串首尾的空白字符（或者其他字符）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.trim.php)。
+
+```php
+string trim ( string $str [, string $charlist = " \t\n\r\0\x0B" ] )
+```
+
+### 示例：
+
+```php
+// 去除首尾空格
+$string1 = "  Hello world!   ";
+print_r("Before trim --> string1: [" . $string1 . "]\n");
+print_r("After trim --> string1: [" . trim($string1) . "]\n");
+
+// 去除首尾tab键
+$string2 = "\tHello world!\t";
+print_r("Before trim --> string2: [" . $string2 . "]\n");
+print_r("After trim --> string2: [" . trim($string2) . "]\n");
+
+// 去除指定字符(本例中，END是三个单独的字符，不是一个字符串整体)
+$string3 = "ENDHello world!NDE";
+print_r("Before trim --> string3: [" . $string3 . "]\n");
+print_r("After trim --> string3: [" . trim($string3, "END") . "]\n");
+```
+```php
+Before trim --> string1: [  Hello world!   ]
+After trim --> string1: [Hello world!]
+Before trim --> string2: [      Hello world!    ]
+After trim --> string2: [Hello world!]
+Before trim --> string3: [ENDHello world!NDE]
+After trim --> string3: [Hello world!]
+```
+
+
+## ucfirst 将字符串的首字母转换为大写
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.ucfirst.php)。
+
+```php
+string ucfirst ( string $str )
+```
+
+### 示例：
+
+```php
+$foo = 'hello world!';
+$foo = ucfirst($foo);
+echo $foo . PHP_EOL; //Hello world!
+
+$bar = 'HELLO WORLD!';
+$bar = ucfirst($bar);
+echo $bar . PHP_EOL; //HELLO WORLD!
+```
+
+
+## ucwords 将字符串中每个单词的首字母转换为大写
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.ucwords.php)。
+
+```php
+string ucwords ( string $str )
+```
+
+### 示例：
+
+```php
+$foo = 'hello world!';
+$foo = ucwords($foo);             // Hello World!
+echo $foo."\n";
+
+$bar = 'HELLO WORLD!';
+$bar = ucwords($bar);             // HELLO WORLD!
+$bar = ucwords(strtolower($bar)); // Hello World!
+echo $foo."\n";
+```
+
+
+## vfprintf 将格式化字符串写入流
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.vfprintf.php)。
+
+```php
+int vfprintf ( resource $handle , string $format , array $args )
+```
+
+### 示例：
+
+```php
+if (!($fp = fopen('date.txt', 'w'))) {
+    return;
+}
+vfprintf($fp, "%04d-%02d-%02d", array("2017", "02", "08"));
+```
+
+
+## vprintf 输出格式化字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.vprintf.php)。
+
+```php
+int vprintf ( string $format , array $args )
+```
+
+### 示例：
+
+```php
+vprintf("%04d-%02d-%02d", explode('-', '1988-8-1'));  // 1988-08-01
+```
+
 
 ## vsprintf 返回格式化的字符串
 
@@ -2160,7 +2290,4 @@ echo wordwrap($string, 60, '<br />').PHP_EOL;
 ```
 This is a long sentence that will be cut at sixty characters<br />automatically. Don't worry, no words will be broken up.
 ```
-
-
-
 
