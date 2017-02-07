@@ -1447,6 +1447,115 @@ Array
 ```
 
 
+## strcasecmp 二进制安全比较字符串（不区分大小写）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strcasecmp.php)。
+
+```php
+int strcasecmp ( string $str1 , string $str2 )
+```
+
+### 示例：
+
+```php
+$var1 = "Hello";
+$var2 = "hello";
+if (strcasecmp($var1, $var2) == 0) {
+        echo '$var1 is equal to $var2 in a case-insensitive string comparison';  // 运行会打印这句话
+}
+```
+```php
+$var1 is equal to $var2 in a case-insensitive string comparison
+```
+
+
+## strchr 查找字符串的首次出现 (strstr的别名)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function..php)。
+
+```php
+string strchr ( string $haystack , mixed $needle [, bool $before_needle = false ] )
+```
+
+### 示例：
+
+```php
+$email  = 'name@example.com';
+$domain = strchr($email, '@');
+echo $domain;
+```
+```php
+@example.com
+```
+
+
+## strcmp 二进制安全字符串比较 (区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strcmp.php)。
+
+```php
+int strcmp ( string $str1 , string $str2 )
+```
+
+### 示例：
+
+```php
+$var1 = "Hello";
+$var2 = "hello";
+if (strcmp($var1, $var2) !== 0) {
+        echo '$var1 is not equal to $var2 in a case sensitive string comparison';
+}
+```
+```php
+$var1 is not equal to $var2 in a case sensitive string comparison
+```
+
+
+## strcoll 基于区域设置的字符串比较(区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function..php)。
+
+```php
+int strcoll ( string $str1 , string $str2 )
+```
+
+### 示例：
+
+```php
+$var1 = "Hello";
+$var2 = "hello";
+if (strcoll($var1, $var2) !== 0) {
+        echo '$var1 is not equal to $var2 in a case sensitive string comparison';
+}
+```
+```php
+$var1 is not equal to $var2 in a case sensitive string comparison
+```
+
+
+## strcspn 获取不匹配遮罩的起始子字符串的长度
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function..php)。
+
+```php
+int strcspn ( string $str1 , string $str2 [, int $start [, int $length ]] )
+```
+
+### 示例：
+
+```php
+$a = strcspn('abcd',  'apple');  // 从头开始数，a在apple中，所以返回0
+$b = strcspn('abcd',  'banana');  // 从头开始数，a在banana中，所以返回0
+$c = strcspn('hello', 'l');  // 从头开始数，h和e不在l中，所以返回2
+$d = strcspn('hello', 'world');  // 从头开始数，h和e不在world中，所以返回2
+var_dump($a);  // 0
+var_dump($b);  // 0
+var_dump($c);  // 2
+var_dump($d);  // 2
+```
+
+
+
 
 
 
