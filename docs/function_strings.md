@@ -1777,6 +1777,116 @@ echo strncmp("Hello1", "hello2", 5);  // -32
 ```
 
 
+## strpbrk 在字符串中查找一组字符的任何一个字符 (区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strpbrk.php)。
+
+```php
+string strpbrk ( string $haystack , string $char_list )
+```
+
+### 示例：
+
+```php
+$text = 'This is a Simple text.';
+echo strpbrk($text, 'mi')."\n";
+echo strpbrk($text, 'S')."\n";
+```
+```php
+is is a Simple text.
+Simple text.
+```
+
+
+## strpos 查找字符串首次出现的位置
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strpos.php)。
+
+```php
+mixed strpos ( string $haystack , mixed $needle [, int $offset = 0 ] )
+```
+
+### 示例：
+
+```php
+$mystring = 'abc';
+$findme   = 'a';
+$pos = strpos($mystring, $findme);
+if ($pos === false) {
+    echo "The string '$findme' was not found in the string '$mystring'";
+} else {
+    echo "The string '$findme' was found in the string '$mystring'"; // 单引号中的变量也会被扩展变量值
+    echo " and exists at position $pos" . PHP_EOL;
+}
+```
+```php
+The string 'a' was found in the string 'abc' and exists at position 0
+```
+
+
+## strrchr 查找指定字符在字符串中的最后一次出现
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strrchr.php)。
+
+```php
+string strrchr ( string $haystack , mixed $needle )
+```
+
+### 示例：
+
+```php
+$PATH = "/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/java/jdk1.7.0_80/bin:/usr/java/jdk1.7.0_80/jre/bin:/usr/local/hadoop/bin:/usr/local/hadoop/sbin:/home/work/.local/bin:/home/work/bin:/usr/libexec/gcc/x86_64-redhat-linux/4.8.2";
+echo substr(strrchr($PATH, ":"), 1);
+```
+```php
+/usr/libexec/gcc/x86_64-redhat-linux/4.8.2
+```
+
+
+## strrev 反转字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strrev.php)。
+
+```php
+string strrev ( string $string )
+```
+
+### 示例：
+
+```php
+$str = "Hello";
+echo strrev($str), PHP_EOL; //olleH
+```
+
+
+## strripos 计算指定字符串在目标字符串中最后一次出现的位置 (不区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strripos.php)。
+
+```php
+int strripos ( string $haystack , string $needle [, int $offset = 0 ] )
+```
+
+### 示例：
+
+```php
+$haystack = 'ababcd';
+$needle   = 'aB';
+$pos      = strripos($haystack, $needle);
+if ($pos === false) {
+    echo "Sorry, we did not find ($needle) in ($haystack)";
+} else {
+    echo "Congratulations!\n";
+    echo "We found the last ($needle) in ($haystack) at position ($pos)";
+}
+```
+```php
+Congratulations!
+We found the last (aB) in (ababcd) at position (2)
+```
+
+
+
 
 
 ## vsprintf 返回格式化的字符串
