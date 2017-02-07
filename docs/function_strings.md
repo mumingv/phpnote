@@ -1283,6 +1283,174 @@ echo $result_str, "//END", PHP_EOL;
 ```
 
 
+## str_replace 子字符串替换
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_replace.php)。
+
+```php
+mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
+```
+
+### 示例：所有参数均为字符串，不是数组
+
+```php
+$bodytag = str_replace("%body%", "black", "<body text='%body%'>");
+var_dump($bodytag);
+```
+```php
+string(19) "<body text='black'>"
+```
+
+### 示例：去除字符串中的元音字母，第一个参数是数组，其他参数为字符串
+
+```php
+$vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+$onlyconsonants = str_replace($vowels, "", "Hello World of PHP");
+var_dump($vowels);
+```
+```php
+array(10) {
+  [0]=>
+  string(1) "a"
+  [1]=>
+  string(1) "e"
+  [2]=>
+  string(1) "i"
+  [3]=>
+  string(1) "o"
+  [4]=>
+  string(1) "u"
+  [5]=>
+  string(1) "A"
+  [6]=>
+  string(1) "E"
+  [7]=>
+  string(1) "I"
+  [8]=>
+  string(1) "O"
+  [9]=>
+  string(1) "U"
+}
+```
+
+
+## str_rot13 对字符串执行 ROT13 转换
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_rot13.php)。
+
+```php
+string str_rot13 ( string $str )
+```
+
+### 示例：
+
+```php
+echo str_rot13('PHP 4.3.0');  // CUC 4.3.0
+echo str_rot13('CUC 4.3.0');  // PHP 4.3.0
+```
+
+
+## str_shuffle 随机打乱一个字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_shuffle.php)。
+
+```php
+string str_shuffle ( string $str )
+```
+
+### 示例：
+
+```php
+echo str_shuffle('abcdef');  // aecbdf
+```
+
+
+## str_split 将字符串转换为数组
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_split.php)。
+
+```php
+array str_split ( string $string [, int $split_length = 1 ] )
+```
+
+### 示例：
+
+```php
+$str = "Hello Friend";
+$arr1 = str_split($str);
+$arr2 = str_split($str, 3);
+print_r($arr1);
+print_r($arr2);
+```
+```php
+Array
+(
+    [0] => H
+    [1] => e
+    [2] => l
+    [3] => l
+    [4] => o
+    [5] =>  
+    [6] => F
+    [7] => r
+    [8] => i
+    [9] => e
+    [10] => n
+    [11] => d
+)
+Array
+(
+    [0] => Hel
+    [1] => lo 
+    [2] => Fri
+    [3] => end
+)
+```
+
+
+## str_word_count 返回字符串中单词的使用情况
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.str_word_count.php)。
+
+```php
+mixed str_word_count ( string $string [, int $format = 0 [, string $charlist ]] )
+```
+
+### 示例：
+
+```php
+$str = "Hello friend, you're looking good today!";
+print_r(str_word_count($str));
+print_r(str_word_count($str, 1));
+print_r(str_word_count($str, 2));
+```
+```php
+6
+Array
+(
+    [0] => Hello
+    [1] => friend
+    [2] => you're
+    [3] => looking
+    [4] => good
+    [5] => today
+)
+Array
+(
+    [0] => Hello
+    [6] => friend
+    [14] => you're
+    [21] => looking
+    [29] => good
+    [34] => today
+)
+```
+
+
+
+
+
+
 
 
 
