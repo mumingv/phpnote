@@ -1999,7 +1999,110 @@ echo $bar . PHP_EOL; //hello world!
 ```
 
 
+## strtoupper 将字符串转化为大写
 
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strtoupper.php)。
+
+```php
+string strtoupper ( string $string )
+```
+
+### 示例：
+
+```php
+$foo = 'hello world!';
+$foo = strtoupper($foo);
+echo $foo . PHP_EOL; //HELLO WORLD!
+
+$bar = 'HELLO WORLD!';
+$bar = strtoupper($bar);
+echo $bar . PHP_EOL; //HELLO WORLD!
+```
+
+
+## strtr 转换指定字符
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strtr.php)。
+
+```php
+string strtr ( string $str , string $from , string $to )
+string strtr ( string $str , array $replace_pairs )
+```
+
+### 示例: 字符替换
+
+```php
+$result_str = strtr("Hello Jack!", "ck", "yy");
+echo $result_str, PHP_EOL; //Hello Jayy!
+
+// from 与 to 长度不相等，那么多余的字符部分将被忽略
+$result_str = strtr("Hello Jack!", "ck", "y"); 
+echo $result_str, PHP_EOL; //Hello Jayk!
+
+$result_str = strtr("Hello Jack!", "Ho", "Yp"); 
+echo $result_str, PHP_EOL; //Yellp Jack!
+```
+
+
+### 示例: 字符串替换
+
+```php
+$trans = array("Ho" => "Yp", "ck" => "yy");
+$result_str = strtr("Hello Jack!", $trans); 
+echo $result_str, PHP_EOL; //Hello Jayy!
+```
+
+
+## substr_compare 二进制安全比较字符串（从偏移位置比较指定长度）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.substr_compare.php)。
+
+```php
+int substr_compare ( string $main_str , string $str , int $offset [, int $length [, bool $case_insensitivity = false ]] )
+```
+
+### 示例：
+
+```php
+echo substr_compare("abcde", "bc", 1, 2); // 0
+echo substr_compare("abcde", "de", -2, 2); // 0
+echo substr_compare("abcde", "bcg", 1, 2); // 0
+```
+
+
+## substr_count 计算子串出现的次数
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.substr_count.php)。
+
+```php
+int substr_count ( string $haystack , string $needle [, int $offset = 0 [, int $length ]] )
+```
+
+### 示例：
+
+```php
+$text = 'This is a test';
+echo substr_count($text, 'is'); // 2
+```
+
+
+## substr_replace 替换字符串的子串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.substr_replace.php)。
+
+```php
+mixed substr_replace ( mixed $string , mixed $replacement , mixed $start [, mixed $length ] )
+```
+
+### 示例：
+
+```php
+$var = 'ABCDEFGH:/MNRPQR/';
+echo substr_replace($var, 'bob', 10, -1);
+```
+```php
+ABCDEFGH:/bob/
+```
 
 
 
