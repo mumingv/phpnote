@@ -1678,8 +1678,103 @@ e@example.com
 ```
 
 
+## strlen 获取字符串长度
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strlen.php)。
+
+```php
+int strlen ( string $string )
+```
+
+### 示例：
+
+```php
+$str = 'abcdef';
+echo strlen($str).PHP_EOL; // 6
+$str = ' ab cd ';
+echo strlen($str).PHP_EOL; // 7
+```
 
 
+## strnatcasecmp 使用自然排序算法比较字符串(不区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strnatcasecmp.php)。
+
+```php
+int strnatcasecmp ( string $str1 , string $str2 )
+```
+
+### 示例：
+
+```php
+$arr2 = array("img12.png", "img10.png", "IMG2.png", "img1.png");
+usort($arr2, "strnatcasecmp");
+var_export($arr2);
+```
+```php
+array (
+  0 => 'img1.png',
+  1 => 'IMG2.png',
+  2 => 'img10.png',
+  3 => 'img12.png',
+)
+```
+
+
+## strnatcmp 使用自然排序算法比较字符串 (区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strnatcmp.php)。
+
+```php
+int strnatcmp ( string $str1 , string $str2 )
+```
+
+### 示例：
+
+```php
+$arr2 = array("img12.png", "img10.png", "img2.png", "img1.png");
+usort($arr2, "strnatcmp");
+var_export($arr2);
+echo PHP_EOL;
+```
+```php
+array (
+  0 => 'img1.png',
+  1 => 'img2.png',
+  2 => 'img10.png',
+  3 => 'img12.png',
+)
+```
+
+
+## strncasecmp 二进制安全比较字符串开头的若干个字符（不区分大小写）
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strncasecmp.php)。
+
+```php
+int strncasecmp ( string $str1 , string $str2 , int $len )
+```
+
+### 示例：
+
+```php
+echo strncasecmp("Hello1", "hello2", 5);  // 0
+```
+
+
+## strncmp 二进制安全比较字符串开头的若干个字符 (区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strncmp.php)。
+
+```php
+int strncmp ( string $str1 , string $str2 , int $len )
+```
+
+### 示例：
+
+```php
+echo strncmp("Hello1", "hello2", 5);  // -32
+```
 
 
 
