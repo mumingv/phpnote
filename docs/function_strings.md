@@ -1886,6 +1886,120 @@ We found the last (aB) in (ababcd) at position (2)
 ```
 
 
+## strrpos 计算指定字符串在目标字符串中最后一次出现的位置 (区分大小写)
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strrpos.php)。
+
+```php
+int strrpos ( string $haystack , string $needle [, int $offset = 0 ] )
+```
+
+### 示例：
+
+```php
+$foo = "0123456789a123456789b123456789c";
+var_dump(strrpos($foo, '7'));
+var_dump(strrpos($foo, 'A'));
+```
+```php
+int(27)
+bool(false)
+```
+
+
+## strspn 计算字符串中全部字符都存在于指定字符集合中的第一段子串的长度
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strspn.php)。
+
+```php
+int strspn ( string $subject , string $mask [, int $start [, int $length ]] )
+```
+
+### 示例：
+
+```php
+$var = strspn("42 is the answer to the 128th question.", "1234567890");
+echo $var, PHP_EOL; //2
+
+// 从首字符开始计算
+$var = strspn("r42 is the answer to the 128th question.", "1234567890");
+echo $var, PHP_EOL; //0
+
+$var = strspn("r424232r53259 is the answer to the 42 question.", "1234567890", 1);
+echo $var, PHP_EOL; //6
+```
+
+
+## strstr 查找字符串的首次出现
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strstr.php)。
+
+```php
+string strstr ( string $haystack , mixed $needle [, bool $before_needle = false ] )
+```
+
+### 示例：
+
+```php
+$email  = 'name@example.com';
+$domain = strstr($email, '@');
+echo $domain;
+```
+```php
+@example.com
+```
+
+
+## strtok 标记分割字符串
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strtok.php)。
+
+```php
+string strtok ( string $str , string $token )
+string strtok ( string $token )
+```
+
+### 示例：
+
+```php
+$string = "This is\tan example\nstring";
+$tok = strtok($string, " \n\t");
+while ($tok !== false) {
+    echo "Word=$tok"."\n";
+    $tok = strtok(" \n\t");
+}
+```
+```php
+Word=This
+Word=is
+Word=an
+Word=example
+Word=string
+```
+
+
+## strtolower 将字符串转化为小写
+
+函数原型及说明，请参考：[官方文档](http://php.net/manual/zh/function.strtolower.php)。
+
+```php
+string strtolower ( string $string )
+```
+
+### 示例：
+
+```php
+$foo = 'hello world!';
+$foo = strtolower($foo);
+echo $foo . PHP_EOL; //hello world!
+
+$bar = 'HELLO WORLD!';
+$bar = strtolower($bar);
+echo $bar . PHP_EOL; //hello world!
+```
+
+
+
 
 
 
