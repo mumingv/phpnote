@@ -2294,7 +2294,7 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 
 ## 总结
 
-### 字符串和数组的相互转换(5)
+### 字符串和数组的相互转换(6)
 
 |函数                   |含义                                   |
 |-----------------------|---------------------------------------|
@@ -2303,6 +2303,7 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |explode                |使用一个字符串分割另一个字符串，返回一个数组。|
 |str_getcsv             |解析 CSV 字符串为一个数组              |
 |str_split              |将字符串转换为数组，数组的每个值都是固定长度。|
+|parse_str              |将字符串解析成多个变量                 |
 
 
 ### 去除首尾空白字符(4)
@@ -2310,9 +2311,9 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |函数                   |含义                                   |
 |-----------------------|---------------------------------------|
 |trim                   |去除字符串首尾处的空白字符（或者其他字符）|
-|chop                   |rtrim的别名                           |
 |ltrim                  |去除字符串开头的空白字符（或其他字符） |
 |rtrim                  |去除字符串末端的空白字符（或者其他字符）|
+|chop                   |rtrim的别名                           |
 
 
 ### 各种printf函数和scanf函数(7)
@@ -2328,7 +2329,7 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |sscanf                 |根据指定格式解析输入的字符串。         |
 
 
-### 统计函数(5)
+### 统计函数(7)
 
 |函数                   |含义                                   |
 |-----------------------|---------------------------------------|
@@ -2337,6 +2338,8 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |similar_text           |计算两个字符串的相似度                 |
 |str_word_count         |返回字符串中单词的使用情况             |
 |substr_count           |计算字串出现的次数                     |
+|strspn                 |计算字符串中全部字符都存在于指定字符集合中的第一段子串的长度。|
+|strcspn                |获取不匹配遮罩的起始子字符串的长度     |
 
 
 ### 大小写转换(5)
@@ -2350,7 +2353,22 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |ucwords                |将字符串中每个单词的首字母转换为大写   |
 
 
-### 字符串比较(6)
+### 加密/解密(9)
+
+|函数                   |含义                                   |
+|-----------------------|---------------------------------------|
+|md5                    |计算字符串的 MD5 散列值                |
+|md5_file               |计算指定文件的 MD5 散列值              |
+|sha1                   |计算字符串的 sha1 散列值               |
+|sha1_file              |计算文件的 sha1 散列值                 |
+|crc32                  |计算一个字符串的 crc32 多项式，返回整数。|
+|crypt                  |单向字符串散列，返回字符串。           |
+|str_rot13              |对字符串执行 ROT13 转换                |
+|convert_uuencode       |使用 uuencode 编码一个字符串           |
+|convert_uudecode       |解码一个 uuencode 编码的字符串         |
+
+
+### 字符串比较(8)
 
 |函数                   |含义                                   |
 |-----------------------|---------------------------------------|
@@ -2360,6 +2378,40 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |strncasecmp            |二进制安全比较字符串开头的若干个字符（不区分大小写）|
 |strnatcmp              |使用自然排序算法比较字符串             |
 |strnatcasecmp          |使用“自然顺序”算法比较字符串（不区分大小写）|
+|substr_compare         |二进制安全比较字符串（从偏移位置比较指定长度）|
+|strcoll                |基于区域设置的字符串比较               |
+
+
+### 字符串查找(10)
+
+|函数                   |含义                                   |
+|-----------------------|---------------------------------------|
+|strstr                 |查找字符串的首次出现，返回字符串(从出现位置一直到末尾)。|
+|strchr                 |strstr的别名                           |
+|stristr                |查找字符串的首次出现（不区分大小写），返回字符串(从出现位置一直到末尾)。|
+|strrchr                |查找指定字符在字符串中的最后一次出现 ，返回字符串(从出现位置一直到末尾)。|
+|---                    |---                                    |
+|strpos                 |查找字符串首次出现的位置，返回整数(位置信息)。|
+|stripos                |查找字符串首次出现的位置（不区分大小写），返回整数(位置信息)。|
+|strrpos                |计算指定字符串在目标字符串中最后一次出现的位置，返回整数(位置信息)。|
+|strripos               |计算指定字符串在目标字符串中最后一次出现的位置（不区分大小写），返回整数(位置信息)。|
+|---                    |---                                    |
+|substr                 |返回字符串的子串，根据指定位置返回子串。|
+|strpbrk                |在字符串中查找一组字符的任何一个字符，返回字符串(从出现位置一直到末尾)。|
+
+<font color="red">
+说明：没有strrichr函数。
+</font>
+
+
+### 字符串替换(4)
+
+|函数                   |含义                                   |
+|-----------------------|---------------------------------------|
+|str_replace            |子字符串替换，查找子串并替换。         |
+|str_ireplace           |子字符串替换，查找子串并替换。(不区分大小写)|
+|substr_replace         |替换字符串的子串，根据子串位置进行替换。|
+|strtr                  |转换指定字符                           |
 
 
 ### 转义字符处理(4)
@@ -2372,71 +2424,48 @@ This is a long sentence that will be cut at sixty characters<br />automatically.
 |stripcslashes          |反引用一个使用 addcslashes 转义的字符串|
 
 
-### 待分类(72)
+### 其他常用(22)
 
 |函数                   |含义                                   |
 |-----------------------|---------------------------------------|
-|bin2hex | 函数把包含数据的二进制字符串转换为十六进制值|
-|chr | 返回指定的字符|
-|chunk_split | 将字符串分割成小块|
-|convert_cyr_string | 将字符由一种 Cyrillic 字符转换成另一种|
-|convert_uudecode | 解码一个 uuencode 编码的字符串|
-|convert_uuencode | 使用 uuencode 编码一个字符串|
-|count_chars | 返回字符串所用字符的信息|
-|crc32 | 计算一个字符串的 crc32 多项式|
-|crypt | 单向字符串散列|
-|echo | 输出一个或多个字符串|
-|get_html_translation_table | 返回使用 htmlspecialchars 和 htmlentities 后的转换表|
-|hebrev | 将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew）|
-|hebrevc | 将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew），并且转换换行符|
-|hex2bin | 转换十六进制字符串为二进制字符串|
-|html_entity_decode | Convert all HTML entities to their applicable characters|
-|**htmlentities**           |将HTML页面中的特殊字符转换成HTML实体   |
-|htmlspecialchars_decode | 将特殊的 HTML 实体转换回普通字符|
-|htmlspecialchars | Convert special characters to HTML entities|
-|localeconv | Get numeric formatting information|
-|md5_file | 计算指定文件的 MD5 散列值|
-|md5 | 计算字符串的 MD5 散列值|
-|metaphone | Calculate the metaphone key of a string|
-|money_format | 将数字格式化成货币字符串|
-|nl_langinfo | Query language and locale information|
-|**nl2br** | 在字符串所有新行之前插入 HTML 换行标记|
-|number_format | 以千位分隔符方式格式化一个数字|
-|ord | 返回字符的 ASCII 码值|
-|parse_str | 将字符串解析成多个变量|
-|print | 输出字符串|
-|quoted_printable_decode | 将 quoted-printable 字符串转换为 8-bit 字符串|
-|quoted_printable_encode | 将 8-bit 字符串转换成 quoted-printable 字符串|
-|quotemeta | 转义元字符集|
-|setlocale | 设置地区信息|
-|sha1_file | 计算文件的 sha1 散列值|
-|sha1 | 计算字符串的 sha1 散列值|
-|soundex | Calculate the soundex key of a string|
-|str_ireplace | str_replace 的忽略大小写版本|
-|str_pad | 使用另一个字符串填充字符串为指定长度|
-|str_repeat | 重复一个字符串|
-|str_replace | 子字符串替换|
-|str_rot13 | 对字符串执行 ROT13 转换|
-|str_shuffle | 随机打乱一个字符串|
-|strchr | 别名 strstr|
-|strcoll | 基于区域设置的字符串比较|
-|strcspn | 获取不匹配遮罩的起始子字符串的长度|
-|**strip_tags** | 从字符串中去除 HTML 和 PHP 标记|
-|stripos | 查找字符串首次出现的位置（不区分大小写）|
-|stristr | strstr 函数的忽略大小写版本|
-|strpbrk | 在字符串中查找一组字符的任何一个字符|
-|strpos | 查找字符串首次出现的位置|
-|strrchr | 查找指定字符在字符串中的最后一次出现|
-|strrev | 反转字符串|
-|strripos | 计算指定字符串在目标字符串中最后一次出现的位置（不区分大小写）|
-|strrpos | 计算指定字符串在目标字符串中最后一次出现的位置|
-|strspn | 计算字符串中全部字符都存在于指定字符集合中的第一段子串的长度。|
-|strstr | 查找字符串的首次出现|
-|strtok | 标记分割字符串|
-|strtr | 转换指定字符|
-|substr_compare | 二进制安全比较字符串（从偏移位置比较指定长度）|
-|substr_replace | 替换字符串的子串|
-|substr | 返回字符串的子串|
-|**wordwrap** | 打断字符串为指定数量的字串|
+|echo                   |输出一个或多个字符串                   |
+|print                  |输出字符串                             |
+|chr                    |返回指定的字符，将整数ASCII码转换成对应的字符。|
+|ord                    |返回字符的 ASCII 码值                  |
+|bin2hex                |函数把包含数据的二进制字符串转换为十六进制值，将字符串转换成对应的ASCII码16进制格式字符串。|
+|hex2bin                |转换十六进制字符串为二进制字符串，与bin2hex相反，将ASCII码16进制格式字符串转换成对应的字符串。|
+|number_format          |以千位分隔符方式格式化一个数字         |
+|money_format           |将数字格式化成货币字符串               |
+|str_pad                |使用另一个字符串填充字符串为指定长度   |
+|chunk_split            |将字符串分割成小块                     |
+|wordwrap               |打断字符串为指定数量的字符串           |
+|str_repeat             |重复一个字符串                         |
+|str_shuffle            |随机打乱一个字符串                     |
+|strrev                 |反转字符串                             |
+|strtok                 |标记分割字符串                         |
+|nl2br                  |在字符串所有新行之前插入 HTML 换行标记 |
+|strip_tags             |从字符串中去除 HTML 和 PHP 标记        |
+|htmlentities           |将HTML页面中的特殊字符转换成HTML实体   |
+|html_entity_decode     |Convert all HTML entities to their applicable characters|
+|htmlspecialchars       |Convert special characters to HTML entities|
+|htmlspecialchars_decode|将特殊的 HTML 实体转换回普通字符       |
+|get_html_translation_table|返回使用 htmlspecialchars 和 htmlentities 后的转换表|
 
+
+### 其他不常用(12)
+
+|函数                   |含义                                   |
+|-----------------------|---------------------------------------|
+|convert_cyr_string     |将字符由一种 Cyrillic 字符转换成另一种 |
+|count_chars            |返回字符串所用字符的信息               |
+|hebrev                 |将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew）|
+|hebrevc                |将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew），并且转换换行符|
+|setlocale              |设置地区信息                           |
+|localeconv             |Get numeric formatting information     |
+|metaphone              |Calculate the metaphone key of a string|
+|nl_langinfo            |Query language and locale information  |
+|quoted_printable_decode|将 quoted-printable 字符串转换为 8-bit 字符串|
+|quoted_printable_encode|将 8-bit 字符串转换成 quoted-printable 字符串|
+|quotemeta              |转义元字符集                           |
+|soundex                |Calculate the soundex key of a string  |
 
