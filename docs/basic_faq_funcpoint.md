@@ -138,9 +138,14 @@ $query_arr = explode("\n", $query_str);
 ```
 
 
+## 如何统计代码执行耗时？
 
-
-
+```
+$start = intval(microtime(true) * 1000);
+...
+$end = intval(microtime(true) * 1000);
+$time = $end - $start;
+```
 
 
 
