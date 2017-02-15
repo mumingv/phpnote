@@ -44,6 +44,10 @@
 - [phpredis](#docs/ext_phpredis)
 
 
+## 工具笔记
+- [ab](#docs/tool_ab)
+
+
 ## 附录 
 - [源码](https://github.com/mumingv/phpnote)
 - [修订历史](https://github.com/mumingv/phpnote/commits/master)
