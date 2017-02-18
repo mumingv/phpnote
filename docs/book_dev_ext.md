@@ -1,6 +1,4 @@
-# 目录
-
-电子书：[链接](https://github.com/walu/phpbook)。
+# [目录](https://github.com/walu/phpbook)
 
 ### 
 
