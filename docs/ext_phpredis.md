@@ -4,6 +4,8 @@
 
 ### 安装
 
+安装方法参考：[安装redis扩展](#docs/basic_package#redis)。
+
 
 ### 在OSX上安装
 
@@ -29,6 +31,36 @@
 
 
 ### Keys
+
+参考：[官方](https://github.com/phpredis/phpredis#keys-and-strings) & [木名](https://github.com/mumingv/php/tree/master/books/phpredis/func/keys)
+
+|类别       |函数           |功能                                   |
+|-----------|---------------|---------------------------------------|
+|           |del            |                             |
+|           |delete         |                             |
+|           |dump           |                             |
+|           |exists         |                             |
+|           |expire         |                             |
+|           |setTimeout     |                             |
+|           |pexpire        |                             |
+|           |expireAt       |                             |
+|           |pexpireAt      |                             |
+|           |keys           |                             |
+|           |getKeys        |                             |
+|           |scan           |                             |
+|           |migrate        |                             |
+|           |move           |                             |
+|           |object         |                             |
+|           |persist        |                             |
+|           |randomKey      |                             |
+|           |rename         |                             |
+|           |renameNx       |                             |
+|           |type           |                             |
+|           |sort           |对list、set或sorted set中的元素进行排序|
+|           |ttl            |                             |
+|           |pttl           |                             |
+|           |restore        |.                            |
+
 
 
 ### Strings
