@@ -46,8 +46,38 @@ use buildconf --force to override this check.
 ## 编译
 
 ```
-$ ./configure --prefix=/home/work/git/php-src-code/php56/ --enable-debug --enable-maintainer-zts
+$ ./configure --prefix=/home/work/git/php-src-code/php56/ --with-config-file-path=/home/work/git/php-src-code/php56/etc/ --with-config-file-scan-dir=/home/work/git/php-src-code/php56/etc/ext/ --enable-debug --enable-maintainer-zts
 $ make
 $ make install
+```
+
+
+## 拷贝配置文件
+
+<font color="red">
+说明：编译安装的PHP默认是不带配置文件的，需要从源码根目录下拷贝。
+</font>
+
+源码中的配置文件：
+
+```
+$ ls -1 php-5.6.30-dev/ | grep php.ini
+php.ini-development
+php.ini-production
+```
+
+PHP加载的配置文件路径：
+
+```
+$ php56/bin/php -i | grep php.ini
+Configuration File (php.ini) Path => /home/work/git/php-src-code/php56/etc/
+Loaded Configuration File => /home/work/git/php-src-code/php56/etc/php.ini
+```
+
+拷贝操作：
+
+```
+$ cd ~/git/php-src-code/
+$ cp php-5.6.30-dev/php.ini-development php56/etc/php.ini
 ```
 
