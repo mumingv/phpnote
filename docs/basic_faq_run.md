@@ -16,6 +16,22 @@ PHP Fatal error:  Call to undefined function mb_split() in /home/work/git/php/fu
 ```
 
 
+## 运行出现错误：Allowed memory size of 134217728 bytes exhausted
+
+```php
+$ php updateOds.php
+[19-Aug-2016 11:59:56 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/work/orp/app/betui/script/updateOdds.php on line 36
+```
+
+原因：脚本使用的内存超出PHP的默认值(128M)。
+
+解决方法：脚本开头设置内存上限值。
+
+```php
+ini_set('memory_limit', '1024M');
+```
+
+
 ## [Redis]运行出现错误：Redis server went away
 
 ```php
