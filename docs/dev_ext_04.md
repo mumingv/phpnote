@@ -26,6 +26,7 @@ $ sudo yum install autoconf automake libtool re2c bison bison-devel
 官方网站下载php源码，[链接](http://php.net/downloads.php)。
 
 ```
+$ cd ~/git/php-src-code/
 $ curl --location --output php-5.6.30.tar.gz http://cn2.php.net/get/php-5.6.30.tar.gz/from/this/mirror
 ```
 
@@ -43,13 +44,28 @@ use buildconf --force to override this check.
 ```
 
 
-## 编译
+## 编译安装
 
 ```
+$ cd ~/git/php-src-code/php-5.6.30-dev/
 $ ./configure --prefix=/home/work/git/php-src-code/php56/ --with-config-file-path=/home/work/git/php-src-code/php56/etc/ --with-config-file-scan-dir=/home/work/git/php-src-code/php56/etc/ext/ --enable-debug --enable-maintainer-zts
 $ make
 $ make install
 ```
+
+
+## 设置PATH环境变量
+
+```
+$ vim ~/.bash_profile
+PATH=/home/work/git/php-src-code/php56/bin:$PATH
+export PATH
+$ source ~/.bash_profile
+```
+
+<font color="red">
+说明：设置PATH是为了可以直接调用该版本php相关的命令。
+</font>
 
 
 ## 拷贝配置文件
@@ -61,6 +77,7 @@ $ make install
 源码中的配置文件：
 
 ```
+$ cd ~/git/php-src-code/
 $ ls -1 php-5.6.30-dev/ | grep php.ini
 php.ini-development
 php.ini-production
@@ -69,7 +86,7 @@ php.ini-production
 PHP加载的配置文件路径：
 
 ```
-$ php56/bin/php -i | grep php.ini
+$ php -i | grep php.ini
 Configuration File (php.ini) Path => /home/work/git/php-src-code/php56/etc/
 Loaded Configuration File => /home/work/git/php-src-code/php56/etc/php.ini
 ```
