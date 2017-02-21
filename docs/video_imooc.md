@@ -2,6 +2,7 @@
 
 ## 基础
 
+- [MVC架构模式分析与设计](#docs/imooc_mvc_smarty)
 
 ## 案例
 
