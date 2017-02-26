@@ -36,6 +36,7 @@
 - [《PHP深度分析》(Q&A)](#docs/book_qa)
 - [《Mordern PHP》](#docs/book_modernphp)
 - [《PHP扩展开发及内核应用》](#docs/book_dev_ext)
+- [《PHP核心技术与最佳实践》](#docs/book_coretec_bestpractice)
 
 
 ## 视频笔记
