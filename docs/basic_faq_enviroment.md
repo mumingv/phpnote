@@ -159,4 +159,18 @@ $ /home/work/bdp/webserver/loadnginx.sh restart
 ```
 
 
+## 如何使用Nginx搭建文件服务器？
+
+示例：
+
+```
+location / {
+    root /home/users/yinjie05/baidu/share;
+    autoindex on;  # 开启目录浏览，必选
+    autoindex_exact_size off;  # 显示文件大小(on显示字节数，off显示k、m、g等单位)，可选
+    autoindex_localtime on;  # 显示时间(on表示服务器时间)，可选
+    charset utf-8;  # 服务器字符编码，浏览器根据该配置进行解码
+}
+```
+
 
