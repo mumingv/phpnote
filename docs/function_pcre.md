@@ -8,7 +8,7 @@
 int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags = 0 [, int $offset = 0 ]]] )
 ```
 
-返回值：0不匹配，1匹配。
+返回值：正常返回匹配次数(0或1)；异常返回false。
 
 <font color="red">
 说明：preg_match只匹配第一个，preg_match_all匹配全部。
@@ -65,7 +65,7 @@ array(1) {
 int preg_match_all ( string $pattern , string $subject [, array &$matches [, int $flags = PREG_PATTERN_ORDER [, int $offset = 0 ]]] )
 ```
 
-返回值：成功返回完整匹配次数(可能为0)；失败返回false。
+返回值：正常返回匹配次数(0、1...)；异常返回false。
 
 <font color="red">
 说明：preg_match只匹配第一个，preg_match_all匹配全部。
@@ -181,6 +181,47 @@ array(2) {
     string(4) "</a>"
   }
 }
+```
+
+
+## preg_replace 正则表达式搜索和替换
+
+函数原型：
+
+```php
+mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &$count ]] )
+```
+
+返回值：正常返回匹配次数(0、1...)；异常返回false。
+
+<font color="red">
+说明：参数replacement中可以使用后向引用，格式为 \\n 或者 $n 或者 ${n}。对于反斜线的处理，需要经过PHP的处理然后再经过正则引擎的处理；所以如果想输出一个字面意义的反斜线的话，需要表示成'\\\\'。
+}
+</font>
+
+### 示例：日期格式调整
+
+```php
+$string = 'April 15, 2003';
+$pattern = '/(\w+) (\d+), (\d+)/i';
+$replacement = '\\1,${3}';
+$result = preg_replace($pattern, $replacement, $string);
+var_dump($result);
+```
+```php
+string(11) "April,20032"
+```
+
+
+### 示例：去除空白字符
+
+```php
+$str = 'foo   o';
+$str = preg_replace('/\s\s+/', ' ', $str);
+var_dump($str);
+```
+```php
+string(5) "foo o"
 ```
 
 
