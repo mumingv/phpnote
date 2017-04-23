@@ -1,6 +1,18 @@
 # TP5.0 仿百度糯米开发多商家电商平台
 
+## 需求分析
+
+系统三大模块：
+- 商家平台
+- 主平台
+- 前台模块
+
+E-R图也称实体-联系图(Entity Relationship Diagram)，提供了表示实体类型、属性和联系的方法，用来描述现实世界的概念模型。
+
+
 ## 数据库表设计
+
+根据需求分析产出的E-R图设计数据库表结构。
 
 ### 分类表
 
@@ -226,6 +238,14 @@ CREATE TABLE `o2o_featured`(
 ```
 
 
+## 数据库创建
+
+```
+$ mysql -uroot -p
+mysql> create database imooc_o2o default charset utf8;
+mysql> use imooc_o2o;
+mysql> source o2o_sql.sql;
+```
 
 
 
