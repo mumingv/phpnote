@@ -6,4 +6,8 @@
 
 ## 参考
 
-参考：http://www.phpunit.cn/
+官网网站：http://www.phpunit.cn/
+
+PHPUnit手册：http://www.phpunit.cn/manual/current/zh_cn/phpunit-book.html
+
+
