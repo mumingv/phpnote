@@ -141,9 +141,33 @@ You are already using composer version 1.3.1 (stable channel).
 ```
 
 
+## composer create-project 创建一个新项目
+
+示例：创建一个TP5框架项目
+
+```
+$ composer create-project topthink/think TP5
+Installing topthink/think (v5.0.7)
+  - Installing topthink/think (v5.0.7) Loading from cache
+Created project in TP5
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing topthink/think-installer (v1.0.11) Loading from cache
+  - Installing topthink/framework (v5.0.7) Loading from cache
+Writing lock file
+Generating autoload files
+```
+
+<font color="red">
+说明：topthink是组织名称，think是项目名称，TP5是项目的存放目录。
+</font>
+
+
 ## 参考资料
 
 - [Packagist官网](http://packagist.org/)
 - [Packagist镜像](http://pkg.phpcomposer.com/)
+- [composer文档](http://docs.phpcomposer.com/)
 
 

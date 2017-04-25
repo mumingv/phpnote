@@ -248,6 +248,26 @@ mysql> source o2o_sql.sql;
 ```
 
 
+## TP5框架安装
+
+### 方式一：官网下载
+
+下载地址：http://www.thinkphp.cn/down/927.html
+
+
+### 方式二：composer下载
+
+```
+$ composer create-project topthink/think TP5
+```
+
+<font color="red">
+说明：topthink是组织名称，think是项目名称，TP5是项目的存放目录。
+</font>
+
+
+
+
 
 
 
