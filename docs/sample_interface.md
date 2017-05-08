@@ -2,6 +2,20 @@
 
 ## File
 
+### 示例1：使用fopen和fgets逐行处理文件
+
+代码：[php/func/filesystem/fgets.php]()
+
+```
+<?php
+$fp = fopen("./fgets.input", "r");
+while (($line = fgets($fp, 4096)) !== false) {
+    $line = str_replace(PHP_EOL, "", $line);
+    $lineArr = explode("\t", $line);
+    echo "Read line: ".$lineArr[0]."\n";
+}    
+```
+
 
 ## GET/POST
 
