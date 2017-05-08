@@ -43,6 +43,24 @@ file_put_contents($file, $data, FILE_APPEND | LOCK_EX);
 ```
 
 
+## fgets 从文件指针中读取一行
+
+######  
+
+```php
+string fgets ( resource $handle [, int $length ] )
+```
+
+### 示例：读取文件内容，逐行处理
+
+```php
+$fp = fopen("./fgets.input", "r");
+while (($line = fgets($fp, 4096)) !== false) {
+    $line = str_replace(PHP_EOL, "", $line);
+    $lineArr = explode("\t", $line);
+    echo "Read line: ".$lineArr[0]."\n";
+}    
+```
 
 
 
