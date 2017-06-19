@@ -40,6 +40,16 @@ $copy_of_object = clone $object;
 ## namespace
 
 
+## null
+
+`null`表示变量不存在(未分配内存)。
+
+```php
+isset(null) return false
+empty(null) return true
+```
+
+
 ## use
 
 `use`用于导入/使用别名。类似于类Unix系统中创建其它文件或目录的符号链接。
