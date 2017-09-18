@@ -1,5 +1,12 @@
 # 环境FAQ
 
+## 【Mac】如何安装多个版本的PHP？
+
+### 参考资料
+
+https://www.zybuluo.com/phper/note/137276
+
+
 ## 如何使用Yum安装PHP5.6？
 
 前提：安装epel和remi源。

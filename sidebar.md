@@ -14,6 +14,7 @@
 0. [安装扩展](#docs/basic_package)
 0. [Composer](#docs/composer)
 0. [Packagist](#docs/packagist)
+0. [专题笔记](#docs/topic)
 0. [环境FAQ](#docs/basic_faq_enviroment)
 0. [语法FAQ](#docs/basic_faq_syntax)
 0. [运行FAQ](#docs/basic_faq_run)

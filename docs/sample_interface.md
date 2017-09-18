@@ -16,6 +16,10 @@ while (($line = fgets($fp, 4096)) !== false) {
 }    
 ```
 
+<font color="red">
+注意：如果存在数据量很大的行，注意fgets函数第2个参数的取值要足够大，如取值：40960。
+</font>
+
 
 ## GET/POST
 
