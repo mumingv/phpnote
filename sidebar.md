@@ -19,8 +19,8 @@
 0. [语法FAQ](#docs/basic_faq_syntax)
 0. [运行FAQ](#docs/basic_faq_run)
 0. [功能FAQ](#docs/basic_faq_funcpoint)
-0. [相关资源](#docs/resource)
 0. [资源汇总](#docs/resource_total)
+0. [参考资料](#docs/reference)
 
 
 ## 实例应用
