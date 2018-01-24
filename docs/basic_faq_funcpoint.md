@@ -1,5 +1,10 @@
 # 功能FAQ
 
+## POST有哪几种提交数据方式？
+
+参考：[四种常见的 POST 提交数据方式](https://imququ.com/post/four-ways-to-post-data-in-http.html)
+
+
 ## 如何根据中文标点符号拆分文本？
 
 使用`mb_split`函数，完整代码请参考：[GitHub](https://github.com/mumingv/php/blob/master/func/mbstring/mb_split.php)。
