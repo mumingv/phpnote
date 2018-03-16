@@ -1,10 +1,43 @@
 # Composer
 
-## 安装composer并使用国内镜像
+## [Mac]安装composer并使用国内镜像
+
+### 安装composer
 
 安装方法，参考：[安装](http://pkg.phpcomposer.com/#how-to-install-composer)。
 
-配置国内镜像：
+这里采用了全局安装的方式，命令如下：
+
+```
+$ mv composer.phar /usr/local/bin/composer
+```
+
+安装完成之后就可以直接使用`composer`命令了，否则只能使用`php composer.phar`的方式使用composer。
+
+
+### 配置国内镜像
+
+```
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+```
+
+
+## [Linux]安装composer并使用国内镜像
+
+### 安装composer
+
+安装方法，参考：[安装](http://pkg.phpcomposer.com/#how-to-install-composer)。
+
+这里采用了全局安装的方式，命令如下：
+
+```
+$ mv composer.phar /usr/local/bin/composer
+```
+
+安装完成之后就可以直接使用`composer`命令了，否则只能使用`php composer.phar`的方式使用composer。
+
+
+### 配置国内镜像：
 
 ```
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
@@ -164,10 +197,42 @@ Generating autoload files
 </font>
 
 
+## [FAQ]如何在composer.json中指定packagist？
+
+```
+{
+    "require": {
+        "vega/curl": "1.0.0",
+        "justinrainbow/json-schema": "^5.2"
+    },
+    "config": {
+        "secure-http": false,
+        "vendor-dir": "../php/vendor"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org/"
+        },
+        {
+            "packagist": false
+        }
+    ]
+}
+```
+
+
 ## 参考资料
 
-- [Packagist官网](http://packagist.org/)
-- [Packagist镜像](http://pkg.phpcomposer.com/)
-- [composer文档](http://docs.phpcomposer.com/)
+- [中文-composer官网](https://www.phpcomposer.com/)
+- [英文-composer官网](https://getcomposer.org/)
+- [中文-Packagist镜像（带中文composer安装及镜像配置指导）](http://pkg.phpcomposer.com/)
+- [英文-Packagist官网](http://packagist.org/)
+- [中文-composer文档](http://docs.phpcomposer.com/)
+- [英文-composer文档](https://getcomposer.org/doc/)
+
+
+
+
 
 
