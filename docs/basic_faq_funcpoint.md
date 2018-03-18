@@ -153,11 +153,13 @@ $time = $end - $start;
 ```
 
 
+## 如何将应答数据内容修改为json格式？
 
+```
+header("Content-Type: application/json; charset=utf-8");
+```
 
-
-
-
+对于ODP，一般放在项目入口文件index.php当中。
 
 
 
