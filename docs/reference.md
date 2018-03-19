@@ -14,6 +14,11 @@
 - [PHP扩展社区库(PECL) (http://pecl.php.net/)](http://pecl.php.net/)
 
 
+### 开发规范
+
+- [PHP标准规范-英文（https://www.php-fig.org/）](https://www.php-fig.org/)
+- [PHP标准规范-中文（https://psr.phphub.org/）](https://psr.phphub.org/)
+
 ### 其他资源
 
 - [RFC文档](http://www.faqs.org/rfcs/)
