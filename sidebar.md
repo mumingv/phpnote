@@ -33,6 +33,10 @@
 - [mdp](#docs/mdp)
 
 
+## swoole
+0. [参考资料](#docs/swoole/swoole_reference)
+
+
 ## 读书笔记
 - [《PHP和MySQL Web开发》](#docs/book_pmwd)
 - [《PHP设计模式》](#docs/book_pdp)
