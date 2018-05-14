@@ -1,5 +1,20 @@
 # [数组函数](https://github.com/mumingv/php/tree/master/func/array)
 
+## 数组常用操作
+
+### 判断两个数组是否相等
+
+参考：数组运算符：http://php.net/manual/zh/language.operators.array.php
+
+### 去除数组中空值的项
+
+说明：这种方式也会将值为FALSE的项去除，比如值为0的项。
+
+```
+$arr = array_filter($arr);
+```
+
+
 ## 总结
 
 ### 构造数组(6)
@@ -197,7 +212,6 @@
 |array_intersect_uassoc  |比较key和value，value使用内置比较函数，key使用用户自定义比较函数|
 |array_uintersect_assoc  |比较key和value，value使用用户自定义比较函数，key使用内置比较函数|
 |array_uintersect_uassoc |比较key和value，value使用用户自定义比较函数，key使用用户自定义比较函数|
-
 
 
 ## array_change_key_case 返回字符串键名全为小写或大写的数组
