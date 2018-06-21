@@ -8,6 +8,9 @@
 cd tp5/
 sh run.sh
 ```
+```
+http://localhost:8888/index.php/index/index/index
+```
 
 ## 基础
 
