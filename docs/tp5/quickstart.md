@@ -2,7 +2,7 @@
 
 官方文档：[《ThinkPHP5快速入门》（https://www.kancloud.cn/）（已购买，GitHub账号登录）](https://www.kancloud.cn/thinkphp/thinkphp5_quickstart/147278)
 
-运行环境：
+基础运行环境：
 
 ```
 cd tp5/
@@ -11,6 +11,22 @@ sh run.sh
 ```
 http://localhost:8888/index.php/index/index/index
 ```
+
+数据库：
+
+```
+mysql -uroot -p
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
++--------------------+
+```
+```
+http://localhost:8888/index.php/index/IndexViewDb/index
+```
+
 
 ## 基础
 
@@ -232,7 +248,16 @@ http://localhost:8888/index/IndexResponse/hello
 
 ## 数据库
 
-待学习。
+### 原生查询
+
+代码：[GitHub](https://github.com/mumingv/php/commit/4e67dd675f2a9208531c2b2d5565f73cb5b34d62)
+
+```
+http://localhost:8888/index.php/index/IndexViewDb/create
+http://localhost:8888/index.php/index/IndexViewDb/update
+http://localhost:8888/index.php/index/IndexViewDb/read
+http://localhost:8888/index.php/index/IndexViewDb/delete
+```
 
 
 ## 查询语言
