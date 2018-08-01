@@ -46,22 +46,23 @@ http://<IP>:<PORT>/status?json
 ```
 ```
 {
-pool: "www",
-process manager: "static",
-start time: 1533108711,
-start since: 2094,
-accepted conn: 81,
-listen queue: 0,
-max listen queue: 0,
-listen queue len: 0,
-idle processes: 7,
-active processes: 1,
-total processes: 8,
-max active processes: 6,
-max children reached: 0,
-slow requests: 0
+  "pool": "www",
+  "process manager": "dynamic",
+  "start time": 1533096134,
+  "start since": 15755,
+  "accepted conn": 295489,
+  "listen queue": 0,
+  "max listen queue": 0,
+  "listen queue len": 0,
+  "idle processes": 15,
+  "active processes": 5,
+  "total processes": 20,
+  "max active processes": 16,
+  "max children reached": 0,
+  "slow requests": 0
 }
 ```
+
 
 ### 示例：查询所有进程状态（json格式）
 
