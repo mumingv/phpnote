@@ -123,7 +123,7 @@ http://<IP>:<PORT>/status?json&full
 
 ## ping.path
 
-该配置用于查看PHP进程的状态(PING/PONG测试)。
+该配置用于查看PHP进程的心跳(PING/PONG测试)。
 
 PHP配置
 
