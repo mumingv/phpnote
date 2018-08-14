@@ -67,6 +67,7 @@
 - [jmeter](#docs/tool/tool_jmeter)
 - [phpunit](#docs/tool/tool_phpunit)
 - [xdebug](#docs/tool/tool_xdebug)
+- [xhprof](#docs/tool/tool_xhprof)
 
 
 ## 附录 

@@ -294,3 +294,14 @@ PECL 是“PHP Extension Community Library”的缩写，即PHP扩展库。
 |array_uintersect_uassoc |比较key和value，value使用用户自定义比较函数，key使用用户自定义比较函数|
 
 
+## self::和static::的区别？
+
+`self::`调用所在类的静态函数，没有则报错，不会尝试调用子类的同名静态函数。
+
+`static::`调用子类的静态函数，如果没有则尝试调用父类的静态函数，都没有则报错。
+
+**参考资料**
+
+- [PHP关于self::和static::](http://www.cleey.com/blog/single/id/854.html)
+
+
